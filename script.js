@@ -1424,6 +1424,54 @@ window.addEventListener('load', function() {
 // Pencere boyutu her değiştiğinde anlık çalıştır
 window.addEventListener('resize', autoFitCV);
 
+// ================================================================
+// YASAL UYARI MODALI — Tab Sistemi
+// ================================================================
 
+(function() {
+    const modalBackdrop  = document.getElementById('legalModalBackdrop');
+    const modal          = document.getElementById('legalModal');
+    const acBtn          = document.getElementById('gizlilikModalBtn');
+    const kapatBtn       = document.getElementById('legalModalKapat');
+    const kapatBtn2      = document.getElementById('legalModalKapatBtn');
 
+    if (!modal) return;
+
+    function modalAc() {
+        modalBackdrop.classList.remove('hidden');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function modalKapat() {
+        modalBackdrop.classList.add('hidden');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    if (acBtn)     acBtn.addEventListener('click', modalAc);
+    if (kapatBtn)  kapatBtn.addEventListener('click', modalKapat);
+    if (kapatBtn2) kapatBtn2.addEventListener('click', modalKapat);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', modalKapat);
+
+    // ESC ile kapat
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') modalKapat();
+    });
+
+    // Tab geçişi
+    document.querySelectorAll('.legal-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.legal-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            document.querySelectorAll('.legal-tab-content').forEach(function(c) {
+                c.classList.remove('active');
+            });
+            tab.classList.add('active');
+            const hedef = document.getElementById('tab-' + tab.dataset.tab);
+            if (hedef) hedef.classList.add('active');
+        });
+    });
+})();
 

@@ -245,6 +245,16 @@
         <!-- ── FOOTER ── -->
         <footer class="landing-footer">
             <p>Tüm veriler yalnızca tarayıcınızda saklanır. Sunucuya hiçbir şey gönderilmez.</p>
+            <div class="footer-legal-links">
+                <a href="legal.html" target="_blank" class="footer-legal-link">Gizlilik & KVKK</a>
+                <span class="footer-legal-sep">·</span>
+                <a href="legal.html#cerez" target="_blank" class="footer-legal-link">Çerez Politikası</a>
+                <span class="footer-legal-sep">·</span>
+                <a href="legal.html#kullanim" target="_blank" class="footer-legal-link">Kullanım Koşulları</a>
+                <span class="footer-legal-sep">·</span>
+                <button class="footer-legal-link footer-legal-btn" id="gizlilikModalBtn">Hızlı Özet</button>
+            </div>
+            <p class="footer-copy">&copy; 2025 CVBuilder. Tüm hakları saklıdır.</p>
         </footer>
 
     </div>
@@ -443,6 +453,95 @@
     <!-- Cropper.js JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- ===== YASAL UYARI MODALI ===== -->
+    <div id="legalModalBackdrop" class="legal-modal-backdrop hidden"></div>
+    <div id="legalModal" class="legal-modal hidden">
+        <div class="legal-modal-inner">
+            <div class="legal-modal-header">
+                <div class="legal-modal-logo">
+                    <span style="color:#6ee7b7">&#9670;</span> CVBuilder
+                </div>
+                <button id="legalModalKapat" class="legal-modal-close">&times;</button>
+            </div>
+
+            <div class="legal-modal-tabs">
+                <button class="legal-tab active" data-tab="kvkk">KVKK</button>
+                <button class="legal-tab" data-tab="sorumluluk">Sorumluluk</button>
+                <button class="legal-tab" data-tab="cerez">Çerez</button>
+                <button class="legal-tab" data-tab="kullanim">Kullanım</button>
+            </div>
+
+            <div class="legal-modal-body">
+
+                <!-- KVKK -->
+                <div class="legal-tab-content active" id="tab-kvkk">
+                    <h3>Kişisel Verilerin Korunması (KVKK)</h3>
+                    <p>CVBuilder, 6698 sayılı KVKK kapsamında aydınlatma yükümlülüğünü yerine getirmek amacıyla bu metni sunmaktadır.</p>
+                    <h4>Veri İşleme Yöntemi</h4>
+                    <p>CVBuilder, kullanıcıların girdiği ad, soyad, e-posta, telefon ve iş deneyimi gibi kişisel verileri <strong>hiçbir sunucuya göndermez ve depolamaz.</strong> Tüm veriler yalnızca kullanıcının kendi tarayıcısında <code>localStorage</code> aracılığıyla saklanır.</p>
+                    <h4>Google Analytics</h4>
+                    <p>Platform, ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics kullanmaktadır. Bu hizmet yalnızca <strong>anonim ve toplu</strong> veriler toplar. Detay için: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+                    <h4>Haklarınız</h4>
+                    <p>KVKK'nın 11. maddesi kapsamında haklarınızı kullanmak için platform yöneticisi ile iletişime geçebilirsiniz.</p>
+                </div>
+
+                <!-- Sorumluluk Reddi -->
+                <div class="legal-tab-content" id="tab-sorumluluk">
+                    <h3>Sorumluluk Reddi</h3>
+                    <p>CVBuilder, kullanıcıların CV belgesi oluşturmasına yardımcı olan ücretsiz bir araçtır. Platform aşağıdaki hususlarda sorumluluk kabul etmemektedir:</p>
+                    <ul>
+                        <li>CV'ye girilen bilgilerin <strong>doğruluğu veya güncelliği</strong></li>
+                        <li>Oluşturulan CV'nin iş başvurularında <strong>kabul görmesi</strong></li>
+                        <li>Tarayıcı önbelleğinin temizlenmesi durumunda verilerin <strong>kaybolması</strong></li>
+                        <li>Üçüncü taraf kütüphaneler kaynaklı <strong>teknik sorunlar</strong></li>
+                        <li>Farklı tarayıcılarda PDF çıktısının <strong>görünüm farklılıkları</strong></li>
+                    </ul>
+                    <p>Kullanıcı, platforma girdiği tüm bilgilerin sorumluluğunun kendisine ait olduğunu kabul eder.</p>
+                </div>
+
+                <!-- Çerez -->
+                <div class="legal-tab-content" id="tab-cerez">
+                    <h3>Çerez (Cookie) Politikası</h3>
+                    <h4>localStorage (Zorunlu)</h4>
+                    <p>CV verilerinizi tarayıcınızda saklamak için kullanılır. Sunucuya veri gönderilmez. "Sıfırla" butonu ile tamamen silinebilir.</p>
+                    <h4>Google Analytics Çerezleri (Analitik)</h4>
+                    <p>Ziyaretçi istatistiklerini ölçmek amacıyla kullanılmaktadır.</p>
+                    <table class="legal-table">
+                        <thead>
+                            <tr><th>Çerez</th><th>Amaç</th><th>Süre</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>_ga</code></td><td>Kullanıcıları ayırt etmek</td><td>2 yıl</td></tr>
+                            <tr><td><code>_ga_*</code></td><td>Oturum durumunu korumak</td><td>2 yıl</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Google Analytics'i devre dışı bırakmak için: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a></p>
+                </div>
+
+                <!-- Kullanım Koşulları -->
+                <div class="legal-tab-content" id="tab-kullanim">
+                    <h3>Kullanım Koşulları</h3>
+                    <p>Bu platformu kullanan her kullanıcı aşağıdaki koşulları kabul etmiş sayılır:</p>
+                    <ol>
+                        <li>Platform yalnızca <strong>kişisel CV oluşturma</strong> amacıyla kullanılabilir.</li>
+                        <li>Platforma girilen bilgilerin doğruluğundan <strong>kullanıcı sorumludur.</strong></li>
+                        <li>Oluşturulan CV belgeleri üzerindeki <strong>telif hakkı kullanıcıya aittir.</strong></li>
+                        <li>Platform, önceden haber vermeksizin <strong>hizmetini değiştirme veya sonlandırma</strong> hakkını saklı tutar.</li>
+                        <li>Platform <strong>reklam veya spam</strong> amacıyla kullanılamaz.</li>
+                        <li>Kullanıcılar platforma <strong>zararlı içerik veya kod</strong> enjekte edemez.</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <div class="legal-modal-footer">
+                <a href="legal.html" target="_blank" class="legal-full-link">Tam Yasal Metni Görüntüle ↗</a>
+                <button id="legalModalKapatBtn" class="legal-modal-close-btn">Anladım, Kapat</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 

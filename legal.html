@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasal Bilgiler — CVBuilder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0a0f1e;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+        .legal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            position: sticky;
+            top: 0;
+            background: #0a0f1e;
+            z-index: 10;
+        }
+        .legal-nav-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+        .legal-nav-logo span { color: #6ee7b7; }
+        .legal-nav-back {
+            font-size: 13px;
+            color: #475569;
+            text-decoration: none;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .legal-nav-back:hover {
+            color: #6ee7b7;
+            border-color: rgba(110,231,183,0.3);
+        }
+        .legal-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+        .legal-page-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+        .legal-page-sub {
+            font-size: 13px;
+            color: #334155;
+            margin-bottom: 56px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .legal-section {
+            margin-bottom: 56px;
+            scroll-margin-top: 80px;
+        }
+        .legal-section-badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #6ee7b7;
+            background: rgba(110,231,183,0.08);
+            border: 1px solid rgba(110,231,183,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+        .legal-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .legal-section h3 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #6ee7b7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 22px 0 8px;
+        }
+        .legal-section p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+        }
+        .legal-section ul,
+        .legal-section ol {
+            padding-left: 22px;
+            margin-bottom: 14px;
+        }
+        .legal-section li {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .legal-section a {
+            color: #6ee7b7;
+            text-decoration: none;
+        }
+        .legal-section a:hover {
+            text-decoration: underline;
+        }
+        .legal-section strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+        .legal-section code {
+            font-size: 12px;
+            background: rgba(255,255,255,0.06);
+            padding: 2px 7px;
+            border-radius: 4px;
+            color: #e2e8f0;
+            font-family: monospace;
+        }
+        .legal-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 13px;
+        }
+        .legal-table th {
+            text-align: left;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.04);
+            color: #64748b;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .legal-table td {
+            padding: 10px 14px;
+            color: #94a3b8;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .legal-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin: 0 0 56px;
+        }
+        .legal-footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 12px;
+            color: #1e293b;
+        }
+        @media (max-width: 768px) {
+            .legal-nav { padding: 16px 20px; }
+            .legal-container { padding: 40px 20px 80px; }
+            .legal-page-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="legal-nav">
+        <div class="legal-nav-logo"><span>&#9670;</span> CVBuilder</div>
+        <a href="index.html" class="legal-nav-back">← Ana Sayfaya Dön</a>
+    </nav>
+
+    <div class="legal-container">
+
+        <h1 class="legal-page-title">Yasal Bilgiler</h1>
+        <p class="legal-page-sub">Son güncelleme: Mayıs 2025 · CVBuilder platformuna ait tüm yasal metinler bu sayfada yer almaktadır.</p>
+
+        <!-- KVKK -->
+        <section class="legal-section" id="kvkk">
+            <div class="legal-section-badge">KVKK Aydınlatma</div>
+            <h2>Kişisel Verilerin Korunması</h2>
+            <p>CVBuilder, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma yükümlülüğünü yerine getirmek amacıyla bu metni kullanıcılarına sunmaktadır.</p>
+            <h3>Veri Sorumlusu</h3>
+            <p>CVBuilder platform yöneticisi</p>
+            <h3>İşlenen Kişisel Veriler</h3>
+            <p>CVBuilder, kullanıcıların CV oluştururken girdiği ad, soyad, e-posta, telefon, adres ve iş deneyimi gibi kişisel verileri <strong>hiçbir sunucuya göndermez ve depolamaz.</strong> Girilen tüm veriler yalnızca kullanıcının kendi tarayıcısında <code>localStorage</code> mekanizması aracılığıyla saklanır. Bu veriler yalnızca kullanıcının kendi cihazında bulunur ve üçüncü taraflarla paylaşılmaz.</p>
+            <h3>Google Analytics</h3>
+            <p>Platform, ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics (Google LLC) hizmetini kullanmaktadır. Bu hizmet; ziyaretçi sayısı, oturum süresi, kullanılan cihaz ve coğrafi konum gibi <strong>anonim ve toplu</strong> verileri analiz etmektedir.</p>
+            <p>Detaylı bilgi: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+            <h3>Haklarınız</h3>
+            <p>KVKK'nın 11. maddesi kapsamında kişisel verilerinize ilişkin haklarınızı kullanmak için platform yöneticisi ile iletişime geçebilirsiniz.</p>
+        </section>
+
+        <hr class="legal-divider">
+
+        <!-- Sorumluluk Reddi -->
+        <section class="legal-section" id="sorumluluk">
+            <div class="legal-section-badge">Sorumluluk Reddi</div>
+            <h2>Sorumluluk Reddi Beyanı</h2>
+            <p>CVBuilder, kullanıcıların kendi CV belgelerini oluşturmasına yardımcı olan ücretsiz bir araçtır. Platform aşağıdaki hususlarda sorumluluk kabul etmemektedir:</p>
+            <ul>
+                <li>Kullanıcı tarafından CV'ye girilen bilgilerin <strong>doğruluğu, gerçekliği veya güncelliği</strong></li>
+                <li>Oluşturulan CV'nin iş başvurularında <strong>kabul görmesi veya sonuç vermesi</strong></li>
+                <li>Tarayıcı önbelleğinin temizlenmesi durumunda verilerin <strong>kaybolması veya silinmesi</strong></li>
+                <li>Üçüncü taraf kütüphaneler (Cropper.js, html2canvas, jsPDF) kaynaklı <strong>teknik sorunlar</strong></li>
+                <li>Farklı tarayıcı ve işletim sistemlerinde PDF çıktısının <strong>görünüm farklılıkları</strong></li>
+            </ul>
+            <p>Kullanıcı, platforma girdiği tüm bilgilerin sorumluluğunun kendisine ait olduğunu kabul eder.</p>
+        </section>
+
+        <hr class="legal-divider">
+
+        <!-- Çerez -->
+        <section class="legal-section" id="cerez">
+            <div class="legal-section-badge">Çerez Politikası</div>
+            <h2>Çerez (Cookie) Politikası</h2>
+            <h3>localStorage (Zorunlu)</h3>
+            <p>CV verilerinizi tarayıcınızda saklamak için kullanılır. Sunucuya herhangi bir veri gönderilmez. Tarayıcı ayarlarından veya "Sıfırla" butonu aracılığıyla tamamen silinebilir.</p>
+            <h3>Google Analytics Çerezleri (Analitik)</h3>
+            <p>Ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics tarafından aşağıdaki çerezler kullanılmaktadır:</p>
+            <table class="legal-table">
+                <thead>
+                    <tr><th>Çerez</th><th>Amaç</th><th>Süre</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>_ga</code></td><td>Kullanıcıları ayırt etmek</td><td>2 yıl</td></tr>
+                    <tr><td><code>_ga_*</code></td><td>Oturum durumunu korumak</td><td>2 yıl</td></tr>
+                </tbody>
+            </table>
+            <p>Google Analytics çerezlerini devre dışı bırakmak için: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a></p>
+        </section>
+
+        <hr class="legal-divider">
+
+        <!-- Kullanım Koşulları -->
+        <section class="legal-section" id="kullanim">
+            <div class="legal-section-badge">Kullanım Koşulları</div>
+            <h2>Kullanım Koşulları</h2>
+            <p>Bu platformu kullanan her kullanıcı aşağıdaki koşulları kabul etmiş sayılır:</p>
+            <ol>
+                <li>Platform yalnızca <strong>kişisel CV oluşturma</strong> amacıyla kullanılabilir.</li>
+                <li>Platforma girilen bilgilerin doğruluğundan <strong>kullanıcı sorumludur.</strong></li>
+                <li>Oluşturulan CV belgeleri üzerindeki <strong>telif hakkı kullanıcıya aittir.</strong></li>
+                <li>Platform, önceden haber vermeksizin <strong>hizmetini değiştirme veya sonlandırma</strong> hakkını saklı tutar.</li>
+                <li>Platform <strong>reklam veya spam</strong> amacıyla kullanılamaz.</li>
+                <li>Kullanıcılar platforma <strong>zararlı içerik veya kod</strong> enjekte edemez.</li>
+            </ol>
+        </section>
+
+    </div>
+
+    <footer class="legal-footer">
+        <p>&copy; 2025 CVBuilder · Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
