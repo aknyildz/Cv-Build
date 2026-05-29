@@ -16,11 +16,55 @@
 
     <!-- ===== LANDING PAGE ===== -->
     <div id="landingPage">
-        <div class="landing-hero">
-            <h1>Kayıt olmadan, 3 dakikada profesyonel CV hazırlayın</h1>
-            <p>Ücretsiz, hızlı ve tarayıcınızda. Hiçbir veriniz sunucuya gönderilmez.</p>
-        </div>
 
+        <!-- ── NAVBAR ── -->
+        <nav class="landing-nav">
+            <div class="landing-nav-logo">
+                <span class="logo-icon">&#9670;</span>
+                <span class="logo-text">CVBuilder</span>
+            </div>
+            <div class="landing-nav-badge">100% Ücretsiz & Gizli</div>
+        </nav>
+
+        <!-- ── HERO ── -->
+        <section class="landing-hero">
+            <div class="hero-bg-shapes">
+                <div class="hero-shape shape-1"></div>
+                <div class="hero-shape shape-2"></div>
+                <div class="hero-shape shape-3"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">✦ Tarayıcı tabanlı · Kayıt yok · Veri gönderilmez</div>
+                <h1 class="hero-title">
+                    Profesyonel CV'nizi<br>
+                    <span class="hero-title-accent">3 Dakikada</span> Hazırlayın
+                </h1>
+                <p class="hero-subtitle">
+                    Ücretsiz, hızlı ve tamamen tarayıcınızda çalışır.<br>
+                    Hiçbir veriniz sunucuya gönderilmez.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">&#9679;</span>
+                        Kayıt gerektirmez
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">&#9679;</span>
+                        PDF indirme
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">&#9679;</span>
+                        Canlı önizleme
+                    </div>
+                    <div class="hero-feature">
+                        <span class="hero-feature-icon">&#9679;</span>
+                        6 profesyonel tema
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── KAYITLI CV BANNER ── -->
         <div id="savedAlert" class="hidden">
             <div class="saved-banner">
                 <span class="saved-icon">&#9889;</span>
@@ -32,42 +76,93 @@
             </div>
         </div>
 
-        <div class="template-grid">
-            <div class="template-card" data-template="minimalist">
-                <div class="template-preview minimalist-preview">
-                    <div class="mock-line mock-name"></div>
-                    <div class="mock-line mock-short"></div>
-                    <div class="mock-line mock-med"></div>
-                    <div class="mock-line mock-long"></div>
-                    <div class="mock-line mock-med"></div>
-                </div>
-                <div class="template-label">Minimalist</div>
-                <button class="template-btn">Bu Şablonla Başla</button>
+        <!-- ── ŞABLON SEÇİCİ ── -->
+        <section class="templates-section">
+            <div class="templates-section-header">
+                <p class="templates-label">ŞABLON SEÇ</p>
+                <h2 class="templates-title">Bir şablonla başla</h2>
+                <p class="templates-sub">Tüm şablonlar PDF olarak indirilebilir ve 6 farklı renk temasını destekler.</p>
             </div>
-            <div class="template-card" data-template="modern">
-                <div class="template-preview modern-preview">
-                    <div class="mock-block mock-accent"></div>
-                    <div class="mock-line mock-name"></div>
-                    <div class="mock-line mock-short"></div>
-                    <div class="mock-line mock-med"></div>
-                    <div class="mock-line mock-long"></div>
+
+            <div class="template-grid">
+                <div class="template-card" data-template="minimalist">
+                    <div class="template-preview minimalist-preview">
+                        <div class="mock-sidebar">
+                            <div class="mock-avatar"></div>
+                            <div class="mock-line mock-s-short"></div>
+                            <div class="mock-line mock-s-med"></div>
+                            <div class="mock-line mock-s-short"></div>
+                        </div>
+                        <div class="mock-main">
+                            <div class="mock-line mock-name"></div>
+                            <div class="mock-line mock-short"></div>
+                            <div class="mock-line mock-med"></div>
+                            <div class="mock-line mock-long"></div>
+                            <div class="mock-line mock-med"></div>
+                            <div class="mock-line mock-short"></div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-label">Minimalist</div>
+                        <div class="template-desc">Temiz ve sade. Her sektöre uygun.</div>
+                    </div>
+                    <button class="template-btn">Bu Şablonla Başla →</button>
                 </div>
-                <div class="template-label">Modern</div>
-                <button class="template-btn">Bu Şablonla Başla</button>
-            </div>
-            <div class="template-card" data-template="akademik">
-                <div class="template-preview akademik-preview">
-                    <div class="mock-line mock-name"></div>
-                    <div class="mock-line mock-short"></div>
-                    <div class="mock-line mock-med"></div>
-                    <div class="mock-line mock-long"></div>
-                    <div class="mock-line mock-med"></div>
-                    <div class="mock-line mock-short"></div>
+
+                <div class="template-card featured" data-template="modern">
+                    <div class="template-card-badge">Popüler</div>
+                    <div class="template-preview modern-preview">
+                        <div class="mock-sidebar mock-sidebar-blue">
+                            <div class="mock-avatar mock-avatar-blue"></div>
+                            <div class="mock-line mock-s-short" style="background:rgba(255,255,255,0.3)"></div>
+                            <div class="mock-line mock-s-med" style="background:rgba(255,255,255,0.2)"></div>
+                            <div class="mock-line mock-s-short" style="background:rgba(255,255,255,0.2)"></div>
+                        </div>
+                        <div class="mock-main">
+                            <div class="mock-line mock-name"></div>
+                            <div class="mock-line mock-short" style="background:#3498db;opacity:0.5"></div>
+                            <div class="mock-line mock-med"></div>
+                            <div class="mock-line mock-long"></div>
+                            <div class="mock-line mock-med"></div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-label">Modern</div>
+                        <div class="template-desc">Çarpıcı ve dikkat çekici tasarım.</div>
+                    </div>
+                    <button class="template-btn">Bu Şablonla Başla →</button>
                 </div>
-                <div class="template-label">Akademik</div>
-                <button class="template-btn">Bu Şablonla Başla</button>
+
+                <div class="template-card" data-template="akademik">
+                    <div class="template-preview akademik-preview">
+                        <div class="mock-sidebar mock-sidebar-warm">
+                            <div class="mock-avatar mock-avatar-warm"></div>
+                            <div class="mock-line mock-s-short" style="background:rgba(91,74,58,0.3)"></div>
+                            <div class="mock-line mock-s-med" style="background:rgba(91,74,58,0.2)"></div>
+                        </div>
+                        <div class="mock-main">
+                            <div class="mock-line mock-name" style="background:#5b4a3a"></div>
+                            <div class="mock-line mock-short"></div>
+                            <div class="mock-line mock-med"></div>
+                            <div class="mock-line mock-long"></div>
+                            <div class="mock-line mock-med"></div>
+                            <div class="mock-line mock-short"></div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <div class="template-label">Akademik</div>
+                        <div class="template-desc">Klasik ve kurumsal. Akademik profiller için.</div>
+                    </div>
+                    <button class="template-btn">Bu Şablonla Başla →</button>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- ── FOOTER ── -->
+        <footer class="landing-footer">
+            <p>Tüm veriler yalnızca tarayıcınızda saklanır. Sunucuya hiçbir şey gönderilmez.</p>
+        </footer>
+
     </div>
 
     <!-- ===== SPLIT-SCREEN ÇALIŞMA ALANI ===== -->
