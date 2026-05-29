@@ -1,4 +1,32 @@
 /* ================================================================
+   CSS DEĞİŞKENLERİ & RENK TEMALARI
+   ================================================================ */
+
+/* Varsayılan (Minimalist) */
+:root {
+    --sidebar-bg: #1a2e40;
+    --accent-color: #1a2e40;
+}
+
+/* 1. Minimalist (Varsayılan) */
+.theme-minimalist { --sidebar-bg: #1a2e40; --accent-color: #1a2e40; }
+
+/* 2. Modern Zümrüt */
+.theme-emerald { --sidebar-bg: #123424; --accent-color: #1b4d3e; }
+
+/* 3. Kreatif Bordo */
+.theme-bordo { --sidebar-bg: #3d0c11; --accent-color: #5a1827; }
+
+/* 4. Teknoloji Karbon */
+.theme-carbon { --sidebar-bg: #1e2022; --accent-color: #00adb5; }
+
+/* 5. Elegant Vizon */
+.theme-vizon { --sidebar-bg: #3e3835; --accent-color: #5c524e; }
+
+/* 6. Saf Safir */
+.theme-safir { --sidebar-bg: #0f172a; --accent-color: #2563eb; }
+
+/* ================================================================
    RESET & TEMEL
    ================================================================ */
 * {
@@ -18,6 +46,7 @@ body {
     color: #333;
     line-height: 1.6;
 }
+
 
 /* ================================================================
    ORTAK
@@ -363,9 +392,10 @@ body {
 }
 
 .accordion-item.active .accordion-body {
-    max-height: 600px; /* yeterli */
+    max-height: 2000px;
     padding: 0 16px 16px;
 }
+
 
 /* ================================================================
    FOTOĞRAF YÜKLEME ALANI (Sol Panel)
@@ -741,20 +771,22 @@ textarea.input-filled:-webkit-autofill {
 }
 
 /* ================================================================
-   SAĞ PANEL (%55) — A4 önizleme taşıyıcısı
+   SAĞ PANEL (%55) — A4 önizleme taşıyıcısı (responsive autofit)
    ================================================================ */
 #rightPanel {
     width: 55%;
     height: 100vh;
+    overflow-x: hidden;
     overflow-y: auto;
     background-color: #eef2f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     padding: 40px 20px;
     box-sizing: border-box;
     position: relative;
 }
+
+
+
 
 #rightPanel .panel-header {
     width: 100%;
@@ -769,48 +801,76 @@ textarea.input-filled:-webkit-autofill {
 }
 
 /* ================================================================
-   #cvPreview — GERÇEK A4 (doğrudan CSS Grid: sol %33 + sağ %67)
+   #cvPreview — Sayfa Tabanlı Kapsayıcı
    ================================================================ */
 #cvPreview {
-    width: 794px;
-    min-height: 1123px;
-    height: auto;
-    background: #ffffff;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
-    display: grid;
-    grid-template-columns: 33% 67%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
     flex-shrink: 0;
     box-sizing: border-box;
     font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
     font-size: 9.5pt;
     line-height: 1.5;
     color: #333;
+    transform-origin: top left !important;
+    transition: transform 0.1s ease;
+    margin-left: 0 !important;
+    margin-right: auto !important;
 }
+
+/* ================================================================
+   .cv-page — Her Sayfa Bağımsız A4 Kutusu
+   ================================================================ */
+.cv-page {
+    width: 794px;
+    height: 1123px;
+    background: #ffffff;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+    display: grid;
+    grid-template-columns: 33% 67%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    flex-shrink: 0;
+}
+
+
+
+
+
 
 
 /* ================================================================
    SOL SÜTUN — Lacivert Sidebar (Grid ile tabana kilitlenir)
    ================================================================ */
 #cvPreview .cv-sidebar {
-    background: #1a2e40;
+    background: var(--sidebar-bg);
     color: #ffffff;
     padding: 25px 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 18px;
-    height: 100%; /* Grid sayesinde tabana kadar uzanır */
+    height: 100%;
+    min-height: 1123px;
 }
+
+
 
 /* Profil fotoğrafı — tam ortalanmış, ezici boyutlar */
 .profile-image-container {
     width: 130px !important;
     height: 130px !important;
-    margin: 0 auto 30px auto !important;
+    margin: 40px auto 30px auto !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
 }
+
 
 #preview-profile-img {
     width: 100% !important;
@@ -881,12 +941,13 @@ textarea.input-filled:-webkit-autofill {
 #cvPreview .cv-main-name {
     font-size: 28pt;
     font-weight: bold;
-    color: #1a2e40;
+    color: var(--accent-color);
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     line-height: 1.1;
 }
+
 
 #cvPreview .cv-main-title {
     font-size: 14pt;
@@ -908,71 +969,103 @@ textarea.input-filled:-webkit-autofill {
 
 
 #cvPreview .cv-main-section {
-    break-inside: avoid;
-    page-break-inside: avoid;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
 }
+
+
+
 
 #cvPreview .cv-main-heading {
     font-size: 10pt;
     font-weight: 700;
     color: #1a2332;
     margin: 0 0 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ddd;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
-/* Timeline yapısı */
-#cvPreview .cv-timeline-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 4px;
-}
-
-#cvPreview .cv-timeline-dot {
-    width: 8px;
-    height: 8px;
+/* Başlık ikonu — içi boş çizgisel daire */
+#cvPreview .cv-main-heading .heading-icon {
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: #1a2e40;
+    border: 1.5px solid var(--accent-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    margin-top: 5px;
-    position: relative;
-    z-index: 1;
+    font-size: 9pt;
+    color: var(--accent-color);
+    background: #fff;
 }
 
-#cvPreview .cv-timeline-item::before {
+
+/* Timeline kapsayıcı — dikey çizgi */
+#cvPreview .timeline-container {
+    position: relative;
+    border-left: 1px solid #ccc;
+    margin-left: 11px;   /* ikon merkeziyle hizalanır */
+    padding-left: 22px;
+    margin-bottom: 24px;
+}
+
+/* Her bir timeline satırı */
+#cvPreview .timeline-item {
+    position: relative;
+    margin-bottom: 18px;
+    padding-left: 0;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+
+/* Nokta (boş halka) — dikey çizginin tam üzerinde */
+#cvPreview .timeline-item::before {
     content: '';
     position: absolute;
-    left: 5px;
-    top: 13px;
-    bottom: -8px;
-    width: 1.5px;
-    background: #d0d0d0;
+    left: -28px;          /* border-left(1px) + padding-left(22px) = 23px, yarısı 11.5px, nokta 10px → (10/2)=5 → 11.5-5=6.5 → -28px offset */
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid var(--accent-color);
+    z-index: 2;
 }
 
-#cvPreview .cv-timeline-item:last-child::before {
-    display: none;
+
+/* Tarih — noktanın hemen yanında, ince font */
+#cvPreview .timeline-date {
+    font-size: 7.5pt;
+    color: #999;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
 }
 
-#cvPreview .cv-timeline-content {
-    flex: 1;
-}
-
-#cvPreview .cv-timeline-title {
+/* Pozisyon / Okul adı — kalın */
+#cvPreview .timeline-title {
     font-size: 9.5pt;
     font-weight: 600;
     color: #1a2332;
+    margin-bottom: 1px;
 }
 
-#cvPreview .cv-timeline-sub {
+/* Şirket / Bölüm — hafif gri */
+#cvPreview .timeline-sub {
     font-size: 8.5pt;
     color: #888;
     line-height: 1.4;
 }
+
 
 /* Yetenek satırı (yıldızlı) */
 #cvPreview .cv-skill-row {
@@ -1021,12 +1114,8 @@ textarea.input-filled:-webkit-autofill {
     backdrop-filter: blur(4px);
 }
 
-/* -- Dropdown -- */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
+/* -- Tema Seçici (select) -- */
+#theme-select {
     padding: 7px 14px;
     background: #f0f0f0;
     color: #333;
@@ -1037,46 +1126,17 @@ textarea.input-filled:-webkit-autofill {
     cursor: pointer;
     transition: all 0.3s;
     white-space: nowrap;
+    outline: none;
 }
 
-.dropdown-toggle:hover {
+#theme-select:hover {
     background: #e0e0e0;
 }
 
-.dropdown-menu {
-    position: absolute;
-    bottom: calc(100% + 4px);
-    left: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    min-width: 160px;
-    z-index: 200;
-    overflow: hidden;
+#theme-select:focus {
+    border-color: #3498db;
 }
 
-.dropdown-item {
-    display: block;
-    width: 100%;
-    padding: 10px 16px;
-    background: transparent;
-    color: #333;
-    border: none;
-    font-size: 13px;
-    text-align: left;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.dropdown-item:hover {
-    background: #f0f7ff;
-    color: #3498db;
-}
-
-.dropdown-item:not(:last-child) {
-    border-bottom: 1px solid #f0f0f0;
-}
 
 /* -- Toolbar butonları -- */
 .toolbar-btn {
@@ -1421,22 +1481,27 @@ textarea.input-filled:-webkit-autofill {
 }
 
 /* ================================================================
-   BASKI / PDF (print) — 1 mm esnetme (298mm), taşma yok
+   BASKI / PDF — Hayalet Sayfa Engelleme
    ================================================================ */
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
 @media print {
     html, body {
-        height: 298mm !important;
-        max-height: 298mm !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        background: #ffffff !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 794px !important;
+        height: auto !important;
+        overflow: visible !important;
     }
 
     #leftPanel,
     .control-toolbar,
-    button,
     #rotateWarning,
     .crop-backdrop,
     .crop-modal,
@@ -1445,31 +1510,63 @@ textarea.input-filled:-webkit-autofill {
     }
 
     #rightPanel {
+        width: 794px !important;
+        height: auto !important;
         padding: 0 !important;
         margin: 0 !important;
-        width: 210mm !important;
-        height: 298mm !important;
-        max-height: 298mm !important;
-        overflow: hidden !important;
         background: none !important;
+        overflow: visible !important;
+        display: block !important;
+        position: static !important;
     }
 
     #cvPreview {
-        width: 210mm !important;
-        height: 298mm !important;
-        max-height: 298mm !important;
+        display: block !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        width: 794px !important;
+        height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
-        border: none !important;
+        overflow: visible !important;
+    }
+
+    .cv-page {
+        width: 794px !important;
+        height: 1122px !important;
+        min-height: 1122px !important;
+        max-height: 1122px !important;
+        margin: 0 !important;
+        padding: 0 !important;
         box-shadow: none !important;
-        page-break-inside: avoid !important;
-        page-break-after: avoid !important;
-        page-break-before: avoid !important;
+        border: none !important;
+        display: grid !important;
+        grid-template-columns: 33% 67% !important;
+        overflow: hidden !important;
+        position: relative !important;
+        break-after: page !important;
+        page-break-after: always !important;
         break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .cv-page:last-child {
         break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+
+    .cv-sidebar {
+        height: 1122px !important;
+        min-height: 1122px !important;
         overflow: hidden !important;
     }
 }
+
+
+
+
+
+
 
 
 
@@ -1566,3 +1663,31 @@ textarea.input-filled:-webkit-autofill {
         text-align: center;
     }
 }
+
+/* ================================================================
+   DENEYİM / EĞİTİM DİNAMİK SATIR
+   ================================================================ */
+.dynamic-form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.dynamic-form-row input {
+    width: 100%;
+    padding: 4px 0 3px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    background: transparent;
+    font-size: 12px;
+    font-family: inherit;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.dynamic-form-row input:focus {
+    border-bottom-color: #1abc9c;
+}
+

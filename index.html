@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- Cropper.js (fotoğraf kırpma) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
-    <!-- html2pdf.js (hafif, tarayıcı tabanlı PDF) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 
 </head>
@@ -209,77 +209,26 @@
 
             <!-- ========== SAĞ PANEL: Canlı Önizleme ========== -->
             <div id="rightPanel">
-                <div class="panel-header">
-                    <h2>Canlı Önizleme</h2>
-                </div>
 
-                <!-- A4 Önizleme Alanı (doğrudan Grid: sol %33 + sağ %67) -->
-                <div id="cvPreview">
-                    <!-- SOL SÜTUN (Lacivert) -->
-                    <div class="cv-sidebar">
-                        <div class="profile-image-container">
-                            <img id="preview-profile-img" src="" alt="Profil Fotoğrafı" style="display: none;">
-                        </div>
+                <!-- A4 Önizleme Alanı — Sayfa Tabanlı (her sayfa bağımsız .cv-page) -->
+                <div id="cvPreview"></div>
 
-                        <div class="cv-sidebar-section">
-                            <h6 class="cv-sidebar-heading">Kişisel Bilgiler</h6>
-                            <p class="cv-sidebar-item" id="cvSidebarAdres">&#9906; Adres bilgisi</p>
-                            <p class="cv-sidebar-item" id="cvSidebarTel">&#9742; Telefon bilgisi</p>
-                            <p class="cv-sidebar-item" id="cvSidebarEmail">&#9993; E-posta bilgisi</p>
-                        </div>
-                        <div class="cv-sidebar-section">
-                            <h6 class="cv-sidebar-heading">İlgi Alanları</h6>
-                            <div id="cvSidebarIlgiler"></div>
-                        </div>
-                        <div class="cv-sidebar-section">
-                            <h6 class="cv-sidebar-heading">Diller</h6>
-                            <div id="cvSidebarDiller"></div>
-                        </div>
-
-                    </div>
-
-                    <!-- SAĞ SÜTUN (Beyaz) — İsim + Unvan en üstte -->
-                    <div class="cv-main">
-                        <h1 class="cv-main-name">Akın YILDIZ</h1>
-                        <p class="cv-main-title">Mağaza Müdürü</p>
-
-                        <!-- Profil Özeti (Hakkımda) -->
-                        <p class="cv-summary" id="cvMainOzet"></p>
-
-                        <div class="cv-main-section">
-
-                            <h6 class="cv-main-heading">&#128188; İş Deneyimi</h6>
-                            <div id="cvMainDeneyim"></div>
-                        </div>
-                        <div class="cv-main-section">
-                            <h6 class="cv-main-heading">&#127891; Eğitim</h6>
-                            <div id="cvMainEgitim"></div>
-                        </div>
-                        <div class="cv-main-section">
-                            <h6 class="cv-main-heading">&#128161; Yetenekler</h6>
-                            <div id="cvMainYetenek"></div>
-                        </div>
-                        <div class="cv-main-section">
-                            <h6 class="cv-main-heading">&#128101; Referanslar</h6>
-                            <div id="cvMainReferans"></div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <!-- ===== KONTROL ÇUBUĞU (A4 DIŞINDA, sağ alt fixed) ===== -->
                 <div class="control-toolbar">
-                    <div class="dropdown">
-                        <button type="button" id="dropdownToggle" class="dropdown-toggle">Minimalist &#9660;</button>
-                        <div id="dropdownMenu" class="dropdown-menu hidden">
-                            <button type="button" class="dropdown-item" data-template="minimalist">Minimalist</button>
-                            <button type="button" class="dropdown-item" data-template="modern">Modern</button>
-                            <button type="button" class="dropdown-item" data-template="akademik">Akademik</button>
-                        </div>
-                    </div>
+                    <select id="theme-select">
+                        <option value="theme-minimalist">Minimalist</option>
+                        <option value="theme-emerald">Modern Zümrüt</option>
+                        <option value="theme-bordo">Kreatif Bordo</option>
+                        <option value="theme-carbon">Teknoloji Karbon</option>
+                        <option value="theme-vizon">Elegant Vizon</option>
+                        <option value="theme-safir">Saf Safir</option>
+                    </select>
                     <button type="button" id="yazdirBtn" class="toolbar-btn" title="Yazdır">&#128424;</button>
                     <button type="button" id="pdfBtn" class="toolbar-btn toolbar-btn-pdf">PDF İndir</button>
                 </div>
+
             </div>
 
 

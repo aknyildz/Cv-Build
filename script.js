@@ -10,8 +10,8 @@ const sifirlaBtn   = document.getElementById('sifirlaBtn');
 const geriBtn      = document.getElementById('geriBtn');
 
 const STORAGE_KEY = 'cvBuildData';
-const TEMPLATE_KEY = 'cvBuildTemplate';
 const PHOTO_KEY = 'cvBuildPhoto';
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const savedData = localStorage.getItem(STORAGE_KEY);
@@ -39,17 +39,12 @@ devamEtBtn.addEventListener('click', function () {
     if (savedPhoto) {
         fotoYukleVeGoster(savedPhoto);
     }
-    // Kayıtlı şablonu yükle
-    const savedTemplate = localStorage.getItem(TEMPLATE_KEY);
-    if (savedTemplate) {
-        sablonDegistir(savedTemplate);
-    }
 });
 
 sifirlaBtn.addEventListener('click', function () {
     localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(TEMPLATE_KEY);
     localStorage.removeItem(PHOTO_KEY);
+
     savedAlert.classList.add('hidden');
     landingPage.classList.add('hidden');
     appContainer.classList.remove('hidden');
@@ -261,7 +256,9 @@ function fotoKaldir() {
 // ================================================================
 
 let deneyimler = [];
+let referanslar = [];
 let egitimler  = [];
+
 
 document.getElementById('deneyimEkleBtn').addEventListener('click', function () {
     deneyimEklemeFormuGoster(null);
@@ -844,154 +841,259 @@ function canliOnizlemeGuncelle() {
     const email     = document.getElementById('email').value.trim();
     const telefon   = document.getElementById('telefon').value.trim();
     const adres     = document.getElementById('adres').value.trim();
-
-    // === SAĞ SÜTUN: İsim + Unvan ===
-    const nameEl = document.querySelector('#cvPreview .cv-main-name');
-    if (nameEl) {
-        nameEl.textContent = (ad || soyad) ? (ad + ' ' + soyad) : 'Ad Soyad';
-    }
-
-    // === SAĞ SÜTUN: Profil Özeti (Hakkımda) ===
-    const ozetEl = document.getElementById('cvMainOzet');
     const ozetMetin = document.getElementById('ozet').value.trim();
-    if (ozetEl) {
-        if (ozetMetin) {
-            ozetEl.textContent = ozetMetin;
-            ozetEl.style.display = 'block';
-        } else {
-            ozetEl.textContent = '';
-            ozetEl.style.display = 'none';
-        }
-    }
 
+    // Mevcut tema sınıfını al
+    const cvPreview = document.getElementById('cvPreview');
+    const themeClass = cvPreview.className.split(' ').filter(function (c) {
+        return c.startsWith('theme-');
+    })[0] || 'theme-minimalist';
 
-
-    // === SİDEBAR: Kişisel Bilgiler ===
-    const sidebarAdres = document.getElementById('cvSidebarAdres');
-    const sidebarTel   = document.getElementById('cvSidebarTel');
-    const sidebarEmail = document.getElementById('cvSidebarEmail');
-
-    if (sidebarAdres) sidebarAdres.innerHTML = adres ? '&#9906; ' + adres : '&#9906; Adres bilgisi';
-    if (sidebarTel)   sidebarTel.innerHTML   = telefon ? '&#9742; ' + telefon : '&#9742; Telefon bilgisi';
-    if (sidebarEmail) sidebarEmail.innerHTML = email ? '&#9993; ' + email : '&#9993; E-posta bilgisi';
-
-    // === SİDEBAR: İlgi Alanları ===
-    const sidebarIlgiler = document.getElementById('cvSidebarIlgiler');
-    if (sidebarIlgiler) {
-        let html = '';
-        if (ilgiAlanlari.length > 0) {
-            ilgiAlanlari.forEach(function (ilgi) {
-                html += `<p class="cv-sidebar-item">&#8226; ${ilgi}</p>`;
-            });
-        } else {
-            html = `<p class="cv-sidebar-item" style="color:#8e9db0;">Henüz eklenmedi</p>`;
-        }
-        sidebarIlgiler.innerHTML = html;
-    }
-
-    // === SİDEBAR: Diller ===
-    const sidebarDiller = document.getElementById('cvSidebarDiller');
-    if (sidebarDiller) {
-        let html = '';
-        if (diller.length > 0) {
-            diller.forEach(function (d) {
-                const dolu = '&#9679;'.repeat(d.seviye);
-                const bos = '&#9675;'.repeat(5 - d.seviye);
-                html += `<div class="cv-sidebar-lang"><span>${d.ad}</span><span class="cv-dots">${dolu}${bos}</span></div>`;
-            });
-        } else {
-            html = `<p class="cv-sidebar-item" style="color:#8e9db0;">Henüz eklenmedi</p>`;
-        }
-        sidebarDiller.innerHTML = html;
-    }
-
-    // === SİDEBAR: Profil Fotoğrafı ===
-    const previewImg = document.getElementById('preview-profile-img');
-    if (previewImg) {
-        if (fotoDataURL) {
-            previewImg.src = fotoDataURL;
-            previewImg.style.setProperty('display', 'block', 'important');
-        } else {
-            previewImg.src = '';
-            previewImg.style.setProperty('display', 'none', 'important');
-        }
-    }
-
-
-    // === SAĞ SÜTUN: İş Deneyimi ===
-    const deneyimContainer = document.getElementById('cvMainDeneyim');
-    if (deneyimContainer) {
-        let html = '';
-        if (deneyimler.length > 0) {
-            deneyimler.forEach(function (d) {
-                html += `<div class="cv-timeline-item">`;
-                html += `<div class="cv-timeline-dot"></div>`;
-                html += `<div class="cv-timeline-content">`;
-                html += `<div class="cv-timeline-title">${d.sirket}</div>`;
-                html += `<div class="cv-timeline-sub">${d.pozisyon}${d.baslangic ? ' · ' + d.baslangic + (d.bitis ? ' - ' + d.bitis : '') : ''}</div>`;
-                html += `</div></div>`;
-            });
-        } else {
-            html = `<p style="color:#aaa;font-size:8.5pt;">Henüz deneyim eklenmedi.</p>`;
-        }
-        deneyimContainer.innerHTML = html;
-    }
-
-    // === SAĞ SÜTUN: Eğitim ===
-    const egitimContainer = document.getElementById('cvMainEgitim');
-    if (egitimContainer) {
-        let html = '';
-        if (egitimler.length > 0) {
-            egitimler.forEach(function (e) {
-                html += `<div class="cv-timeline-item">`;
-                html += `<div class="cv-timeline-dot"></div>`;
-                html += `<div class="cv-timeline-content">`;
-                html += `<div class="cv-timeline-title">${e.okul}</div>`;
-                html += `<div class="cv-timeline-sub">${e.bolum}${e.yil ? ' · ' + e.yil : ''}</div>`;
-                html += `</div></div>`;
-            });
-        } else {
-            html = `<p style="color:#aaa;font-size:8.5pt;">Henüz eğitim eklenmedi.</p>`;
-        }
-        egitimContainer.innerHTML = html;
-    }
-
-    // === SAĞ SÜTUN: Yetenekler ===
-    const yetenekContainer = document.getElementById('cvMainYetenek');
-    if (yetenekContainer) {
-        let html = '';
-        if (yetenekler.length > 0) {
-            yetenekler.forEach(function (y) {
-                html += `<div class="cv-skill-row">`;
-                html += `<span class="cv-skill-name">${y}</span>`;
-                html += `<span class="cv-skill-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>`;
-                html += `</div>`;
-            });
-        } else {
-            html = `<p style="color:#aaa;font-size:8.5pt;">Henüz yetenek eklenmedi.</p>`;
-        }
-        yetenekContainer.innerHTML = html;
-    }
-
-    // === SAĞ SÜTUN: Referanslar ===
-    const referansContainer = document.getElementById('cvMainReferans');
-    if (referansContainer) {
-        let html = '';
-        if (referanslar.length > 0) {
-            referanslar.forEach(function (r) {
-                html += `<div class="cv-timeline-item">`;
-                html += `<div class="cv-timeline-dot"></div>`;
-                html += `<div class="cv-timeline-content">`;
-                html += `<div class="cv-timeline-title">${r.ad}</div>`;
-                html += `<div class="cv-timeline-sub">${r.unvan}${r.email ? ' · ' + r.email : ''}${r.telefon ? ' · ' + r.telefon : ''}</div>`;
-                html += `</div></div>`;
-            });
-        } else {
-            html = `<p style="color:#aaa;font-size:8.5pt;">Henüz referans eklenmedi.</p>`;
-        }
-        referansContainer.innerHTML = html;
-    }
+    // === SAYFA DAĞITICI: Tüm sayfaları baştan oluştur ===
+    sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, themeClass);
 }
+
+// ================================================================
+// SAYFA DAĞITICI (Page Distributor)
+// ================================================================
+
+function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, themeClass) {
+    const cvPreview = document.getElementById('cvPreview');
+
+    // Eski tüm sayfaları temizle
+    cvPreview.innerHTML = '';
+
+    // === SAYFA 1: Sidebar (sol sütun) içeriğini oluştur ===
+    const sidebarHTML = sidebarOlustur(ad, soyad, email, telefon, adres);
+
+    // === SAĞ SÜTUN BLOKLARI (görünür olanları topla) ===
+    const bloklar = [];
+
+    // İsim + Unvan (her zaman göster)
+    bloklar.push({
+        type: 'header',
+        html: '<h1 class="cv-main-name">' + ((ad || soyad) ? (ad + ' ' + soyad) : 'Ad Soyad') + '</h1><p class="cv-main-title">Unvan</p>'
+    });
+
+    // Profil Özeti
+    if (ozetMetin) {
+        bloklar.push({
+            type: 'section',
+            html: '<div class="cv-main-section" id="cvMainOzetSection"><p class="cv-summary" id="cvMainOzet">' + ozetMetin + '</p></div>'
+        });
+    }
+
+    // İş Deneyimi
+    if (deneyimler.length > 0) {
+        let html = '<div class="cv-main-section" id="cvMainDeneyimSection">';
+        html += '<h6 class="cv-main-heading"><span class="heading-icon">&#128188;</span>İŞ DENEYİMİ</h6>';
+        html += '<div class="timeline-container">';
+        deneyimler.forEach(function (d) {
+            const tarih = d.baslangic ? d.baslangic + (d.bitis ? ' - ' + d.bitis : '') : '';
+            html += '<div class="timeline-item">';
+            if (tarih) html += '<div class="timeline-date">' + tarih + '</div>';
+            html += '<div class="timeline-title">' + d.pozisyon + '</div>';
+            html += '<div class="timeline-sub">' + d.sirket + '</div>';
+            html += '</div>';
+        });
+        html += '</div></div>';
+        bloklar.push({ type: 'section', html: html });
+    }
+
+    // Eğitim
+    if (egitimler.length > 0) {
+        let html = '<div class="cv-main-section" id="cvMainEgitimSection">';
+        html += '<h6 class="cv-main-heading"><span class="heading-icon">&#127891;</span>EĞİTİM</h6>';
+        html += '<div class="timeline-container">';
+        egitimler.forEach(function (e) {
+            html += '<div class="timeline-item">';
+            if (e.yil) html += '<div class="timeline-date">' + e.yil + '</div>';
+            html += '<div class="timeline-title">' + e.bolum + '</div>';
+            html += '<div class="timeline-sub">' + e.okul + '</div>';
+            html += '</div>';
+        });
+        html += '</div></div>';
+        bloklar.push({ type: 'section', html: html });
+    }
+
+    // Yetenekler
+    if (yetenekler.length > 0) {
+        let html = '<div class="cv-main-section" id="cvMainYetenekSection">';
+        html += '<h6 class="cv-main-heading">&#128161; Yetenekler</h6>';
+        yetenekler.forEach(function (y) {
+            html += '<div class="cv-skill-row"><span class="cv-skill-name">' + y + '</span><span class="cv-skill-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span></div>';
+        });
+        html += '</div>';
+        bloklar.push({ type: 'section', html: html });
+    }
+
+    // Referanslar
+    if (referanslar.length > 0) {
+        let html = '<div class="cv-main-section" id="cvMainReferansSection">';
+        html += '<h6 class="cv-main-heading">&#128101; Referanslar</h6>';
+        referanslar.forEach(function (r) {
+            html += '<div class="cv-timeline-item"><div class="cv-timeline-dot"></div><div class="cv-timeline-content">';
+            html += '<div class="cv-timeline-title">' + r.ad + '</div>';
+            html += '<div class="cv-timeline-sub">' + r.unvan + (r.email ? ' · ' + r.email : '') + (r.telefon ? ' · ' + r.telefon : '') + '</div>';
+            html += '</div></div>';
+        });
+        html += '</div>';
+        bloklar.push({ type: 'section', html: html });
+    }
+
+    // === BLOKLARI SAYFALARA DAĞIT ===
+    const SAYFA_YUKSEKLIK = 1123;
+    let sayfaNo = 1;
+    let mevcutSayfa = null;
+    let mevcutMain = null;
+    let mevcutYukseklik = 0;
+
+    // Header bloğu (isim + unvan) her zaman ilk sayfada
+    const headerBlok = bloklar.shift();
+
+    function yeniSayfaOlustur() {
+        const sayfa = document.createElement('div');
+        sayfa.className = 'cv-page ' + themeClass;
+
+        // Sol sütun
+        const sol = document.createElement('div');
+        sol.className = 'cv-sidebar';
+        sol.innerHTML = sidebarHTML;
+
+        // Sağ sütun
+        const sag = document.createElement('div');
+        sag.className = 'cv-main';
+
+        sayfa.appendChild(sol);
+        sayfa.appendChild(sag);
+
+        // Sayfa numarası
+        const numara = document.createElement('div');
+        numara.className = 'cv-page-number';
+        numara.textContent = sayfaNo + ' / ?';
+        sayfa.appendChild(numara);
+
+        cvPreview.appendChild(sayfa);
+        return { sayfa: sayfa, main: sag };
+    }
+
+    // İlk sayfayı oluştur
+    const ilk = yeniSayfaOlustur();
+    mevcutSayfa = ilk.sayfa;
+    mevcutMain = ilk.main;
+
+    // Header'ı ekle (isim + unvan)
+    mevcutMain.insertAdjacentHTML('beforeend', headerBlok.html);
+    mevcutYukseklik = mevcutMain.scrollHeight;
+
+    // Blokları sırayla ekle
+    bloklar.forEach(function (blok) {
+        // Geçici olarak bloğu ekle ve yüksekliği ölç
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = blok.html;
+        const blokEl = tempDiv.firstElementChild;
+
+        mevcutMain.appendChild(blokEl);
+        const yeniYukseklik = mevcutMain.scrollHeight;
+
+        if (yeniYukseklik > SAYFA_YUKSEKLIK) {
+            // Taştı — bloğu sök, yeni sayfa oluştur
+            mevcutMain.removeChild(blokEl);
+
+            // Sayfa numarasını güncelle (geçici)
+            sayfaNo++;
+            const numaraEl = mevcutSayfa.querySelector('.cv-page-number');
+            if (numaraEl) numaraEl.textContent = (sayfaNo - 1) + ' / ?';
+
+            // Yeni sayfa oluştur
+            const yeni = yeniSayfaOlustur();
+            mevcutSayfa = yeni.sayfa;
+            mevcutMain = yeni.main;
+            mevcutYukseklik = 0;
+
+            // Bloğu yeni sayfaya ekle
+            mevcutMain.appendChild(blokEl);
+            mevcutYukseklik = mevcutMain.scrollHeight;
+        } else {
+            mevcutYukseklik = yeniYukseklik;
+        }
+    });
+
+    // === SON SAYFA NUMARALARINI GÜNCELLE ===
+    const tumSayfalar = cvPreview.querySelectorAll('.cv-page');
+    const toplamSayfa = tumSayfalar.length;
+    tumSayfalar.forEach(function (s, i) {
+        const numaraEl = s.querySelector('.cv-page-number');
+        if (numaraEl) {
+            numaraEl.textContent = (i + 1) + ' / ' + toplamSayfa;
+        }
+    });
+
+    // === DİNAMİK ÇİZGİ KONTROLÜ ===
+    tumSayfalar.forEach(function (s) {
+        const sections = s.querySelectorAll('.cv-main .cv-main-section');
+        sections.forEach(function (el) {
+            el.style.borderBottom = '1px solid #e0e0e0';
+        });
+        const visibleSections = Array.from(sections);
+        if (visibleSections.length > 0) {
+            visibleSections[visibleSections.length - 1].style.borderBottom = 'none';
+        }
+    });
+}
+
+// ================================================================
+// SİDEBAR OLUŞTURUCU (sol sütun HTML'i)
+// ================================================================
+
+function sidebarOlustur(ad, soyad, email, telefon, adres) {
+    let html = '';
+
+    // Profil fotoğrafı
+    html += '<div class="profile-image-container">';
+    if (fotoDataURL) {
+        html += '<img id="preview-profile-img" src="' + fotoDataURL + '" alt="Profil Fotoğrafı" style="width:100%;height:100%;border-radius:50%;border:3px solid #ffffff;object-fit:cover;display:block;">';
+    } else {
+        html += '<img id="preview-profile-img" src="" alt="Profil Fotoğrafı" style="display:none;">';
+    }
+    html += '</div>';
+
+    // Kişisel Bilgiler
+    html += '<div class="cv-sidebar-section">';
+    html += '<h6 class="cv-sidebar-heading">Kişisel Bilgiler</h6>';
+    html += '<p class="cv-sidebar-item" id="cvSidebarAdres">&#9906; ' + (adres || 'Adres bilgisi') + '</p>';
+    html += '<p class="cv-sidebar-item" id="cvSidebarTel">&#9742; ' + (telefon || 'Telefon bilgisi') + '</p>';
+    html += '<p class="cv-sidebar-item" id="cvSidebarEmail">&#9993; ' + (email || 'E-posta bilgisi') + '</p>';
+    html += '</div>';
+
+    // İlgi Alanları
+    if (ilgiAlanlari.length > 0) {
+        html += '<div class="cv-sidebar-section" id="cvSidebarIlgiSection">';
+        html += '<h6 class="cv-sidebar-heading">İlgi Alanları</h6>';
+        ilgiAlanlari.forEach(function (ilgi) {
+            html += '<p class="cv-sidebar-item">&#8226; ' + ilgi + '</p>';
+        });
+        html += '</div>';
+    }
+
+    // Diller
+    if (diller.length > 0) {
+        html += '<div class="cv-sidebar-section" id="cvSidebarDilSection">';
+        html += '<h6 class="cv-sidebar-heading">Diller</h6>';
+        diller.forEach(function (d) {
+            const dolu = '&#9679;'.repeat(d.seviye);
+            const bos = '&#9675;'.repeat(5 - d.seviye);
+            html += '<div class="cv-sidebar-lang"><span>' + d.ad + '</span><span class="cv-dots">' + dolu + bos + '</span></div>';
+        });
+        html += '</div>';
+    }
+
+    return html;
+}
+
+
+
+
 
 
 
@@ -1006,110 +1108,180 @@ document.getElementById('cvForm').addEventListener('submit', function (e) {
 
 
 // ================================================================
-// ŞABLON DROPDOWN
+// RENK TEMASI SİSTEMİ (6 Tema)
 // ================================================================
 
-const dropdownToggle = document.getElementById('dropdownToggle');
-const dropdownMenu   = document.getElementById('dropdownMenu');
-const cvPreview      = document.getElementById('cvPreview');
+const themeSelect = document.getElementById('theme-select');
+const cvPreview   = document.getElementById('cvPreview');
+const THEME_KEY   = 'cv_selected_theme';
 
+// Kayıtlı temayı yükle
+(function initTheme() {
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme) {
+        // Tüm eski theme- sınıflarını temizle
+        cvPreview.className = cvPreview.className.replace(/theme-\S+/g, '').trim();
+        cvPreview.classList.add(savedTheme);
+        themeSelect.value = savedTheme;
+    } else {
+        // Varsayılan: Minimalist
+        cvPreview.classList.add('theme-minimalist');
+        themeSelect.value = 'theme-minimalist';
+    }
+})();
 
-dropdownToggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    dropdownMenu.classList.toggle('hidden');
+// Tema değiştirme
+themeSelect.addEventListener('change', function () {
+    const selectedTheme = themeSelect.value;
+
+    // Tüm eski theme- sınıflarını temizle
+    cvPreview.className = cvPreview.className.replace(/theme-\S+/g, '').trim();
+
+    // Yeni temayı ekle
+    cvPreview.classList.add(selectedTheme);
+
+    // localStorage'a kaydet
+    localStorage.setItem(THEME_KEY, selectedTheme);
+    canliOnizlemeGuncelle();
 });
 
-document.addEventListener('click', function () {
-    dropdownMenu.classList.add('hidden');
-});
-
-dropdownMenu.addEventListener('click', function (e) {
-    e.stopPropagation();
-});
-
-document.querySelectorAll('.dropdown-item').forEach(function (item) {
-    item.addEventListener('click', function () {
-        const template = item.dataset.template;
-        sablonDegistir(template);
-        dropdownMenu.classList.add('hidden');
-    });
-});
-
-function sablonDegistir(template) {
-    cvPreview.className = 'template-' + template;
-    const names = {
-        minimalist: 'Minimalist',
-        modern: 'Modern',
-        akademik: 'Akademik'
-    };
-    dropdownToggle.innerHTML = names[template] + ' &#9660;';
-    localStorage.setItem(TEMPLATE_KEY, template);
-}
 
 
 // ================================================================
-// YAZDIR (window.print)
+// YAZDIR (window.print) — Ölçekleme sıfırlama + baskı
+
 // ================================================================
 
 yazdirBtn.addEventListener('click', function () {
-    window.print();
-});
+    const cvPreview  = document.getElementById('cvPreview');
+    const rightPanel = document.getElementById('rightPanel');
+    const splitScreen = document.getElementById('splitScreen');
 
-// ================================================================
-// PDF İNDİR (html2pdf.js)
-// ================================================================
+    window.removeEventListener('resize', autoFitCV);
 
-pdfBtn.addEventListener('click', function () {
-    const element = document.getElementById('cvPreview');
+    cvPreview.style.transform       = 'none';
+    cvPreview.style.webkitTransform = 'none';
+    cvPreview.style.transformOrigin = 'top left';
+    cvPreview.style.display         = 'block';
 
-    // Dinamik dosya adı oluştur
+    rightPanel.style.padding  = '0';
+    rightPanel.style.overflow = 'visible';
+    rightPanel.style.width    = '794px';
+
+    splitScreen.style.display = 'block';
+
     const ad    = (document.getElementById('ad').value || '').trim();
     const soyad = (document.getElementById('soyad').value || '').trim();
-    let dosyaAdi = 'cv-sablonu.pdf';
+    const name  = (ad || soyad) ? (ad + ' ' + soyad).trim() : 'cv';
+    const slug  = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+    const originalTitle = document.title;
+    document.title = slug + '-cv';
 
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            window.print();
+
+            document.title = originalTitle;
+
+            cvPreview.style.display         = '';
+            cvPreview.style.transform       = '';
+            cvPreview.style.webkitTransform = '';
+
+            rightPanel.style.padding  = '';
+            rightPanel.style.overflow = '';
+            rightPanel.style.width    = '';
+
+            splitScreen.style.display = '';
+
+            window.addEventListener('resize', autoFitCV);
+            autoFitCV();
+        });
+    });
+});
+
+
+
+
+
+// ================================================================
+// PDF İNDİR (html2canvas + jsPDF)
+// ================================================================
+
+pdfBtn.addEventListener('click', async function () {
+    const cvPreview = document.getElementById('cvPreview');
+    const sayfalar  = cvPreview.querySelectorAll('.cv-page');
+
+    if (sayfalar.length === 0) {
+        alert('Önce CV bilgilerini doldurun.');
+        return;
+    }
+
+    // Dosya adı oluştur
+    const ad    = (document.getElementById('ad').value || '').trim();
+    const soyad = (document.getElementById('soyad').value || '').trim();
+    let dosyaAdi = 'cv.pdf';
     if (ad || soyad) {
-        const tamIsim = (ad + ' ' + soyad).trim();
-        // Küçük harfe çevir, Türkçe karakterleri temizle, boşlukları tire yap
-        dosyaAdi = tamIsim
+        dosyaAdi = (ad + ' ' + soyad).trim()
             .toLowerCase()
-            .replace(/[ğ]/g, 'g')
-            .replace(/[ü]/g, 'u')
-            .replace(/[ş]/g, 's')
-            .replace(/[ı]/g, 'i')
-            .replace(/[ö]/g, 'o')
-            .replace(/[ç]/g, 'c')
-            .replace(/[^a-z0-9\s-]/g, '')
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-')
-            .replace(/^-|-$/g, '') + '-cv.pdf';
+            .replace(/[ğ]/g, 'g').replace(/[ü]/g, 'u')
+            .replace(/[ş]/g, 's').replace(/[ı]/g, 'i')
+            .replace(/[ö]/g, 'o').replace(/[ç]/g, 'c')
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s+/g, '-') + '-cv.pdf';
     }
 
     const originalText = pdfBtn.textContent;
-    pdfBtn.textContent = 'İndiriliyor...';
+    pdfBtn.textContent = 'Hazırlanıyor...';
     pdfBtn.disabled = true;
 
-    const opt = {
-        margin: 0,
-        filename: dosyaAdi,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, logging: false, scrollX: 0, scrollY: 0 },
-        jsPDF: { unit: 'mm', format: [210, 298], orientation: 'portrait' },
+    try {
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'px',
+            format: [794, 1122],
+            hotfixes: ['px_scaling']
+        });
 
+        for (let i = 0; i < sayfalar.length; i++) {
+            const sayfa = sayfalar[i];
 
-        pagebreak: { mode: 'avoid-all' }
-    };
+            // Her sayfayı canvas'a çevir
+            const canvas = await html2canvas(sayfa, {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                logging: false,
+                width: 794,
+                height: 1122,
+                windowWidth: 794,
+                windowHeight: 1122,
+                x: 0,
+                y: 0,
+                scrollX: 0,
+                scrollY: 0,
+                backgroundColor: '#ffffff'
+            });
 
+            const imgData = canvas.toDataURL('image/jpeg', 0.95);
 
+            // İlk sayfa zaten var, sonrakiler için yeni sayfa ekle
+            if (i > 0) {
+                pdf.addPage([794, 1122], 'portrait');
+            }
 
-    html2pdf().set(opt).from(element).save().then(function () {
-        pdfBtn.textContent = originalText;
-        pdfBtn.disabled = false;
-    }).catch(function (err) {
+            pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1122);
+        }
+
+        pdf.save(dosyaAdi);
+
+    } catch (err) {
         console.error('PDF hatası:', err);
+        alert('PDF oluşturulurken bir hata oluştu: ' + err.message);
+    } finally {
         pdfBtn.textContent = originalText;
         pdfBtn.disabled = false;
-        alert('PDF oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
-    });
+    }
 });
 
 
@@ -1164,5 +1336,43 @@ function tumVeriyiYukle(data) {
     setTimeout(refreshAllInputStates, 100);
 
 }
+
+// ================================================================
+// RESPONSIVE AUTOFIT — A4 önizlemesini ekrana sığdır
+// ================================================================
+
+function autoFitCV() {
+    const rightPanel = document.getElementById('rightPanel');
+    const cvPreview  = document.getElementById('cvPreview');
+    if (!rightPanel || !cvPreview) return;
+
+    const availableWidth = rightPanel.clientWidth - 48;
+    const cvWidth = 794;
+
+    if (availableWidth > 0 && availableWidth < cvWidth) {
+        const scale = Math.max(availableWidth / cvWidth, 0.35);
+        cvPreview.style.transform       = 'scale(' + scale + ')';
+        cvPreview.style.webkitTransform = 'scale(' + scale + ')';
+        cvPreview.style.marginBottom    = ((cvWidth * scale) - cvWidth) + 'px';
+    } else {
+        cvPreview.style.transform       = 'scale(1)';
+        cvPreview.style.webkitTransform = 'scale(1)';
+        cvPreview.style.marginBottom    = '0';
+    }
+}
+
+
+
+
+// Sayfa tamamen hazır olduğunda ve tüm elementler (resimler dahil) çizildiğinde çalıştır
+window.addEventListener('load', function() {
+    // Elementlerin yerleşmesi için tarayıcıya 200 milisaniyelik güvenli bir pay bırak
+    setTimeout(autoFitCV, 200);
+});
+
+// Pencere boyutu her değiştiğinde anlık çalıştır
+window.addEventListener('resize', autoFitCV);
+
+
 
 
