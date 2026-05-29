@@ -1842,3 +1842,86 @@ textarea.input-filled:-webkit-autofill {
     border-bottom-color: #1abc9c;
 }
 
+/* ================================================================
+   LANDING PAGE — 6 TEMA MOCK STİLLERİ
+   ================================================================ */
+
+/* Grid: 6 kart için 3x2 */
+.template-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* Genel mock sidebar */
+.mock-sidebar {
+    width: 32%;
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.mock-s-line {
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Tema renkli sidebar'lar */
+.mock-sidebar-navy   { background: #1a2e40; }
+.mock-sidebar-emerald { background: #123424; }
+.mock-sidebar-bordo  { background: #3d0c11; }
+.mock-sidebar-carbon { background: #1e2022; }
+.mock-sidebar-vizon  { background: #3e3835; }
+.mock-sidebar-safir  { background: #0f172a; }
+
+/* Avatar mockları */
+.mock-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    flex-shrink: 0;
+    margin-bottom: 4px;
+}
+
+.mock-avatar-carbon {
+    border-color: rgba(0, 173, 181, 0.6);
+    background: rgba(0, 173, 181, 0.15);
+}
+
+.mock-avatar-vizon {
+    border-color: rgba(196, 180, 168, 0.5);
+    background: rgba(196, 180, 168, 0.2);
+}
+
+.mock-avatar-safir {
+    border-color: rgba(37, 99, 235, 0.5);
+    background: rgba(37, 99, 235, 0.15);
+}
+
+/* Preview arka planları */
+.preview-minimalist { background: #f8fafc; }
+.preview-emerald    { background: #f0faf5; }
+.preview-bordo      { background: #fdf5f6; }
+.preview-carbon     { background: #f0fafa; }
+.preview-vizon      { background: #fdf9f7; }
+.preview-safir      { background: #f0f4ff; }
+
+/* Responsive — 6 kart mobilde 1 sütun */
+@media (max-width: 768px) {
+    .template-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .template-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
