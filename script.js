@@ -31,14 +31,21 @@ devamEtBtn.addEventListener('click', function () {
             localStorage.removeItem(STORAGE_KEY);
         }
     }
-    landingPage.classList.add('hidden');
-    appContainer.classList.remove('hidden');
-    canliOnizlemeGuncelle();
-    // Kayıtlı fotoğrafı yükle
+
+    // Kayıtlı fotoğrafı ÖNCE yükle (fotoDataURL set edilsin)
     const savedPhoto = localStorage.getItem(PHOTO_KEY);
     if (savedPhoto) {
         fotoYukleVeGoster(savedPhoto);
     }
+
+    landingPage.classList.add('hidden');
+    appContainer.classList.remove('hidden');
+
+    // DOM yerleştikten sonra önizlemeyi güncelle
+    requestAnimationFrame(function () {
+        canliOnizlemeGuncelle();
+        setTimeout(autoFitCV, 150);
+    });
 });
 
 sifirlaBtn.addEventListener('click', function () {
