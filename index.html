@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Oluştur</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Cropper.js (fotoğraf kırpma) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+    <!-- html2pdf.js (hafif, tarayıcı tabanlı PDF) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+</head>
+<body>
+
+    <!-- ===== LANDING PAGE ===== -->
+    <div id="landingPage">
+        <div class="landing-hero">
+            <h1>Kayıt olmadan, 3 dakikada profesyonel CV hazırlayın</h1>
+            <p>Ücretsiz, hızlı ve tarayıcınızda. Hiçbir veriniz sunucuya gönderilmez.</p>
+        </div>
+
+        <div id="savedAlert" class="hidden">
+            <div class="saved-banner">
+                <span class="saved-icon">&#9889;</span>
+                <span><strong>Kayıtlı bir CV'niz bulunuyor!</strong> Kaldığınız yerden devam edebilirsiniz.</span>
+            </div>
+            <div class="saved-actions">
+                <button id="devamEtBtn" class="btn-glow">&#9654; Kaldığın Yerden Devam Et</button>
+                <button id="sifirlaBtn" class="btn-muted">Sıfırla ve Yeni CV Oluştur</button>
+            </div>
+        </div>
+
+        <div class="template-grid">
+            <div class="template-card" data-template="minimalist">
+                <div class="template-preview minimalist-preview">
+                    <div class="mock-line mock-name"></div>
+                    <div class="mock-line mock-short"></div>
+                    <div class="mock-line mock-med"></div>
+                    <div class="mock-line mock-long"></div>
+                    <div class="mock-line mock-med"></div>
+                </div>
+                <div class="template-label">Minimalist</div>
+                <button class="template-btn">Bu Şablonla Başla</button>
+            </div>
+            <div class="template-card" data-template="modern">
+                <div class="template-preview modern-preview">
+                    <div class="mock-block mock-accent"></div>
+                    <div class="mock-line mock-name"></div>
+                    <div class="mock-line mock-short"></div>
+                    <div class="mock-line mock-med"></div>
+                    <div class="mock-line mock-long"></div>
+                </div>
+                <div class="template-label">Modern</div>
+                <button class="template-btn">Bu Şablonla Başla</button>
+            </div>
+            <div class="template-card" data-template="akademik">
+                <div class="template-preview akademik-preview">
+                    <div class="mock-line mock-name"></div>
+                    <div class="mock-line mock-short"></div>
+                    <div class="mock-line mock-med"></div>
+                    <div class="mock-line mock-long"></div>
+                    <div class="mock-line mock-med"></div>
+                    <div class="mock-line mock-short"></div>
+                </div>
+                <div class="template-label">Akademik</div>
+                <button class="template-btn">Bu Şablonla Başla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SPLIT-SCREEN ÇALIŞMA ALANI ===== -->
+    <div id="appContainer" class="hidden">
+
+        <div id="rotateWarning">
+            <div class="rotate-icon">&#8635;</div>
+            <p>Lütfen cihazınızı yatay çevirin</p>
+            <span>Daha iyi bir deneyim için tabletinizi veya telefonunuzu yan çevirin.</span>
+        </div>
+
+        <div id="splitScreen">
+
+            <!-- ========== SOL PANEL: Form ========== -->
+            <div id="leftPanel">
+                <div class="panel-header">
+                    <button id="geriBtn" class="btn-back">&larr; Ana Sayfa</button>
+                    <h2>CV Bilgileri</h2>
+                </div>
+                <div class="panel-scroll">
+                    <form id="cvForm">
+
+                        <div class="accordion-item active">
+                            <div class="accordion-header" data-target="kisisel">
+                                <span>Kişisel Bilgiler</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="kisisel">
+                                <!-- FOTOĞRAF YÜKLEME ALANI -->
+                                <div class="photo-upload-area">
+                                    <div class="photo-circle" id="photoPreview">
+                                        <span class="photo-placeholder">&#128100;</span>
+                                    </div>
+                                    <div class="photo-actions">
+                                        <button type="button" id="fotoEkleBtn" class="btn-photo">+ Fotoğraf Ekle</button>
+                                        <button type="button" id="fotoKaldirBtn" class="btn-photo-remove hidden" title="Kaldır">&#128465;</button>
+                                    </div>
+                                    <input type="file" id="fotoInput" accept="image/*" class="hidden">
+                                </div>
+
+                                <div class="field-group">
+                                    <input type="text" id="ad" placeholder="Ad" required>
+                                </div>
+
+                                <div class="field-group">
+                                    <input type="text" id="soyad" placeholder="Soyad" required>
+                                </div>
+                                <div class="field-group">
+                                    <input type="email" id="email" placeholder="E-posta" required>
+                                </div>
+                                <div class="field-group">
+                                    <input type="tel" id="telefon" placeholder="Telefon (isteğe bağlı)">
+                                </div>
+                                <div class="field-group">
+                                    <input type="text" id="adres" placeholder="Adres (isteğe bağlı)">
+                                </div>
+                                <div class="field-group">
+                                    <textarea id="ozet" rows="3" placeholder="Kısa profil özeti..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" data-target="deneyim">
+                                <span>İş Deneyimi</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="deneyim">
+                                <div id="deneyimList"></div>
+                                <button type="button" class="btn-add" id="deneyimEkleBtn">+ Yeni Ekle</button>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" data-target="egitim">
+                                <span>Eğitim</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="egitim">
+                                <div id="egitimList"></div>
+                                <button type="button" class="btn-add" id="egitimEkleBtn">+ Yeni Ekle</button>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" data-target="yetenekler">
+                                <span>Yetenekler</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="yetenekler">
+                                <div class="field-group">
+                                    <input type="text" id="yetenekInput" placeholder="Bir yetenek yazıp Enter'a basın">
+                                </div>
+                                <div id="yetenekTags" class="tags-container"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" data-target="ilgialanlari">
+                                <span>İlgi Alanları</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="ilgialanlari">
+                                <div class="field-group">
+                                    <input type="text" id="ilgiInput" placeholder="Örn: Kitap Okumak, Satranç (Yazıp Enter'a basın)">
+                                </div>
+                                <div id="ilgiTags" class="tags-container"></div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" data-target="diller">
+                                <span>Diller</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="diller">
+                                <div id="dilList"></div>
+                                <button type="button" class="btn-add" id="dilEkleBtn">+ Yeni Dil Ekle</button>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" data-target="referanslar">
+                                <span>Referanslar</span>
+                                <span class="accordion-arrow">&#9660;</span>
+                            </div>
+                            <div class="accordion-body" id="referanslar">
+                                <div id="referansList"></div>
+                                <button type="button" class="btn-add" id="referansEkleBtn">+ Yeni Referans Ekle</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- ========== SAĞ PANEL: Canlı Önizleme ========== -->
+            <div id="rightPanel">
+                <div class="panel-header">
+                    <h2>Canlı Önizleme</h2>
+                </div>
+
+                <!-- A4 Önizleme Alanı (doğrudan Grid: sol %33 + sağ %67) -->
+                <div id="cvPreview">
+                    <!-- SOL SÜTUN (Lacivert) -->
+                    <div class="cv-sidebar">
+                        <div class="profile-image-container">
+                            <img id="preview-profile-img" src="" alt="Profil Fotoğrafı" style="display: none;">
+                        </div>
+
+                        <div class="cv-sidebar-section">
+                            <h6 class="cv-sidebar-heading">Kişisel Bilgiler</h6>
+                            <p class="cv-sidebar-item" id="cvSidebarAdres">&#9906; Adres bilgisi</p>
+                            <p class="cv-sidebar-item" id="cvSidebarTel">&#9742; Telefon bilgisi</p>
+                            <p class="cv-sidebar-item" id="cvSidebarEmail">&#9993; E-posta bilgisi</p>
+                        </div>
+                        <div class="cv-sidebar-section">
+                            <h6 class="cv-sidebar-heading">İlgi Alanları</h6>
+                            <div id="cvSidebarIlgiler"></div>
+                        </div>
+                        <div class="cv-sidebar-section">
+                            <h6 class="cv-sidebar-heading">Diller</h6>
+                            <div id="cvSidebarDiller"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- SAĞ SÜTUN (Beyaz) — İsim + Unvan en üstte -->
+                    <div class="cv-main">
+                        <h1 class="cv-main-name">Akın YILDIZ</h1>
+                        <p class="cv-main-title">Mağaza Müdürü</p>
+
+                        <!-- Profil Özeti (Hakkımda) -->
+                        <p class="cv-summary" id="cvMainOzet"></p>
+
+                        <div class="cv-main-section">
+
+                            <h6 class="cv-main-heading">&#128188; İş Deneyimi</h6>
+                            <div id="cvMainDeneyim"></div>
+                        </div>
+                        <div class="cv-main-section">
+                            <h6 class="cv-main-heading">&#127891; Eğitim</h6>
+                            <div id="cvMainEgitim"></div>
+                        </div>
+                        <div class="cv-main-section">
+                            <h6 class="cv-main-heading">&#128161; Yetenekler</h6>
+                            <div id="cvMainYetenek"></div>
+                        </div>
+                        <div class="cv-main-section">
+                            <h6 class="cv-main-heading">&#128101; Referanslar</h6>
+                            <div id="cvMainReferans"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ===== KONTROL ÇUBUĞU (A4 DIŞINDA, sağ alt fixed) ===== -->
+                <div class="control-toolbar">
+                    <div class="dropdown">
+                        <button type="button" id="dropdownToggle" class="dropdown-toggle">Minimalist &#9660;</button>
+                        <div id="dropdownMenu" class="dropdown-menu hidden">
+                            <button type="button" class="dropdown-item" data-template="minimalist">Minimalist</button>
+                            <button type="button" class="dropdown-item" data-template="modern">Modern</button>
+                            <button type="button" class="dropdown-item" data-template="akademik">Akademik</button>
+                        </div>
+                    </div>
+                    <button type="button" id="yazdirBtn" class="toolbar-btn" title="Yazdır">&#128424;</button>
+                    <button type="button" id="pdfBtn" class="toolbar-btn toolbar-btn-pdf">PDF İndir</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- ===== KIRPMA MODALI (Cropper.js) ===== -->
+    <div id="cropBackdrop" class="crop-backdrop hidden"></div>
+    <div id="cropModal" class="crop-modal hidden">
+        <div class="crop-modal-inner">
+            <div class="crop-modal-header">
+                <h4>Fotoğrafı Kırp</h4>
+                <button type="button" id="cropModalKapat" class="crop-modal-close">&times;</button>
+            </div>
+            <div class="crop-modal-body">
+                <img id="cropImage" src="" alt="Kırpılacak fotoğraf">
+            </div>
+            <div class="crop-modal-footer">
+                <button type="button" id="cropIptalBtn" class="crop-btn crop-btn-iptal">İptal</button>
+                <button type="button" id="cropKaydetBtn" class="crop-btn crop-btn-kaydet">Kırp ve Kaydet</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Cropper.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+
+</html>

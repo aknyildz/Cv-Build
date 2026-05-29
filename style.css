@@ -1,0 +1,1568 @@
+/* ================================================================
+   RESET & TEMEL
+   ================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ================================================================
+   ORTAK
+   ================================================================ */
+.hidden {
+    display: none !important;
+}
+
+/* ================================================================
+   LANDING PAGE
+   ================================================================ */
+#landingPage {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.landing-hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.landing-hero h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.landing-hero p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+}
+
+/* -- Kayıtlı CV Banner -- */
+#savedAlert {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    background: linear-gradient(135deg, #fff9e6, #fff3cc);
+    border: 2px solid #f0c040;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(240, 192, 64, 0.25);
+}
+
+.saved-banner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 15px;
+}
+
+.saved-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.saved-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-glow {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.4);
+    transition: all 0.3s;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 30px rgba(243, 156, 18, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-muted {
+    padding: 12px 24px;
+    background: transparent;
+    color: #7f8c8d;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-muted:hover {
+    background: #f0f0f0;
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+/* -- Şablon Kartları -- */
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.template-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.template-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.template-preview {
+    padding: 24px 20px 20px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fafafa;
+}
+
+.mock-line {
+    height: 10px;
+    border-radius: 6px;
+    background: #e0e0e0;
+}
+
+.mock-name {
+    width: 60%;
+    height: 14px;
+    background: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.mock-short { width: 35%; }
+.mock-med   { width: 55%; }
+.mock-long  { width: 80%; }
+
+.minimalist-preview {
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.modern-preview {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    padding-top: 30px;
+}
+
+.modern-preview .mock-line {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.modern-preview .mock-name {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.mock-block {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    margin-bottom: 6px;
+}
+
+.akademik-preview {
+    background: #f8f5f0;
+    border: 1px solid #d4c9b8;
+}
+
+.akademik-preview .mock-line {
+    background: #c4b8a8;
+    height: 8px;
+}
+
+.akademik-preview .mock-name {
+    background: #5b4a3a;
+    height: 12px;
+}
+
+.template-label {
+    text-align: center;
+    padding: 12px 16px 8px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #2c3e50;
+}
+
+.template-btn {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 0 16px 16px;
+    padding: 10px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s, transform 0.3s, background 0.3s;
+}
+
+.template-card:hover .template-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.template-btn:hover {
+    background: #2980b9;
+}
+
+/* ================================================================
+   SPLIT-SCREEN
+   ================================================================ */
+#appContainer {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+#rotateWarning {
+    display: none;
+}
+
+#splitScreen {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ================================================================
+   SOL PANEL (%45)
+   ================================================================ */
+#leftPanel {
+    width: 45%;
+    min-width: 320px;
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+}
+
+#leftPanel .panel-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+#leftPanel .panel-header h2 {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.btn-back {
+    padding: 6px 14px;
+    background: transparent;
+    color: #3498db;
+    border: 1px solid #3498db;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-back:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+.panel-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 24px 32px;
+}
+
+/* ================================================================
+   ACCORDION
+   ================================================================ */
+.accordion-item {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    transition: border-color 0.3s;
+}
+
+.accordion-item.active {
+    border-color: #d0d0d0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: color 0.3s;
+}
+
+.accordion-header:hover {
+    color: #1a252f;
+}
+
+.accordion-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    color: #aaa;
+}
+
+.accordion-item.active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 16px;
+}
+
+.accordion-item.active .accordion-body {
+    max-height: 600px; /* yeterli */
+    padding: 0 16px 16px;
+}
+
+/* ================================================================
+   FOTOĞRAF YÜKLEME ALANI (Sol Panel)
+   ================================================================ */
+.photo-upload-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    padding-bottom: 8px;
+}
+
+.photo-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px dashed #ccc;
+    transition: border-color 0.3s;
+}
+
+.photo-circle.has-photo {
+    border-color: transparent;
+}
+
+.photo-placeholder {
+    font-size: 26px;
+    color: #bbb;
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-photo {
+    padding: 5px 12px;
+    background: transparent;
+    color: #1abc9c;
+    border: 1px solid #1abc9c;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-photo:hover {
+    background: #1abc9c;
+    color: #fff;
+}
+
+.btn-photo-remove {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-photo-remove:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+
+/* ================================================================
+   A4 ÖNİZLEME - PROFİL RESMİ (şablon temaları)
+   ================================================================ */
+.template-modern #cvPreview .cv-sidebar-photo {
+    border-radius: 8px;
+    border-color: #3498db;
+}
+
+.template-akademik #cvPreview .cv-sidebar-photo {
+    border-radius: 50%;
+    border-color: #c4b8a8;
+    filter: sepia(0.15);
+}
+
+
+/* ================================================================
+   BORDER-BOTTOM INPUTLAR
+   ================================================================ */
+
+.field-group {
+    margin-top: 14px;
+}
+
+.field-group input,
+.field-group textarea {
+    width: 100%;
+    padding: 8px 0 6px;
+    border: none;
+    border-bottom: 1.5px solid #ddd;
+    background: transparent;
+    font-size: 13px;
+    font-family: inherit;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: #bbb;
+    font-weight: 400;
+}
+
+.field-group input:focus,
+.field-group textarea:focus {
+    border-bottom-color: #1abc9c;
+}
+
+/* Dolu input durumu — koyu lacivert alt çizgi (ezici) */
+.input-filled {
+    color: #1a2e40 !important;
+    border-bottom-color: #1a2e40 !important;
+    font-weight: 600 !important;
+}
+
+/* Tarayıcının otomatik doldurduğu alanları da kapsa */
+input.input-filled:-webkit-autofill,
+textarea.input-filled:-webkit-autofill {
+    -webkit-text-fill-color: #1a2e40 !important;
+}
+
+
+
+.field-group textarea {
+    resize: vertical;
+    min-height: 40px;
+    border: 1.5px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.field-group textarea:focus {
+    border-color: #1abc9c;
+}
+
+/* ================================================================
+   YENİ EKLE BUTONU
+   ================================================================ */
+.btn-add {
+    display: inline-block;
+    padding: 6px 0;
+    margin-top: 10px;
+    background: transparent;
+    color: #1abc9c;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-add:hover {
+    color: #16a085;
+}
+
+/* ================================================================
+   DENEYİM / EĞİTİM LİSTE ÖGELERİ
+   ================================================================ */
+.entry-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    margin-top: 8px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+.entry-item:hover {
+    background: #f0f0f0;
+}
+
+.entry-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.entry-text .entry-title {
+    font-weight: 600;
+}
+
+.entry-text .entry-sub {
+    color: #888;
+    font-size: 12px;
+}
+
+.entry-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.entry-item:hover .entry-actions {
+    opacity: 1;
+}
+
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.3s;
+}
+
+.btn-icon:hover {
+    background: #e0e0e0;
+}
+
+.btn-icon.btn-edit:hover {
+    color: #3498db;
+}
+
+.btn-icon.btn-delete:hover {
+    color: #e74c3c;
+}
+
+/* ================================================================
+   TAG (YETENEK / İLGİ ALANI) SİSTEMİ
+   ================================================================ */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    min-height: 30px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #ecf0f1;
+    color: #555;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.tag:hover {
+    background: #dfe6e9;
+}
+
+.tag-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    color: #999;
+    transition: all 0.3s;
+    line-height: 1;
+}
+
+.tag-remove:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+
+/* ================================================================
+   DİL EKLEME SATIRI (Sol Panel)
+   ================================================================ */
+.dil-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    margin-top: 8px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+.dil-entry:hover {
+    background: #f0f0f0;
+}
+
+.dil-entry .field-group {
+    margin: 0;
+    flex: 1;
+}
+
+.dil-entry .field-group input {
+    padding: 4px 0;
+    font-size: 13px;
+}
+
+.dil-entry .lang-level-slider {
+    width: 80px;
+    flex-shrink: 0;
+    accent-color: #1abc9c;
+    cursor: pointer;
+}
+
+.dil-entry .btn-icon {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.dil-entry:hover .btn-icon {
+    opacity: 1;
+}
+
+
+/* ================================================================
+   FORM SUBMIT BUTONU
+   ================================================================ */
+#cvForm button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#cvForm button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* ================================================================
+   SAĞ PANEL (%55) — A4 önizleme taşıyıcısı
+   ================================================================ */
+#rightPanel {
+    width: 55%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #eef2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#rightPanel .panel-header {
+    width: 100%;
+    max-width: 794px;
+    padding: 0 0 16px;
+    flex-shrink: 0;
+}
+
+#rightPanel .panel-header h2 {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+/* ================================================================
+   #cvPreview — GERÇEK A4 (doğrudan CSS Grid: sol %33 + sağ %67)
+   ================================================================ */
+#cvPreview {
+    width: 794px;
+    min-height: 1123px;
+    height: auto;
+    background: #ffffff;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+    display: grid;
+    grid-template-columns: 33% 67%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.5;
+    color: #333;
+}
+
+
+/* ================================================================
+   SOL SÜTUN — Lacivert Sidebar (Grid ile tabana kilitlenir)
+   ================================================================ */
+#cvPreview .cv-sidebar {
+    background: #1a2e40;
+    color: #ffffff;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 100%; /* Grid sayesinde tabana kadar uzanır */
+}
+
+/* Profil fotoğrafı — tam ortalanmış, ezici boyutlar */
+.profile-image-container {
+    width: 130px !important;
+    height: 130px !important;
+    margin: 0 auto 30px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+#preview-profile-img {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+    border: 3px solid #ffffff !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+
+/* Sidebar bölüm başlıkları */
+#cvPreview .cv-sidebar-heading {
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #8e9db0;
+    margin: 0 0 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#cvPreview .cv-sidebar-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+#cvPreview .cv-sidebar-item {
+    font-size: 8pt;
+    color: #d0d8e4;
+    margin: 0 0 5px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Dil satırı */
+#cvPreview .cv-sidebar-lang {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: #d0d8e4;
+    margin-bottom: 4px;
+}
+
+#cvPreview .cv-dots {
+    font-size: 6.5pt;
+    letter-spacing: 2px;
+    color: #f0c040;
+}
+
+/* ================================================================
+   SAĞ SÜTUN — Beyaz Main (Grid ile %67)
+   ================================================================ */
+#cvPreview .cv-main {
+    background: #ffffff;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* İsim + Unvan (sağ sütunun en üstünde) */
+#cvPreview .cv-main-name {
+    font-size: 28pt;
+    font-weight: bold;
+    color: #1a2e40;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+}
+
+#cvPreview .cv-main-title {
+    font-size: 14pt;
+    color: #555;
+    margin: 5px 0 30px 0;
+    font-weight: 500;
+}
+
+/* Profil Özeti (Hakkımda) */
+#cvPreview .cv-summary {
+    font-size: 10.5pt;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-style: italic;
+    text-align: justify;
+}
+
+
+
+#cvPreview .cv-main-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+#cvPreview .cv-main-heading {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Timeline yapısı */
+#cvPreview .cv-timeline-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 4px;
+}
+
+#cvPreview .cv-timeline-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1a2e40;
+    flex-shrink: 0;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+#cvPreview .cv-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 13px;
+    bottom: -8px;
+    width: 1.5px;
+    background: #d0d0d0;
+}
+
+#cvPreview .cv-timeline-item:last-child::before {
+    display: none;
+}
+
+#cvPreview .cv-timeline-content {
+    flex: 1;
+}
+
+#cvPreview .cv-timeline-title {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: #1a2332;
+}
+
+#cvPreview .cv-timeline-sub {
+    font-size: 8.5pt;
+    color: #888;
+    line-height: 1.4;
+}
+
+/* Yetenek satırı (yıldızlı) */
+#cvPreview .cv-skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+#cvPreview .cv-skill-name {
+    font-size: 9pt;
+    color: #333;
+}
+
+#cvPreview .cv-skill-stars {
+    font-size: 9pt;
+    color: #f0c040;
+    letter-spacing: 1px;
+}
+
+/* Sayfa sonu blok koruması */
+.cv-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+
+
+
+
+/* ================================================================
+   KONTROL ÇUBUĞU (sağ alt fixed, A4 dışında)
+   ================================================================ */
+.control-toolbar {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+/* -- Dropdown -- */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    padding: 7px 14px;
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.dropdown-toggle:hover {
+    background: #e0e0e0;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    background: transparent;
+    color: #333;
+    border: none;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f0f7ff;
+    color: #3498db;
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* -- Toolbar butonları -- */
+.toolbar-btn {
+    padding: 7px 14px;
+    background: #f0f0f0;
+    color: #555;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.toolbar-btn:hover {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.toolbar-btn-pdf {
+    background: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.toolbar-btn-pdf:hover {
+    background: #c0392b;
+    border-color: #c0392b;
+    color: #fff;
+}
+
+
+/* ================================================================
+   ŞABLON TEMALARI (A4 kağıdı class'ları)
+   ================================================================ */
+
+/* -- Minimalist (varsayılan) -- */
+.template-minimalist #cvContent {
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.template-minimalist #cvContent h3 {
+    color: #2c3e50;
+    border-bottom-color: #2c3e50;
+    font-size: 20px;
+}
+
+.template-minimalist #cvContent h4 {
+    color: #2c3e50;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.template-minimalist #cvContent .cv-entry {
+    border-left-color: #ddd;
+}
+
+/* -- Modern -- */
+.template-modern #cvContent {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.template-modern #cvContent h3 {
+    color: #3498db;
+    border-bottom: 3px solid #3498db;
+    font-size: 22px;
+    padding-bottom: 6px;
+}
+
+.template-modern #cvContent h4 {
+    color: #2c3e50;
+    font-size: 14px;
+    background: #eef6fc;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+.template-modern #cvContent .cv-entry {
+    border-left: 3px solid #3498db;
+    padding-left: 12px;
+}
+
+.template-modern #cvContent .cv-entry-title {
+    color: #2c3e50;
+}
+
+.template-modern #cvContent .cv-tag {
+    background: #3498db;
+    color: #fff;
+}
+
+/* -- Akademik -- */
+.template-akademik #cvContent {
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.template-akademik #cvContent h3 {
+    color: #5b4a3a;
+    border-bottom: 1px solid #c4b8a8;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.template-akademik #cvContent h4 {
+    color: #5b4a3a;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    border-bottom: 1px solid #e0d6c8;
+    padding-bottom: 4px;
+}
+
+.template-akademik #cvContent p {
+    color: #444;
+}
+
+.template-akademik #cvContent .cv-entry {
+    border-left: 1px solid #c4b8a8;
+    padding-left: 12px;
+}
+
+.template-akademik #cvContent .cv-entry-title {
+    color: #5b4a3a;
+    font-weight: normal;
+}
+
+.template-akademik #cvContent .cv-entry-sub {
+    color: #888;
+    font-style: italic;
+}
+
+.template-akademik #cvContent .cv-tag {
+    background: #e8e0d4;
+    color: #5b4a3a;
+    border-radius: 2px;
+}
+
+
+/* ================================================================
+   KIRPMA MODALI (Cropper.js) — Minimalist
+   ================================================================ */
+
+/* Arka plan maskesi */
+.crop-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Modal kutusu — tam ortada */
+.crop-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 90%;
+    max-width: 480px;
+}
+
+.crop-modal-inner {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.crop-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.crop-modal-header h4 {
+    font-size: 15px;
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+}
+
+.crop-modal-close {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: #aaa;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.crop-modal-close:hover {
+    background: #f5f5f5;
+    color: #e74c3c;
+}
+
+.crop-modal-body {
+    padding: 14px;
+    max-height: 380px;
+    overflow: hidden;
+}
+
+.crop-modal-body img {
+    max-width: 100%;
+    max-height: 380px;
+    display: block;
+}
+
+.crop-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 18px;
+    border-top: 1px solid #eee;
+}
+
+/* Butonlar */
+.crop-btn {
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+}
+
+.crop-btn-iptal {
+    background: transparent;
+    color: #888;
+    border: 1px solid #ddd;
+}
+
+.crop-btn-iptal:hover {
+    background: #f5f5f5;
+    color: #555;
+}
+
+.crop-btn-kaydet {
+    background: #1abc9c;
+    color: #fff;
+}
+
+.crop-btn-kaydet:hover {
+    background: #16a085;
+}
+
+/* Cropper.js özelleştirmeleri */
+.cropper-view-box,
+.cropper-face {
+    border-radius: 0;
+}
+
+
+/* ================================================================
+   MODAL (Deneyim/Eğitim ekleme)
+   ================================================================ */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.modal-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 24px 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-card h4 {
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 16px;
+}
+
+.modal-card .field-group {
+    margin-top: 12px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.btn-modal-cancel {
+    padding: 8px 20px;
+    background: transparent;
+    color: #888;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-modal-cancel:hover {
+    background: #f0f0f0;
+    color: #555;
+}
+
+.btn-modal-save {
+    padding: 8px 20px;
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-modal-save:hover {
+    background: #16a085;
+}
+
+/* ================================================================
+   BASKI / PDF (print) — 1 mm esnetme (298mm), taşma yok
+   ================================================================ */
+@media print {
+    html, body {
+        height: 298mm !important;
+        max-height: 298mm !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    #leftPanel,
+    .control-toolbar,
+    button,
+    #rotateWarning,
+    .crop-backdrop,
+    .crop-modal,
+    .modal-overlay {
+        display: none !important;
+    }
+
+    #rightPanel {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 210mm !important;
+        height: 298mm !important;
+        max-height: 298mm !important;
+        overflow: hidden !important;
+        background: none !important;
+    }
+
+    #cvPreview {
+        width: 210mm !important;
+        height: 298mm !important;
+        max-height: 298mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        break-inside: avoid !important;
+        break-after: avoid !important;
+        overflow: hidden !important;
+    }
+}
+
+
+
+
+
+
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 768px) and (orientation: portrait) {
+
+    #appContainer:not(.hidden) #rotateWarning {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        inset: 0;
+        background: #2c3e50;
+        color: #fff;
+        z-index: 9999;
+        text-align: center;
+        padding: 40px;
+    }
+
+    #rotateWarning .rotate-icon {
+        font-size: 64px;
+        margin-bottom: 20px;
+        animation: spin 2s ease-in-out infinite;
+    }
+
+    #rotateWarning p {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    #rotateWarning span {
+        font-size: 14px;
+        color: #b0bec5;
+    }
+
+    @keyframes spin {
+        0%   { transform: rotate(0deg); }
+        50%  { transform: rotate(90deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    #splitScreen {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    #leftPanel {
+        width: 40%;
+        min-width: 280px;
+    }
+
+    #rightPanel {
+        width: 60%;
+    }
+
+    #cvPreview {
+        max-width: 380px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #landingPage {
+        padding: 20px 16px 40px;
+    }
+
+    .landing-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .template-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .saved-actions {
+        flex-direction: column;
+    }
+
+    .btn-glow,
+    .btn-muted {
+        width: 100%;
+        text-align: center;
+    }
+}
