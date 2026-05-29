@@ -1073,20 +1073,19 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
         }
     });
 
-    // === SORUMLULUK REDDİ — Son sayfanın en altına sabit ===
-    const sonSayfa = cvPreview.querySelectorAll('.cv-page');
-    const sonSayfaEl = sonSayfa[sonSayfa.length - 1];
-    if (sonSayfaEl) {
+    // === SORUMLULUK REDDİ — Tüm sayfalara ekle ===
+    const tumSayfalarRed = cvPreview.querySelectorAll('.cv-page');
+    tumSayfalarRed.forEach(function (sayfaEl) {
         const redDiv = document.createElement('div');
         redDiv.className = 'cv-disclaimer';
         redDiv.innerHTML =
-            'Bu CV belgesi CVBuilder (cvbuilder) aracılığıyla oluşturulmuştur. ' +
+            'Bu CV belgesi CVBuilder aracılığıyla oluşturulmuştur. ' +
             'Belgede yer alan tüm bilgilerin doğruluğu, gerçekliği ve güncelliği ' +
             'yalnızca belge sahibine aittir. CVBuilder platform yöneticisi, ' +
             'içerikteki herhangi bir bilgiden kaynaklanan doğrudan veya dolaylı ' +
             'zararlardan sorumlu tutulamaz.';
-        sonSayfaEl.appendChild(redDiv);
-    }
+        sayfaEl.appendChild(redDiv);
+    });
 }
 
 // ================================================================
