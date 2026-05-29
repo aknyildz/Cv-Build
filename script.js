@@ -1072,6 +1072,21 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
             visibleSections[visibleSections.length - 1].style.borderBottom = 'none';
         }
     });
+
+    // === SORUMLULUK REDDİ — Son sayfanın en altına sabit ===
+    const sonSayfa = cvPreview.querySelectorAll('.cv-page');
+    const sonSayfaEl = sonSayfa[sonSayfa.length - 1];
+    if (sonSayfaEl) {
+        const redDiv = document.createElement('div');
+        redDiv.className = 'cv-disclaimer';
+        redDiv.innerHTML =
+            'Bu CV belgesi CVBuilder (cvbuilder) aracılığıyla oluşturulmuştur. ' +
+            'Belgede yer alan tüm bilgilerin doğruluğu, gerçekliği ve güncelliği ' +
+            'yalnızca belge sahibine aittir. CVBuilder platform yöneticisi, ' +
+            'içerikteki herhangi bir bilgiden kaynaklanan doğrudan veya dolaylı ' +
+            'zararlardan sorumlu tutulamaz.';
+        sonSayfaEl.appendChild(redDiv);
+    }
 }
 
 // ================================================================
@@ -1189,48 +1204,50 @@ themeSelect.addEventListener('change', function () {
 // ================================================================
 
 yazdirBtn.addEventListener('click', function () {
-    const cvPreview  = document.getElementById('cvPreview');
-    const rightPanel = document.getElementById('rightPanel');
-    const splitScreen = document.getElementById('splitScreen');
+    sorumlulukOnayGoster(function () {
+        const cvPreview  = document.getElementById('cvPreview');
+        const rightPanel = document.getElementById('rightPanel');
+        const splitScreen = document.getElementById('splitScreen');
 
-    window.removeEventListener('resize', autoFitCV);
+        window.removeEventListener('resize', autoFitCV);
 
-    cvPreview.style.transform       = 'none';
-    cvPreview.style.webkitTransform = 'none';
-    cvPreview.style.transformOrigin = 'top left';
-    cvPreview.style.display         = 'block';
+        cvPreview.style.transform       = 'none';
+        cvPreview.style.webkitTransform = 'none';
+        cvPreview.style.transformOrigin = 'top left';
+        cvPreview.style.display         = 'block';
 
-    rightPanel.style.padding  = '0';
-    rightPanel.style.overflow = 'visible';
-    rightPanel.style.width    = '794px';
+        rightPanel.style.padding  = '0';
+        rightPanel.style.overflow = 'visible';
+        rightPanel.style.width    = '794px';
 
-    splitScreen.style.display = 'block';
+        splitScreen.style.display = 'block';
 
-    const ad    = (document.getElementById('ad').value || '').trim();
-    const soyad = (document.getElementById('soyad').value || '').trim();
-    const name  = (ad || soyad) ? (ad + ' ' + soyad).trim() : 'cv';
-    const slug  = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
-    const originalTitle = document.title;
-    document.title = slug + '-cv';
+        const ad    = (document.getElementById('ad').value || '').trim();
+        const soyad = (document.getElementById('soyad').value || '').trim();
+        const name  = (ad || soyad) ? (ad + ' ' + soyad).trim() : 'cv';
+        const slug  = name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        const originalTitle = document.title;
+        document.title = slug + '-cv';
 
-    requestAnimationFrame(function () {
         requestAnimationFrame(function () {
-            window.print();
+            requestAnimationFrame(function () {
+                window.print();
 
-            document.title = originalTitle;
+                document.title = originalTitle;
 
-            cvPreview.style.display         = '';
-            cvPreview.style.transform       = '';
-            cvPreview.style.webkitTransform = '';
+                cvPreview.style.display         = '';
+                cvPreview.style.transform       = '';
+                cvPreview.style.webkitTransform = '';
 
-            rightPanel.style.padding  = '';
-            rightPanel.style.overflow = '';
-            rightPanel.style.width    = '';
+                rightPanel.style.padding  = '';
+                rightPanel.style.overflow = '';
+                rightPanel.style.width    = '';
 
-            splitScreen.style.display = '';
+                splitScreen.style.display = '';
 
-            window.addEventListener('resize', autoFitCV);
-            autoFitCV();
+                window.addEventListener('resize', autoFitCV);
+                autoFitCV();
+            });
         });
     });
 });
@@ -1243,89 +1260,87 @@ yazdirBtn.addEventListener('click', function () {
 // PDF İNDİR (html2canvas + jsPDF)
 // ================================================================
 
-pdfBtn.addEventListener('click', async function () {
-    const cvPreview = document.getElementById('cvPreview');
-    const sayfalar  = cvPreview.querySelectorAll('.cv-page');
+pdfBtn.addEventListener('click', function () {
+    sorumlulukOnayGoster(async function () {
+        const cvPreview = document.getElementById('cvPreview');
+        const sayfalar  = cvPreview.querySelectorAll('.cv-page');
 
-    if (sayfalar.length === 0) {
-        alert('Önce CV bilgilerini doldurun.');
-        return;
-    }
-
-    // Dosya adı oluştur
-    const ad    = (document.getElementById('ad').value || '').trim();
-    const soyad = (document.getElementById('soyad').value || '').trim();
-    let dosyaAdi = 'cv.pdf';
-    if (ad || soyad) {
-        dosyaAdi = (ad + ' ' + soyad).trim()
-            .toLowerCase()
-            .replace(/[ğ]/g, 'g').replace(/[ü]/g, 'u')
-            .replace(/[ş]/g, 's').replace(/[ı]/g, 'i')
-            .replace(/[ö]/g, 'o').replace(/[ç]/g, 'c')
-            .replace(/[^a-z0-9\s]/g, '')
-            .replace(/\s+/g, '-') + '-cv.pdf';
-    }
-
-    const originalText = pdfBtn.textContent;
-    pdfBtn.textContent = 'Hazırlanıyor...';
-    pdfBtn.disabled = true;
-
-    try {
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF({
-            orientation: 'portrait',
-            unit: 'px',
-            format: [794, 1122],
-            hotfixes: ['px_scaling']
-        });
-
-        for (let i = 0; i < sayfalar.length; i++) {
-            const sayfa = sayfalar[i];
-
-            // Fotoğraf base64 kontrolü — html2canvas CORS sorununu önle
-            const imgEls = sayfa.querySelectorAll('img');
-            imgEls.forEach(function(img) {
-                if (img.src && img.src.startsWith('data:')) {
-                    img.setAttribute('crossorigin', 'anonymous');
-                }
-            });
-
-            // Her sayfayı canvas'a çevir
-            const canvas = await html2canvas(sayfa, {
-                scale: 2,
-                useCORS: true,
-                allowTaint: true,
-                logging: false,
-                width: 794,
-                height: 1122,
-                windowWidth: 794,
-                windowHeight: 1122,
-                x: 0,
-                y: 0,
-                scrollX: 0,
-                scrollY: 0,
-                backgroundColor: '#ffffff'
-            });
-
-            const imgData = canvas.toDataURL('image/jpeg', 0.95);
-
-            // İlk sayfa zaten var, sonrakiler için yeni sayfa ekle
-            if (i > 0) {
-                pdf.addPage([794, 1122], 'portrait');
-            }
-
-            pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1122);
+        if (sayfalar.length === 0) {
+            alert('Önce CV bilgilerini doldurun.');
+            return;
         }
 
-        pdf.save(dosyaAdi);
+        const ad    = (document.getElementById('ad').value || '').trim();
+        const soyad = (document.getElementById('soyad').value || '').trim();
+        let dosyaAdi = 'cv.pdf';
+        if (ad || soyad) {
+            dosyaAdi = (ad + ' ' + soyad).trim()
+                .toLowerCase()
+                .replace(/[ğ]/g, 'g').replace(/[ü]/g, 'u')
+                .replace(/[ş]/g, 's').replace(/[ı]/g, 'i')
+                .replace(/[ö]/g, 'o').replace(/[ç]/g, 'c')
+                .replace(/[^a-z0-9\s]/g, '')
+                .replace(/\s+/g, '-') + '-cv.pdf';
+        }
 
-    } catch (err) {
-        console.error('PDF hatası:', err);
-        alert('PDF oluşturulurken bir hata oluştu: ' + err.message);
-    } finally {
-        pdfBtn.textContent = originalText;
-        pdfBtn.disabled = false;
-    }
+        const originalText = pdfBtn.textContent;
+        pdfBtn.textContent = 'Hazırlanıyor...';
+        pdfBtn.disabled = true;
+
+        try {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'px',
+                format: [794, 1122],
+                hotfixes: ['px_scaling']
+            });
+
+            for (let i = 0; i < sayfalar.length; i++) {
+                const sayfa = sayfalar[i];
+
+                const imgEls = sayfa.querySelectorAll('img');
+                imgEls.forEach(function(img) {
+                    if (img.src && img.src.startsWith('data:')) {
+                        img.setAttribute('crossorigin', 'anonymous');
+                    }
+                });
+
+                const canvas = await html2canvas(sayfa, {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    logging: false,
+                    width: 794,
+                    height: 1122,
+                    windowWidth: 794,
+                    windowHeight: 1122,
+                    x: 0,
+                    y: 0,
+                    scrollX: 0,
+                    scrollY: 0,
+                    backgroundColor: '#ffffff'
+                });
+
+                const imgData = canvas.toDataURL('image/jpeg', 0.95);
+
+                if (i > 0) {
+                    pdf.addPage([794, 1122], 'portrait');
+                }
+
+                pdf.addImage(imgData, 'JPEG', 0, 0, 794, 1122);
+            }
+
+            pdf.save(dosyaAdi);
+
+        } catch (err) {
+            console.error('PDF hatası:', err);
+            alert('PDF oluşturulurken bir hata oluştu: ' + err.message);
+        } finally {
+            pdfBtn.textContent = originalText;
+            pdfBtn.disabled = false;
+        }
+    });
 });
 
 
@@ -1474,4 +1489,83 @@ window.addEventListener('resize', autoFitCV);
         });
     });
 })();
+
+// ================================================================
+// SORUMLULUK ONAYI POPUP
+// ================================================================
+
+function sorumlulukOnayGoster(onayCallback) {
+    // Zaten açıksa tekrar açma
+    if (document.getElementById('sorumlulukModal')) return;
+
+    const backdrop = document.createElement('div');
+    backdrop.id = 'sorumlulukBackdrop';
+    backdrop.className = 'sorumluluk-backdrop';
+
+    const modal = document.createElement('div');
+    modal.id = 'sorumlulukModal';
+    modal.className = 'sorumluluk-modal';
+    modal.innerHTML = `
+        <div class="sorumluluk-icon">&#9888;</div>
+        <h3 class="sorumluluk-title">Bilgi Doğrulama Onayı</h3>
+        <p class="sorumluluk-text">
+            CV'nizde yer alan tüm bilgilerin (ad, soyad, iletişim bilgileri,
+            iş deneyimi, eğitim ve diğer içerikler) <strong>doğru, güncel ve
+            gerçeği yansıtır</strong> nitelikte olduğunu beyan etmektesiniz.
+        </p>
+        <p class="sorumluluk-text">
+            CVBuilder platform yöneticisi, belgede yer alan bilgilerin
+            doğruluğundan veya bu bilgilerden kaynaklanan herhangi bir
+            zarardan <strong>sorumlu tutulamaz.</strong> Tüm hukuki ve
+            ahlaki sorumluluk münhasıran size aittir.
+        </p>
+        <div class="sorumluluk-checkbox-row">
+            <input type="checkbox" id="sorumlulukCheck">
+            <label for="sorumlulukCheck">
+                Yukarıdaki koşulları okudum, anladım ve kabul ediyorum.
+            </label>
+        </div>
+        <div class="sorumluluk-actions">
+            <button class="sorumluluk-btn-iptal" id="sorumlulukIptal">Vazgeç</button>
+            <button class="sorumluluk-btn-onayla" id="sorumlulukOnayla" disabled>
+                Onayla ve Devam Et
+            </button>
+        </div>
+    `;
+
+    document.body.appendChild(backdrop);
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+
+    // Checkbox kontrolü
+    const check   = modal.querySelector('#sorumlulukCheck');
+    const onayBtn = modal.querySelector('#sorumlulukOnayla');
+    const iptalBtn = modal.querySelector('#sorumlulukIptal');
+
+    check.addEventListener('change', function () {
+        onayBtn.disabled = !check.checked;
+    });
+
+    function kapat() {
+        backdrop.remove();
+        modal.remove();
+        document.body.style.overflow = '';
+    }
+
+    iptalBtn.addEventListener('click', kapat);
+    backdrop.addEventListener('click', kapat);
+
+    document.addEventListener('keydown', function escKapat(e) {
+        if (e.key === 'Escape') {
+            kapat();
+            document.removeEventListener('keydown', escKapat);
+        }
+    });
+
+    onayBtn.addEventListener('click', function () {
+        if (!check.checked) return;
+        kapat();
+        onayCallback();
+    });
+}
 
