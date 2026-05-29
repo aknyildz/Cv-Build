@@ -817,7 +817,7 @@ function refreshAllInputStates() {
 const yazdirBtn = document.getElementById('yazdirBtn');
 const pdfBtn    = document.getElementById('pdfBtn');
 
-const canliAlanlar = ['ad', 'soyad', 'email', 'telefon', 'adres', 'unvan', 'ozet'];
+const canliAlanlar = ['ad', 'soyad', 'email', 'telefon', 'adres', 'linkedin', 'unvan', 'ozet'];
 
 canliAlanlar.forEach(function (id) {
     const el = document.getElementById(id);
@@ -838,6 +838,7 @@ function veriKaydetVeOnizle() {
     const email     = document.getElementById('email').value;
     const telefon   = document.getElementById('telefon').value;
     const adres     = document.getElementById('adres').value;
+    const linkedin  = document.getElementById('linkedin').value;
     const unvan     = document.getElementById('unvan').value;
     const ozet      = document.getElementById('ozet').value;
 
@@ -847,6 +848,7 @@ function veriKaydetVeOnizle() {
         email: email.trim(),
         telefon: telefon.trim(),
         adres: adres.trim(),
+        linkedin: linkedin.trim(),
         unvan: unvan.trim(),
         ozet: ozet.trim(),
         deneyimler: deneyimler,
@@ -869,6 +871,7 @@ function canliOnizlemeGuncelle() {
     const email     = document.getElementById('email').value.trim();
     const telefon   = document.getElementById('telefon').value.trim();
     const adres     = document.getElementById('adres').value.trim();
+    const linkedin  = document.getElementById('linkedin').value.trim();
     const ozetMetin = document.getElementById('ozet').value.trim();
     const unvanMetin = document.getElementById('unvan').value.trim();
 
@@ -879,21 +882,21 @@ function canliOnizlemeGuncelle() {
     })[0] || 'theme-minimalist';
 
     // === SAYFA DAĞITICI: Tüm sayfaları baştan oluştur ===
-    sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, unvanMetin, themeClass);
+    sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin, unvanMetin, themeClass);
 }
 
 // ================================================================
 // SAYFA DAĞITICI (Page Distributor)
 // ================================================================
 
-function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, unvanMetin, themeClass) {
+function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin, unvanMetin, themeClass) {
     const cvPreview = document.getElementById('cvPreview');
 
     // Eski tüm sayfaları temizle
     cvPreview.innerHTML = '';
 
     // === SAYFA 1: Sidebar (sol sütun) içeriğini oluştur ===
-    const sidebarHTML = sidebarOlustur(ad, soyad, email, telefon, adres);
+    const sidebarHTML = sidebarOlustur(ad, soyad, email, telefon, adres, linkedin);
 
     // === SAĞ SÜTUN BLOKLARI (görünür olanları topla) ===
     const bloklar = [];
@@ -1075,7 +1078,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, unvanMeti
 // SİDEBAR OLUŞTURUCU (sol sütun HTML'i)
 // ================================================================
 
-function sidebarOlustur(ad, soyad, email, telefon, adres) {
+function sidebarOlustur(ad, soyad, email, telefon, adres, linkedin) {
     let html = '';
 
     // Profil fotoğrafı
@@ -1093,6 +1096,10 @@ function sidebarOlustur(ad, soyad, email, telefon, adres) {
     html += '<p class="cv-sidebar-item" id="cvSidebarAdres">&#9906; ' + (adres || 'Adres bilgisi') + '</p>';
     html += '<p class="cv-sidebar-item" id="cvSidebarTel">&#9742; ' + (telefon || 'Telefon bilgisi') + '</p>';
     html += '<p class="cv-sidebar-item" id="cvSidebarEmail">&#9993; ' + (email || 'E-posta bilgisi') + '</p>';
+    if (linkedin) {
+        const linkedinGoster = linkedin.replace(/^https?:\/\/(www\.)?linkedin\.com\//i, 'linkedin.com/');
+        html += '<p class="cv-sidebar-item" id="cvSidebarLinkedin">&#128279; ' + linkedinGoster + '</p>';
+    }
     html += '</div>';
 
     // İlgi Alanları
@@ -1335,6 +1342,7 @@ function tumVeriyiYukle(data) {
     if (data.adres)   document.getElementById('adres').value   = data.adres;
     if (data.ozet)    document.getElementById('ozet').value    = data.ozet;
     if (data.unvan)   document.getElementById('unvan').value   = data.unvan;
+    if (data.linkedin) document.getElementById('linkedin').value = data.linkedin;
 
     if (data.deneyimler && Array.isArray(data.deneyimler)) {
         deneyimler = data.deneyimler;
