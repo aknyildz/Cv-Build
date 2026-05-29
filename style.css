@@ -825,7 +825,7 @@ textarea.input-filled:-webkit-autofill {
    ================================================================ */
 .cv-page {
     width: 794px;
-    height: 1123px;
+    height: 1122px;
     background: #ffffff;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
     display: grid;
@@ -856,7 +856,7 @@ textarea.input-filled:-webkit-autofill {
     flex-direction: column;
     gap: 18px;
     height: 100%;
-    min-height: 1123px;
+    min-height: 1122px;
 }
 
 
@@ -1176,110 +1176,6 @@ textarea.input-filled:-webkit-autofill {
 /* ================================================================
    ŞABLON TEMALARI (A4 kağıdı class'ları)
    ================================================================ */
-
-/* -- Minimalist (varsayılan) -- */
-.template-minimalist #cvContent {
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
-
-.template-minimalist #cvContent h3 {
-    color: #2c3e50;
-    border-bottom-color: #2c3e50;
-    font-size: 20px;
-}
-
-.template-minimalist #cvContent h4 {
-    color: #2c3e50;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.template-minimalist #cvContent .cv-entry {
-    border-left-color: #ddd;
-}
-
-/* -- Modern -- */
-.template-modern #cvContent {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-.template-modern #cvContent h3 {
-    color: #3498db;
-    border-bottom: 3px solid #3498db;
-    font-size: 22px;
-    padding-bottom: 6px;
-}
-
-.template-modern #cvContent h4 {
-    color: #2c3e50;
-    font-size: 14px;
-    background: #eef6fc;
-    padding: 6px 10px;
-    border-radius: 4px;
-    margin-top: 16px;
-}
-
-.template-modern #cvContent .cv-entry {
-    border-left: 3px solid #3498db;
-    padding-left: 12px;
-}
-
-.template-modern #cvContent .cv-entry-title {
-    color: #2c3e50;
-}
-
-.template-modern #cvContent .cv-tag {
-    background: #3498db;
-    color: #fff;
-}
-
-/* -- Akademik -- */
-.template-akademik #cvContent {
-    font-family: 'Georgia', 'Times New Roman', serif;
-}
-
-.template-akademik #cvContent h3 {
-    color: #5b4a3a;
-    border-bottom: 1px solid #c4b8a8;
-    font-size: 20px;
-    font-weight: normal;
-    letter-spacing: 0.5px;
-}
-
-.template-akademik #cvContent h4 {
-    color: #5b4a3a;
-    font-size: 14px;
-    font-style: italic;
-    font-weight: normal;
-    border-bottom: 1px solid #e0d6c8;
-    padding-bottom: 4px;
-}
-
-.template-akademik #cvContent p {
-    color: #444;
-}
-
-.template-akademik #cvContent .cv-entry {
-    border-left: 1px solid #c4b8a8;
-    padding-left: 12px;
-}
-
-.template-akademik #cvContent .cv-entry-title {
-    color: #5b4a3a;
-    font-weight: normal;
-}
-
-.template-akademik #cvContent .cv-entry-sub {
-    color: #888;
-    font-style: italic;
-}
-
-.template-akademik #cvContent .cv-tag {
-    background: #e8e0d4;
-    color: #5b4a3a;
-    border-radius: 2px;
-}
 
 
 /* ================================================================

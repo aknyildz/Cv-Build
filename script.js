@@ -45,9 +45,36 @@ sifirlaBtn.addEventListener('click', function () {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem(PHOTO_KEY);
 
+    // Tüm state dizilerini sıfırla
+    deneyimler    = [];
+    egitimler     = [];
+    yetenekler    = [];
+    ilgiAlanlari  = [];
+    diller        = [];
+    referanslar   = [];
+
+    // Form alanlarını temizle
+    ['ad','soyad','email','telefon','adres','ozet'].forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) { el.value = ''; el.classList.remove('input-filled'); }
+    });
+
+    // Liste container'larını temizle
+    document.getElementById('deneyimList').innerHTML  = '';
+    document.getElementById('egitimList').innerHTML   = '';
+    document.getElementById('dilList').innerHTML      = '';
+    document.getElementById('referansList').innerHTML = '';
+    document.getElementById('yetenekTags').innerHTML  = '';
+    document.getElementById('ilgiTags').innerHTML     = '';
+
+    // Fotoğrafı kaldır
+    fotoKaldir();
+
     savedAlert.classList.add('hidden');
     landingPage.classList.add('hidden');
     appContainer.classList.remove('hidden');
+
+    canliOnizlemeGuncelle();
 });
 
 document.querySelectorAll('.template-btn').forEach(function (btn) {
@@ -787,11 +814,10 @@ function refreshAllInputStates() {
 // CANLI VERİ BAĞLAMA (LIVE DATA BINDING)
 // ================================================================
 
-const cvContent = document.getElementById('cvContent');
 const yazdirBtn = document.getElementById('yazdirBtn');
 const pdfBtn    = document.getElementById('pdfBtn');
 
-const canliAlanlar = ['ad', 'soyad', 'email', 'telefon', 'adres', 'ozet'];
+const canliAlanlar = ['ad', 'soyad', 'email', 'telefon', 'adres', 'unvan', 'ozet'];
 
 canliAlanlar.forEach(function (id) {
     const el = document.getElementById(id);
@@ -812,6 +838,7 @@ function veriKaydetVeOnizle() {
     const email     = document.getElementById('email').value;
     const telefon   = document.getElementById('telefon').value;
     const adres     = document.getElementById('adres').value;
+    const unvan     = document.getElementById('unvan').value;
     const ozet      = document.getElementById('ozet').value;
 
     const data = {
@@ -820,6 +847,7 @@ function veriKaydetVeOnizle() {
         email: email.trim(),
         telefon: telefon.trim(),
         adres: adres.trim(),
+        unvan: unvan.trim(),
         ozet: ozet.trim(),
         deneyimler: deneyimler,
         egitimler: egitimler,
@@ -842,6 +870,7 @@ function canliOnizlemeGuncelle() {
     const telefon   = document.getElementById('telefon').value.trim();
     const adres     = document.getElementById('adres').value.trim();
     const ozetMetin = document.getElementById('ozet').value.trim();
+    const unvanMetin = document.getElementById('unvan').value.trim();
 
     // Mevcut tema sınıfını al
     const cvPreview = document.getElementById('cvPreview');
@@ -850,14 +879,14 @@ function canliOnizlemeGuncelle() {
     })[0] || 'theme-minimalist';
 
     // === SAYFA DAĞITICI: Tüm sayfaları baştan oluştur ===
-    sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, themeClass);
+    sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, unvanMetin, themeClass);
 }
 
 // ================================================================
 // SAYFA DAĞITICI (Page Distributor)
 // ================================================================
 
-function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, themeClass) {
+function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, unvanMetin, themeClass) {
     const cvPreview = document.getElementById('cvPreview');
 
     // Eski tüm sayfaları temizle
@@ -872,7 +901,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, themeClas
     // İsim + Unvan (her zaman göster)
     bloklar.push({
         type: 'header',
-        html: '<h1 class="cv-main-name">' + ((ad || soyad) ? (ad + ' ' + soyad) : 'Ad Soyad') + '</h1><p class="cv-main-title">Unvan</p>'
+        html: '<h1 class="cv-main-name">' + ((ad || soyad) ? (ad + ' ' + soyad) : 'Ad Soyad') + '</h1>' + (unvanMetin ? '<p class="cv-main-title">' + unvanMetin + '</p>' : '')
     });
 
     // Profil Özeti
@@ -921,7 +950,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, ozetMetin, themeClas
         let html = '<div class="cv-main-section" id="cvMainYetenekSection">';
         html += '<h6 class="cv-main-heading">&#128161; Yetenekler</h6>';
         yetenekler.forEach(function (y) {
-            html += '<div class="cv-skill-row"><span class="cv-skill-name">' + y + '</span><span class="cv-skill-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span></div>';
+            html += '<div class="cv-skill-row"><span class="cv-skill-name">' + y + '</span></div>';
         });
         html += '</div>';
         bloklar.push({ type: 'section', html: html });
@@ -1246,6 +1275,14 @@ pdfBtn.addEventListener('click', async function () {
         for (let i = 0; i < sayfalar.length; i++) {
             const sayfa = sayfalar[i];
 
+            // Fotoğraf base64 kontrolü — html2canvas CORS sorununu önle
+            const imgEls = sayfa.querySelectorAll('img');
+            imgEls.forEach(function(img) {
+                if (img.src && img.src.startsWith('data:')) {
+                    img.setAttribute('crossorigin', 'anonymous');
+                }
+            });
+
             // Her sayfayı canvas'a çevir
             const canvas = await html2canvas(sayfa, {
                 scale: 2,
@@ -1297,6 +1334,7 @@ function tumVeriyiYukle(data) {
     if (data.telefon) document.getElementById('telefon').value = data.telefon;
     if (data.adres)   document.getElementById('adres').value   = data.adres;
     if (data.ozet)    document.getElementById('ozet').value    = data.ozet;
+    if (data.unvan)   document.getElementById('unvan').value   = data.unvan;
 
     if (data.deneyimler && Array.isArray(data.deneyimler)) {
         deneyimler = data.deneyimler;
@@ -1351,12 +1389,17 @@ function autoFitCV() {
 
     if (availableWidth > 0 && availableWidth < cvWidth) {
         const scale = Math.max(availableWidth / cvWidth, 0.35);
+        // Ölçeklenmiş yüksekliği hesapla — kaybolan boşluğu telafi et
+        const sayfaSayisi = cvPreview.querySelectorAll('.cv-page').length || 1;
+        const gercekYukseklik = (1123 * sayfaSayisi + 20 * (sayfaSayisi - 1)) * scale;
         cvPreview.style.transform       = 'scale(' + scale + ')';
         cvPreview.style.webkitTransform = 'scale(' + scale + ')';
-        cvPreview.style.marginBottom    = ((cvWidth * scale) - cvWidth) + 'px';
+        cvPreview.style.height          = (1123 * sayfaSayisi + 20 * (sayfaSayisi - 1)) + 'px';
+        cvPreview.style.marginBottom    = (gercekYukseklik - (1123 * sayfaSayisi + 20 * (sayfaSayisi - 1))) + 'px';
     } else {
         cvPreview.style.transform       = 'scale(1)';
         cvPreview.style.webkitTransform = 'scale(1)';
+        cvPreview.style.height          = '';
         cvPreview.style.marginBottom    = '0';
     }
 }
