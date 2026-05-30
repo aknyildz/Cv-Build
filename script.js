@@ -8,6 +8,7 @@ const i18n = {
 
     tr: {
         // Navbar
+        navPageTitle: 'cvobotu.com — Ücretsiz CV Oluşturucu',
         navBadge: '100% Ücretsiz & Gizli',
         // Hero
         heroBadge: '✦ Tarayıcı tabanlı · Kayıt yok · Veri gönderilmez',
@@ -42,7 +43,7 @@ const i18n = {
         footerCookie: 'Çerez Politikası',
         footerTerms: 'Kullanım Koşulları',
         footerQuick: 'Hızlı Özet',
-        footerCopy: '© 2025 CVBuilder. Tüm hakları saklıdır.',
+        footerCopy: '© 2025 cvobotu.com. Tüm hakları saklıdır.',
         // Sol panel
         panelTitle: 'CV Bilgileri',
         btnBack: '← Ana Sayfa',
@@ -108,12 +109,12 @@ const i18n = {
         // Sorumluluk onayı
         onayTitle: 'Bilgi Doğrulama Onayı',
         onayText1: 'CV\'nizde yer alan tüm bilgilerin (ad, soyad, iletişim bilgileri, iş deneyimi, eğitim ve diğer içerikler) doğru, güncel ve gerçeği yansıtır nitelikte olduğunu beyan etmektesiniz.',
-        onayText2: 'CVBuilder platform yöneticisi, belgede yer alan bilgilerin doğruluğundan veya bu bilgilerden kaynaklanan herhangi bir zarardan sorumlu tutulamaz. Tüm hukuki ve ahlaki sorumluluk münhasıran size aittir.',
+        onayText2: 'cvobotu.com platform yöneticisi, belgede yer alan bilgilerin doğruluğundan veya bu bilgilerden kaynaklanan herhangi bir zarardan sorumlu tutulamaz. Tüm hukuki ve ahlaki sorumluluk münhasıran size aittir.',
         onayCheck: 'Yukarıdaki koşulları okudum, anladım ve kabul ediyorum.',
         onayVazgec: 'Vazgeç',
         onayOnayla: 'Onayla ve Devam Et',
         // Disclaimer
-        disclaimer: 'Bu CV belgesi CVBuilder aracılığıyla oluşturulmuştur. Belgede yer alan tüm bilgilerin doğruluğu, gerçekliği ve güncelliği yalnızca belge sahibine aittir. CVBuilder platform yöneticisi, içerikteki herhangi bir bilgiden kaynaklanan doğrudan veya dolaylı zararlardan sorumlu tutulamaz.',
+        disclaimer: 'Bu CV belgesi cvobotu.com aracılığıyla oluşturulmuştur. Belgede yer alan tüm bilgilerin doğruluğu, gerçekliği ve güncelliği yalnızca belge sahibine aittir. cvobotu.com platform yöneticisi, içerikteki herhangi bir bilgiden kaynaklanan doğrudan veya dolaylı zararlardan sorumlu tutulamaz.',
         // Kırpma modal
         cropTitle: 'Fotoğrafı Kırp',
         cropIptal: 'İptal',
@@ -134,9 +135,11 @@ const i18n = {
         cvAdres: 'Adres bilgisi',
         cvTel: 'Telefon bilgisi',
         cvEmail: 'E-posta bilgisi',
+        cvOlusturBtn: 'CV Oluştur',
     },
 
     en: {
+        navPageTitle: 'cvobotu.com — Free CV Builder',
         navBadge: '100% Free & Private',
         heroBadge: '✦ Browser-based · No signup · No data sent',
         heroTitle1: 'Create Your Professional',
@@ -167,7 +170,7 @@ const i18n = {
         footerCookie: 'Cookie Policy',
         footerTerms: 'Terms of Use',
         footerQuick: 'Quick Summary',
-        footerCopy: '© 2025 CVBuilder. All rights reserved.',
+        footerCopy: '© 2025 cvobotu.com. All rights reserved.',
         panelTitle: 'CV Information',
         btnBack: '← Home',
         accKisisel: 'Personal Information',
@@ -226,11 +229,11 @@ const i18n = {
         cvReferanslar: 'References',
         onayTitle: 'Information Verification',
         onayText1: 'You declare that all information in your CV (name, contact details, work experience, education and other content) is accurate, current and truthful.',
-        onayText2: 'CVBuilder platform manager cannot be held responsible for the accuracy of the information or any damage arising from it. All legal and moral responsibility belongs solely to you.',
+        onayText2: 'cvobotu.com platform manager cannot be held responsible for the accuracy of the information or any damage arising from it. All legal and moral responsibility belongs solely to you.',
         onayCheck: 'I have read, understood and accept the above terms.',
         onayVazgec: 'Cancel',
         onayOnayla: 'Confirm and Continue',
-        disclaimer: 'This CV was created via CVBuilder. The accuracy, authenticity and currency of all information in this document belongs solely to the document owner. The CVBuilder platform manager cannot be held responsible for any direct or indirect damages arising from the content.',
+        disclaimer: 'This CV was created via cvobotu.com. The accuracy, authenticity and currency of all information in this document belongs solely to the document owner. The cvobotu.com platform manager cannot be held responsible for any direct or indirect damages arising from the content.',
         cropTitle: 'Crop Photo',
         cropIptal: 'Cancel',
         cropKaydet: 'Crop & Save',
@@ -246,9 +249,11 @@ const i18n = {
         cvAdres: 'Address',
         cvTel: 'Phone',
         cvEmail: 'Email',
+        cvOlusturBtn: 'Create CV',
     },
 
     de: {
+        navPageTitle: 'cvobotu.com — Kostenloser Lebenslauf-Builder',
         navBadge: '100% Kostenlos & Privat',
         heroBadge: '✦ Browserbasiert · Keine Anmeldung · Keine Daten gesendet',
         heroTitle1: 'Erstellen Sie Ihren',
@@ -279,7 +284,7 @@ const i18n = {
         footerCookie: 'Cookie-Richtlinie',
         footerTerms: 'Nutzungsbedingungen',
         footerQuick: 'Schnellübersicht',
-        footerCopy: '© 2025 CVBuilder. Alle Rechte vorbehalten.',
+        footerCopy: '© 2025 cvobotu.com. Alle Rechte vorbehalten.',
         panelTitle: 'Lebenslauf-Informationen',
         btnBack: '← Startseite',
         accKisisel: 'Persönliche Daten',
@@ -338,11 +343,11 @@ const i18n = {
         cvReferanslar: 'Referenzen',
         onayTitle: 'Informationsbestätigung',
         onayText1: 'Sie erklären, dass alle Informationen in Ihrem Lebenslauf korrekt, aktuell und wahrheitsgemäß sind.',
-        onayText2: 'Der CVBuilder-Plattformmanager haftet nicht für die Richtigkeit der Informationen. Die gesamte rechtliche Verantwortung liegt bei Ihnen.',
+        onayText2: 'Der cvobotu.com-Plattformmanager haftet nicht für die Richtigkeit der Informationen. Die gesamte rechtliche Verantwortung liegt bei Ihnen.',
         onayCheck: 'Ich habe die obigen Bedingungen gelesen, verstanden und akzeptiert.',
         onayVazgec: 'Abbrechen',
         onayOnayla: 'Bestätigen und fortfahren',
-        disclaimer: 'Dieser Lebenslauf wurde über CVBuilder erstellt. Die Richtigkeit aller Informationen liegt ausschließlich beim Dokumentinhaber.',
+        disclaimer: 'Dieser Lebenslauf wurde über cvobotu.com erstellt. Die Richtigkeit aller Informationen liegt ausschließlich beim Dokumentinhaber. Der cvobotu.com Plattformmanager haftet nicht für direkte oder indirekte Schäden aus dem Inhalt.',
         cropTitle: 'Foto zuschneiden',
         cropIptal: 'Abbrechen',
         cropKaydet: 'Zuschneiden & Speichern',
@@ -358,9 +363,11 @@ const i18n = {
         cvAdres: 'Adresse',
         cvTel: 'Telefon',
         cvEmail: 'E-Mail',
+        cvOlusturBtn: 'Lebenslauf erstellen',
     },
 
     nl: {
+        navPageTitle: 'cvobotu.com — Gratis CV-builder',
         navBadge: '100% Gratis & Privé',
         heroBadge: '✦ Browsergebaseerd · Geen registratie · Geen data verstuurd',
         heroTitle1: 'Maak uw professionele',
@@ -391,7 +398,7 @@ const i18n = {
         footerCookie: 'Cookiebeleid',
         footerTerms: 'Gebruiksvoorwaarden',
         footerQuick: 'Snelle samenvatting',
-        footerCopy: '© 2025 CVBuilder. Alle rechten voorbehouden.',
+        footerCopy: '© 2025 cvobotu.com. Alle rechten voorbehouden.',
         panelTitle: 'CV-informatie',
         btnBack: '← Startpagina',
         accKisisel: 'Persoonlijke gegevens',
@@ -450,11 +457,11 @@ const i18n = {
         cvReferanslar: 'Referenties',
         onayTitle: 'Informatiebevestiging',
         onayText1: 'U verklaart dat alle informatie in uw CV correct, actueel en waarheidsgetrouw is.',
-        onayText2: 'De CVBuilder-platformbeheerder kan niet aansprakelijk worden gesteld voor de juistheid van de informatie. Alle juridische verantwoordelijkheid ligt bij u.',
+        onayText2: 'De cvobotu.com-platformbeheerder kan niet aansprakelijk worden gesteld voor de juistheid van de informatie. Alle juridische verantwoordelijkheid ligt bij u.',
         onayCheck: 'Ik heb de bovenstaande voorwaarden gelezen, begrepen en geaccepteerd.',
         onayVazgec: 'Annuleren',
         onayOnayla: 'Bevestigen en doorgaan',
-        disclaimer: 'Dit CV is gemaakt via CVBuilder. De nauwkeurigheid van alle informatie in dit document berust uitsluitend bij de documenteigenaar.',
+        disclaimer: 'Dit CV is gemaakt via cvobotu.com. De nauwkeurigheid van alle informatie in dit document berust uitsluitend bij de documenteigenaar. De cvobotu.com platformbeheerder is niet aansprakelijk voor directe of indirecte schade uit de inhoud.',
         cropTitle: 'Foto bijsnijden',
         cropIptal: 'Annuleren',
         cropKaydet: 'Bijsnijden & Opslaan',
@@ -470,9 +477,11 @@ const i18n = {
         cvAdres: 'Adres',
         cvTel: 'Telefoon',
         cvEmail: 'E-mail',
+        cvOlusturBtn: 'CV maken',
     },
 
     fr: {
+        navPageTitle: 'cvobotu.com — Créateur de CV gratuit',
         navBadge: '100% Gratuit & Privé',
         heroBadge: '✦ Basé sur navigateur · Sans inscription · Aucune donnée envoyée',
         heroTitle1: 'Créez votre CV',
@@ -503,7 +512,7 @@ const i18n = {
         footerCookie: 'Politique de cookies',
         footerTerms: 'Conditions d\'utilisation',
         footerQuick: 'Résumé rapide',
-        footerCopy: '© 2025 CVBuilder. Tous droits réservés.',
+        footerCopy: '© 2025 cvobotu.com. Tous droits réservés.',
         panelTitle: 'Informations CV',
         btnBack: '← Accueil',
         accKisisel: 'Informations personnelles',
@@ -562,11 +571,11 @@ const i18n = {
         cvReferanslar: 'Références',
         onayTitle: 'Confirmation des informations',
         onayText1: 'Vous déclarez que toutes les informations de votre CV sont exactes, actuelles et véridiques.',
-        onayText2: 'Le gestionnaire de la plateforme CVBuilder ne peut être tenu responsable de l\'exactitude des informations. Toute responsabilité juridique vous incombe.',
+        onayText2: 'Le gestionnaire de la plateforme cvobotu.com ne peut être tenu responsable de l\'exactitude des informations. Toute responsabilité juridique vous incombe.',
         onayCheck: 'J\'ai lu, compris et accepté les conditions ci-dessus.',
         onayVazgec: 'Annuler',
         onayOnayla: 'Confirmer et continuer',
-        disclaimer: 'Ce CV a été créé via CVBuilder. L\'exactitude de toutes les informations appartient uniquement au propriétaire du document.',
+        disclaimer: 'Ce CV a été créé via cvobotu.com. L\'exactitude de toutes les informations appartient uniquement au propriétaire du document. Le gestionnaire de la plateforme cvobotu.com ne peut être tenu responsable des dommages directs ou indirects découlant du contenu.',
         cropTitle: 'Recadrer la photo',
         cropIptal: 'Annuler',
         cropKaydet: 'Recadrer & Enregistrer',
@@ -582,9 +591,11 @@ const i18n = {
         cvAdres: 'Adresse',
         cvTel: 'Téléphone',
         cvEmail: 'E-mail',
+        cvOlusturBtn: 'Créer mon CV',
     },
 
     ar: {
+        navPageTitle: 'cvobotu.com — منشئ سيرة ذاتية مجاني',
         navBadge: '١٠٠٪ مجاني وخاص',
         heroBadge: '✦ يعمل في المتصفح · بدون تسجيل · لا ترسل بيانات',
         heroTitle1: 'أنشئ سيرتك الذاتية',
@@ -615,7 +626,7 @@ const i18n = {
         footerCookie: 'سياسة الكوكيز',
         footerTerms: 'شروط الاستخدام',
         footerQuick: 'ملخص سريع',
-        footerCopy: '© 2025 CVBuilder. جميع الحقوق محفوظة.',
+        footerCopy: '© 2025 cvobotu.com. جميع الحقوق محفوظة.',
         panelTitle: 'معلومات السيرة الذاتية',
         btnBack: '→ الصفحة الرئيسية',
         accKisisel: 'المعلومات الشخصية',
@@ -674,11 +685,11 @@ const i18n = {
         cvReferanslar: 'المراجع',
         onayTitle: 'تأكيد المعلومات',
         onayText1: 'تقر بأن جميع المعلومات في سيرتك الذاتية صحيحة وحديثة وصادقة.',
-        onayText2: 'لا يتحمل مدير منصة CVBuilder أي مسؤولية عن دقة المعلومات. تقع جميع المسؤولية القانونية عليك.',
+        onayText2: 'لا يتحمل مدير منصة cvobotu.com أي مسؤولية عن دقة المعلومات. تقع جميع المسؤولية القانونية عليك.',
         onayCheck: 'لقد قرأت وفهمت وقبلت الشروط أعلاه.',
         onayVazgec: 'إلغاء',
         onayOnayla: 'تأكيد والمتابعة',
-        disclaimer: 'تم إنشاء هذه السيرة الذاتية عبر CVBuilder. تقع مسؤولية دقة جميع المعلومات على عاتق صاحب الوثيقة حصراً.',
+        disclaimer: 'تم إنشاء هذه السيرة الذاتية عبر cvobotu.com. تقع مسؤولية دقة جميع المعلومات على عاتق صاحب الوثيقة حصراً. لا يتحمل مدير منصة cvobotu.com أي مسؤولية عن الأضرار المباشرة أو غير المباشرة الناجمة عن المحتوى.',
         cropTitle: 'قص الصورة',
         cropIptal: 'إلغاء',
         cropKaydet: 'قص وحفظ',
@@ -694,9 +705,11 @@ const i18n = {
         cvAdres: 'العنوان',
         cvTel: 'الهاتف',
         cvEmail: 'البريد الإلكتروني',
+        cvOlusturBtn: 'إنشاء السيرة الذاتية',
     },
 
     ru: {
+        navPageTitle: 'cvobotu.com — Бесплатный конструктор резюме',
         navBadge: '100% Бесплатно и Конфиденциально',
         heroBadge: '✦ Работает в браузере · Без регистрации · Данные не отправляются',
         heroTitle1: 'Создайте профессиональное',
@@ -727,7 +740,7 @@ const i18n = {
         footerCookie: 'Политика cookies',
         footerTerms: 'Условия использования',
         footerQuick: 'Краткое изложение',
-        footerCopy: '© 2025 CVBuilder. Все права защищены.',
+        footerCopy: '© 2025 cvobotu.com. Все права защищены.',
         panelTitle: 'Информация о резюме',
         btnBack: '← Главная',
         accKisisel: 'Личная информация',
@@ -786,11 +799,11 @@ const i18n = {
         cvReferanslar: 'Рекомендации',
         onayTitle: 'Подтверждение информации',
         onayText1: 'Вы заявляете, что все сведения в вашем резюме являются точными, актуальными и правдивыми.',
-        onayText2: 'Администратор платформы CVBuilder не несёт ответственности за точность информации. Вся юридическая ответственность лежит на вас.',
+        onayText2: 'Администратор платформы cvobotu.com не несёт ответственности за точность информации. Вся юридическая ответственность лежит на вас.',
         onayCheck: 'Я прочитал(а), понял(а) и принимаю вышеуказанные условия.',
         onayVazgec: 'Отмена',
         onayOnayla: 'Подтвердить и продолжить',
-        disclaimer: 'Это резюме создано с помощью CVBuilder. Точность всей информации в документе лежит исключительно на владельце документа.',
+        disclaimer: 'Это резюме создано с помощью cvobotu.com. Точность всей информации в документе лежит исключительно на владельце документа. Администратор платформы cvobotu.com не несёт ответственности за прямой или косвенный ущерб, возникший из содержания.',
         cropTitle: 'Обрезать фото',
         cropIptal: 'Отмена',
         cropKaydet: 'Обрезать и сохранить',
@@ -806,6 +819,7 @@ const i18n = {
         cvAdres: 'Адрес',
         cvTel: 'Телефон',
         cvEmail: 'Эл. почта',
+        cvOlusturBtn: 'Создать резюме',
     }
 };
 
@@ -850,6 +864,280 @@ function dilAyarla(langKod) {
     const lang = tarayicDiliniAl();
     dilAyarla(lang);
 })();
+
+function uiGuncelle() {
+    const lang = localStorage.getItem(LANG_KEY) || tarayicDiliniAl();
+
+    // ── NAVBAR ──
+    const navBadgeEl = document.querySelector('.landing-nav-badge');
+    if (navBadgeEl) navBadgeEl.textContent = t('navBadge');
+
+    // ── HERO ──
+    const heroBadgeEl = document.querySelector('.hero-badge');
+    if (heroBadgeEl) heroBadgeEl.textContent = t('heroBadge');
+
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const title3 = t('heroTitle3');
+        heroTitle.innerHTML =
+            t('heroTitle1') + '<br>' +
+            '<span class="hero-title-accent">' + t('heroTitle2') + '</span>' +
+            (title3 && title3 !== 'heroTitle3' ? '<br>' + title3 : '');
+    }
+
+    const heroSub = document.querySelector('.hero-subtitle');
+    if (heroSub) heroSub.innerHTML = t('heroSub').replace('\n', '<br>');
+
+    const heroFeatures = document.querySelectorAll('.hero-feature');
+    const featureKeys = ['heroF1','heroF2','heroF3','heroF4'];
+    heroFeatures.forEach(function(el, i) {
+        const iconEl = el.querySelector('.hero-feature-icon');
+        if (iconEl) {
+            el.innerHTML = '';
+            el.appendChild(iconEl);
+            el.appendChild(document.createTextNode(' ' + t(featureKeys[i])));
+        }
+    });
+
+    // ── KAYITLI BANNER ──
+    const savedTitleEl = document.querySelector('.saved-banner strong');
+    if (savedTitleEl) savedTitleEl.textContent = t('savedTitle');
+    const savedSubEl = document.querySelector('.saved-banner span:last-child');
+    if (savedSubEl) savedSubEl.innerHTML = '<strong>' + t('savedTitle') + '</strong> ' + t('savedSub');
+
+    const devamBtn = document.getElementById('devamEtBtn');
+    if (devamBtn) devamBtn.textContent = t('savedDevam');
+    const sifirlaButton = document.getElementById('sifirlaBtn');
+    if (sifirlaButton) sifirlaButton.textContent = t('savedSifirla');
+
+    // ── ŞABLONLAR BÖLÜMÜ ──
+    const templatesLabelEl = document.querySelector('.templates-label');
+    if (templatesLabelEl) templatesLabelEl.textContent = t('templatesLabel');
+    const templatesTitleEl = document.querySelector('.templates-title');
+    if (templatesTitleEl) templatesTitleEl.textContent = t('templatesTitle');
+    const templatesSubEl = document.querySelector('.templates-sub');
+    if (templatesSubEl) templatesSubEl.textContent = t('templatesSub');
+
+    // Şablon kartları
+    const tCards = document.querySelectorAll('.template-card');
+    const tKeys = [        {name:'t1name', desc:'t1desc'},        {name:'t2name', desc:'t2desc'},        {name:'t3name', desc:'t3desc'},        {name:'t4name', desc:'t4desc'},        {name:'t5name', desc:'t5desc'},        {name:'t6name', desc:'t6desc'},    ];
+    tCards.forEach(function(card, i) {
+        if (!tKeys[i]) return;
+        const labelEl = card.querySelector('.template-label');
+        if (labelEl) labelEl.textContent = t(tKeys[i].name);
+        const descEl = card.querySelector('.template-desc');
+        if (descEl) descEl.textContent = t(tKeys[i].desc);
+        const btnEl = card.querySelector('.template-btn');
+        if (btnEl) btnEl.textContent = t('templateBtn');
+        const badgeEl = card.querySelector('.template-card-badge');
+        if (badgeEl) badgeEl.textContent = t('editorBadge');
+    });
+
+    // ── FOOTER ──
+    const footerSubEl = document.querySelector('.landing-footer > p:first-child');
+    if (footerSubEl) footerSubEl.textContent = t('footerSub');
+    const footerCopyEl = document.querySelector('.footer-copy');
+    if (footerCopyEl) footerCopyEl.textContent = t('footerCopy');
+
+    const footerLinks = document.querySelectorAll('.footer-legal-link');
+    const footerKeys = ['footerPrivacy','footerCookie','footerTerms','footerQuick'];
+    footerLinks.forEach(function(el, i) {
+        if (footerKeys[i]) el.textContent = t(footerKeys[i]);
+    });
+
+    // ── SOL PANEL ──
+    const panelTitleEl = document.querySelector('#leftPanel .panel-header h2');
+    if (panelTitleEl) panelTitleEl.textContent = t('panelTitle');
+    const backBtnEl = document.getElementById('geriBtn');
+    if (backBtnEl) backBtnEl.textContent = t('btnBack');
+
+    // Accordion başlıkları
+    const accHeaders = document.querySelectorAll('.accordion-header span:first-child');
+    const accKeys = ['accKisisel','accDeneyim','accEgitim','accYetenek','accIlgi','accDiller','accReferans'];
+    accHeaders.forEach(function(el, i) {
+        if (accKeys[i]) el.textContent = t(accKeys[i]);
+    });
+
+    // Form placeholder'ları
+    const phMap = {
+        'ad': 'phAd', 'soyad': 'phSoyad', 'email': 'phEmail',
+        'telefon': 'phTelefon', 'adres': 'phAdres',
+        'linkedin': 'phLinkedin', 'unvan': 'phUnvan',
+        'ozet': 'phOzet', 'yetenekInput': 'phYetenek',
+        'ilgiInput': 'phIlgi'
+    };
+    Object.keys(phMap).forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el) el.placeholder = t(phMap[id]);
+    });
+
+    // Fotoğraf butonu
+    const fotoBtn = document.getElementById('fotoEkleBtn');
+    if (fotoBtn) {
+        fotoBtn.textContent = fotoDataURL ? t('btnFotoDegistir') : t('btnFotoEkle');
+    }
+
+    // Ekle butonları
+    const deneyimEkleEl = document.getElementById('deneyimEkleBtn');
+    if (deneyimEkleEl) deneyimEkleEl.textContent = t('btnYeniEkle');
+    const egitimEkleEl = document.getElementById('egitimEkleBtn');
+    if (egitimEkleEl) egitimEkleEl.textContent = t('btnYeniEkle');
+    const dilEkleEl = document.getElementById('dilEkleBtn');
+    if (dilEkleEl) dilEkleEl.textContent = t('btnYeniDil');
+    const referansEkleEl = document.getElementById('referansEkleBtn');
+    if (referansEkleEl) referansEkleEl.textContent = t('btnYeniReferans');
+
+    // PDF butonu
+    const pdfBtnEl = document.getElementById('pdfBtn');
+    if (pdfBtnEl && !pdfBtnEl.disabled) pdfBtnEl.textContent = t('btnPdf');
+
+    // ── KIRPMA MODALI ──
+    const cropTitleEl = document.querySelector('.crop-modal-header h4');
+    if (cropTitleEl) cropTitleEl.textContent = t('cropTitle');
+    if (cropIptalBtn) cropIptalBtn.textContent = t('cropIptal');
+    if (cropKaydetBtn) cropKaydetBtn.textContent = t('cropKaydet');
+
+    // ── YASAL MODAL SEKME BAŞLIKLARI ──
+    const legalTabs = document.querySelectorAll('.legal-tab');
+    const legalTabKeys = ['legalKvkk','legalSorumluluk','legalCerez','legalKullanim'];
+    legalTabs.forEach(function(tab, i) {
+        if (legalTabKeys[i]) tab.textContent = t(legalTabKeys[i]);
+    });
+    const legalFullEl = document.querySelector('.legal-full-link');
+    if (legalFullEl) legalFullEl.textContent = t('legalTamMetin');
+    const legalKapatEl = document.getElementById('legalModalKapatBtn');
+    if (legalKapatEl) legalKapatEl.textContent = t('legalKapat');
+
+    // ── ROTATE WARNING ──
+    const rotateP = document.querySelector('#rotateWarning p');
+    if (rotateP) rotateP.textContent = t('rotateTitle');
+    const rotateSpan = document.querySelector('#rotateWarning span');
+    if (rotateSpan) rotateSpan.textContent = t('rotateSub');
+
+    // ── CV ÖNİZLEME YENİLE ──
+    if (!appContainer.classList.contains('hidden')) {
+        canliOnizlemeGuncelle();
+    }
+
+    // data-i18n attribute ile toplu güncelleme
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t(key)) el.textContent = t(key);
+    });
+
+    // Tarayıcı sekmesi başlığını güncelle
+    const pageTitleEl = document.getElementById('pageTitle');
+    if (pageTitleEl) pageTitleEl.textContent = t('navPageTitle');
+    document.title = t('navPageTitle');
+}
+
+function dilSeciciOlustur() {
+    if (document.getElementById('langSelector')) return;
+
+    const diller = [        { kod: 'tr', ad: 'Türkçe',    bayrak: '🇹🇷' },        { kod: 'en', ad: 'English',    bayrak: '🇬🇧' },        { kod: 'de', ad: 'Deutsch',    bayrak: '🇩🇪' },        { kod: 'nl', ad: 'Nederlands', bayrak: '🇳🇱' },        { kod: 'fr', ad: 'Français',   bayrak: '🇫🇷' },        { kod: 'ar', ad: 'العربية',    bayrak: '🇸🇦' },        { kod: 'ru', ad: 'Русский',    bayrak: '🇷🇺' },    ];
+
+    const mevcutLang = localStorage.getItem(LANG_KEY) || tarayicDiliniAl();
+    const mevcutDil  = diller.find(function(d) { return d.kod === mevcutLang; }) || diller[0];
+
+    // Ana wrapper — sayfanın sağ altına fixed
+    const wrapper = document.createElement('div');
+    wrapper.id = 'langSelector';
+    wrapper.className = 'lang-selector';
+
+    // Seçili dili gösteren buton
+    const toggle = document.createElement('button');
+    toggle.className = 'lang-toggle';
+    toggle.setAttribute('aria-haspopup', 'listbox');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML =
+        '<span class="lang-flag">' + mevcutDil.bayrak + '</span>' +
+        '<span class="lang-name">' + mevcutDil.ad + '</span>' +
+        '<span class="lang-arrow">&#9650;</span>';
+
+    // Dropdown listesi (yukarı açılır)
+    const dropdown = document.createElement('ul');
+    dropdown.className = 'lang-dropdown';
+    dropdown.setAttribute('role', 'listbox');
+    dropdown.classList.add('hidden');
+
+    diller.forEach(function(dil) {
+        const li = document.createElement('li');
+        li.className = 'lang-item' + (dil.kod === mevcutLang ? ' active' : '');
+        li.setAttribute('role', 'option');
+        li.innerHTML =
+            '<span class="lang-item-flag">' + dil.bayrak + '</span>' +
+            '<span class="lang-item-name">' + dil.ad + '</span>' +
+            (dil.kod === mevcutLang ? '<span class="lang-item-check">&#10003;</span>' : '');
+
+        li.addEventListener('click', function() {
+            // Aktif işaretini güncelle
+            dropdown.querySelectorAll('.lang-item').forEach(function(el) {
+                el.classList.remove('active');
+                const check = el.querySelector('.lang-item-check');
+                if (check) check.remove();
+            });
+            li.classList.add('active');
+            const checkSpan = document.createElement('span');
+            checkSpan.className = 'lang-item-check';
+            checkSpan.innerHTML = '&#10003;';
+            li.appendChild(checkSpan);
+
+            // Toggle butonunu güncelle
+            toggle.innerHTML =
+                '<span class="lang-flag">' + dil.bayrak + '</span>' +
+                '<span class="lang-name">' + dil.ad + '</span>' +
+                '<span class="lang-arrow">&#9650;</span>';
+
+            // Dropdown kapat
+            dropdown.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('open');
+
+            // Dili uygula ve UI güncelle
+            dilAyarla(dil.kod);
+            uiGuncelle();
+        });
+
+        dropdown.appendChild(li);
+    });
+
+    // Toggle tıklaması
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isOpen = !dropdown.classList.contains('hidden');
+        if (isOpen) {
+            dropdown.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('open');
+        } else {
+            dropdown.classList.remove('hidden');
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.classList.add('open');
+        }
+    });
+
+    // Dışarı tıklanınca kapat
+    document.addEventListener('click', function() {
+        dropdown.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.classList.remove('open');
+    });
+
+    // ESC ile kapat
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            dropdown.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('open');
+        }
+    });
+
+    wrapper.appendChild(dropdown);
+    wrapper.appendChild(toggle);
+
+    // Body'ye ekle (fixed konumlandırma için)
+    document.body.appendChild(wrapper);
+}
 
 // ================================================================
 // LANDING PAGE & LOCALSTORAGE
@@ -1764,7 +2052,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
     // İsim + Unvan (her zaman göster)
     bloklar.push({
         type: 'header',
-        html: '<h1 class="cv-main-name">' + ((ad || soyad) ? (ad + ' ' + soyad) : 'Ad Soyad') + '</h1>' + (unvanMetin ? '<p class="cv-main-title">' + unvanMetin + '</p>' : '')
+        html: '<h1 class="cv-main-name">' + ((ad || soyad) ? (ad + ' ' + soyad) : t('cvAdSoyad')) + '</h1>' + (unvanMetin ? '<p class="cv-main-title">' + unvanMetin + '</p>' : '')
     });
 
     // Profil Özeti
@@ -1778,7 +2066,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
     // İş Deneyimi
     if (deneyimler.length > 0) {
         let html = '<div class="cv-main-section" id="cvMainDeneyimSection">';
-        html += '<h6 class="cv-main-heading"><span class="heading-icon">&#128188;</span>İŞ DENEYİMİ</h6>';
+        html += '<h6 class="cv-main-heading"><span class="heading-icon">&#128188;</span>' + t('cvIsDeneyimi') + '</h6>';
         html += '<div class="timeline-container">';
         deneyimler.forEach(function (d) {
             const tarih = d.baslangic ? d.baslangic + (d.bitis ? ' - ' + d.bitis : '') : '';
@@ -1795,7 +2083,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
     // Eğitim
     if (egitimler.length > 0) {
         let html = '<div class="cv-main-section" id="cvMainEgitimSection">';
-        html += '<h6 class="cv-main-heading"><span class="heading-icon">&#127891;</span>EĞİTİM</h6>';
+        html += '<h6 class="cv-main-heading"><span class="heading-icon">&#127891;</span>' + t('cvEgitim') + '</h6>';
         html += '<div class="timeline-container">';
         egitimler.forEach(function (e) {
             html += '<div class="timeline-item">';
@@ -1811,7 +2099,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
     // Yetenekler
     if (yetenekler.length > 0) {
         let html = '<div class="cv-main-section" id="cvMainYetenekSection">';
-        html += '<h6 class="cv-main-heading">&#128161; Yetenekler</h6>';
+        html += '<h6 class="cv-main-heading">&#128161; ' + t('cvYetenekler') + '</h6>';
         yetenekler.forEach(function (y) {
             html += '<div class="cv-skill-row"><span class="cv-skill-name">' + y + '</span></div>';
         });
@@ -1822,7 +2110,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
     // Referanslar
     if (referanslar.length > 0) {
         let html = '<div class="cv-main-section" id="cvMainReferansSection">';
-        html += '<h6 class="cv-main-heading">&#128101; Referanslar</h6>';
+        html += '<h6 class="cv-main-heading">&#128101; ' + t('cvReferanslar') + '</h6>';
         referanslar.forEach(function (r) {
             html += '<div class="cv-timeline-item"><div class="cv-timeline-dot"></div><div class="cv-timeline-content">';
             html += '<div class="cv-timeline-title">' + r.ad + '</div>';
@@ -1938,12 +2226,7 @@ function sayfalariOlustur(ad, soyad, email, telefon, adres, linkedin, ozetMetin,
     tumSayfalarRed.forEach(function (sayfaEl) {
         const redDiv = document.createElement('div');
         redDiv.className = 'cv-disclaimer';
-        redDiv.innerHTML =
-            'Bu CV belgesi CVBuilder aracılığıyla oluşturulmuştur. ' +
-            'Belgede yer alan tüm bilgilerin doğruluğu, gerçekliği ve güncelliği ' +
-            'yalnızca belge sahibine aittir. CVBuilder platform yöneticisi, ' +
-            'içerikteki herhangi bir bilgiden kaynaklanan doğrudan veya dolaylı ' +
-            'zararlardan sorumlu tutulamaz.';
+        redDiv.innerHTML = t('disclaimer');
         sayfaEl.appendChild(redDiv);
     });
 }
@@ -1966,10 +2249,10 @@ function sidebarOlustur(ad, soyad, email, telefon, adres, linkedin) {
 
     // Kişisel Bilgiler
     html += '<div class="cv-sidebar-section">';
-    html += '<h6 class="cv-sidebar-heading">Kişisel Bilgiler</h6>';
-    html += '<p class="cv-sidebar-item" id="cvSidebarAdres">&#9906; ' + (adres || 'Adres bilgisi') + '</p>';
-    html += '<p class="cv-sidebar-item" id="cvSidebarTel">&#9742; ' + (telefon || 'Telefon bilgisi') + '</p>';
-    html += '<p class="cv-sidebar-item" id="cvSidebarEmail">&#9993; ' + (email || 'E-posta bilgisi') + '</p>';
+    html += '<h6 class="cv-sidebar-heading">' + t('cvKisiselBilgiler') + '</h6>';
+    html += '<p class="cv-sidebar-item" id="cvSidebarAdres">&#9906; ' + (adres || t('cvAdres')) + '</p>';
+    html += '<p class="cv-sidebar-item" id="cvSidebarTel">&#9742; ' + (telefon || t('cvTel')) + '</p>';
+    html += '<p class="cv-sidebar-item" id="cvSidebarEmail">&#9993; ' + (email || t('cvEmail')) + '</p>';
     if (linkedin) {
         const linkedinGoster = linkedin.replace(/^https?:\/\/(www\.)?linkedin\.com\//i, 'linkedin.com/');
         html += '<p class="cv-sidebar-item" id="cvSidebarLinkedin">&#128279; ' + linkedinGoster + '</p>';
@@ -1979,7 +2262,7 @@ function sidebarOlustur(ad, soyad, email, telefon, adres, linkedin) {
     // İlgi Alanları
     if (ilgiAlanlari.length > 0) {
         html += '<div class="cv-sidebar-section" id="cvSidebarIlgiSection">';
-        html += '<h6 class="cv-sidebar-heading">İlgi Alanları</h6>';
+        html += '<h6 class="cv-sidebar-heading">' + t('cvIlgiAlanlari') + '</h6>';
         ilgiAlanlari.forEach(function (ilgi) {
             html += '<p class="cv-sidebar-item">&#8226; ' + ilgi + '</p>';
         });
@@ -1989,7 +2272,7 @@ function sidebarOlustur(ad, soyad, email, telefon, adres, linkedin) {
     // Diller
     if (diller.length > 0) {
         html += '<div class="cv-sidebar-section" id="cvSidebarDilSection">';
-        html += '<h6 class="cv-sidebar-heading">Diller</h6>';
+        html += '<h6 class="cv-sidebar-heading">' + t('cvDiller') + '</h6>';
         diller.forEach(function (d) {
             const dolu = '&#9679;'.repeat(d.seviye);
             const bos = '&#9675;'.repeat(5 - d.seviye);
@@ -2298,6 +2581,12 @@ window.addEventListener('load', function() {
 // Pencere boyutu her değiştiğinde anlık çalıştır
 window.addEventListener('resize', autoFitCV);
 
+// Dil sistemi başlat
+document.addEventListener('DOMContentLoaded', function() {
+    dilSeciciOlustur();
+    uiGuncelle();
+});
+
 // ================================================================
 // YASAL UYARI MODALI — Tab Sistemi
 // ================================================================
@@ -2366,28 +2655,17 @@ function sorumlulukOnayGoster(onayCallback) {
     modal.className = 'sorumluluk-modal';
     modal.innerHTML = `
         <div class="sorumluluk-icon">&#9888;</div>
-        <h3 class="sorumluluk-title">Bilgi Doğrulama Onayı</h3>
-        <p class="sorumluluk-text">
-            CV'nizde yer alan tüm bilgilerin (ad, soyad, iletişim bilgileri,
-            iş deneyimi, eğitim ve diğer içerikler) <strong>doğru, güncel ve
-            gerçeği yansıtır</strong> nitelikte olduğunu beyan etmektesiniz.
-        </p>
-        <p class="sorumluluk-text">
-            CVBuilder platform yöneticisi, belgede yer alan bilgilerin
-            doğruluğundan veya bu bilgilerden kaynaklanan herhangi bir
-            zarardan <strong>sorumlu tutulamaz.</strong> Tüm hukuki ve
-            ahlaki sorumluluk münhasıran size aittir.
-        </p>
+        <h3 class="sorumluluk-title">${t('onayTitle')}</h3>
+        <p class="sorumluluk-text">${t('onayText1')}</p>
+        <p class="sorumluluk-text">${t('onayText2')}</p>
         <div class="sorumluluk-checkbox-row">
             <input type="checkbox" id="sorumlulukCheck">
-            <label for="sorumlulukCheck">
-                Yukarıdaki koşulları okudum, anladım ve kabul ediyorum.
-            </label>
+            <label for="sorumlulukCheck">${t('onayCheck')}</label>
         </div>
         <div class="sorumluluk-actions">
-            <button class="sorumluluk-btn-iptal" id="sorumlulukIptal">Vazgeç</button>
+            <button class="sorumluluk-btn-iptal" id="sorumlulukIptal">${t('onayVazgec')}</button>
             <button class="sorumluluk-btn-onayla" id="sorumlulukOnayla" disabled>
-                Onayla ve Devam Et
+                ${t('onayOnayla')}
             </button>
         </div>
     `;

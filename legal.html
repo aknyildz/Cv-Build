@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" id="legalHtmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yasal Bilgiler — CVBuilder</title>
+    <title id="legalPageTitle">Yasal Bilgiler — cvobotu.com</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -165,97 +165,588 @@
             .legal-container { padding: 40px 20px 80px; }
             .legal-page-title { font-size: 1.5rem; }
         }
+        [dir="rtl"] .legal-nav { flex-direction: row-reverse; }
+        [dir="rtl"] .legal-section ul,
+        [dir="rtl"] .legal-section ol { padding-left: 0; padding-right: 22px; }
+        [dir="rtl"] .legal-nav-back { direction: rtl; }
     </style>
 </head>
 <body>
 
     <nav class="legal-nav">
-        <div class="legal-nav-logo"><span>&#9670;</span> CVBuilder</div>
-        <a href="index.html" class="legal-nav-back">← Ana Sayfaya Dön</a>
+        <div class="legal-nav-logo"><span>&#9670;</span> cvobotu.com</div>
+        <a href="index.html" class="legal-nav-back" id="legalBackLink">← Ana Sayfaya Dön</a>
     </nav>
 
     <div class="legal-container">
 
-        <h1 class="legal-page-title">Yasal Bilgiler</h1>
-        <p class="legal-page-sub">Son güncelleme: Mayıs 2025 · CVBuilder platformuna ait tüm yasal metinler bu sayfada yer almaktadır.</p>
+        <h1 class="legal-page-title" id="legalMainTitle">Yasal Bilgiler</h1>
+        <p class="legal-page-sub" id="legalPageSub">Son güncelleme: Mayıs 2025 · cvobotu.com platformuna ait tüm yasal metinler bu sayfada yer almaktadır.</p>
 
         <!-- KVKK -->
         <section class="legal-section" id="kvkk">
-            <div class="legal-section-badge">KVKK Aydınlatma</div>
-            <h2>Kişisel Verilerin Korunması</h2>
-            <p>CVBuilder, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma yükümlülüğünü yerine getirmek amacıyla bu metni kullanıcılarına sunmaktadır.</p>
-            <h3>Veri Sorumlusu</h3>
-            <p>CVBuilder platform yöneticisi</p>
-            <h3>İşlenen Kişisel Veriler</h3>
-            <p>CVBuilder, kullanıcıların CV oluştururken girdiği ad, soyad, e-posta, telefon, adres ve iş deneyimi gibi kişisel verileri <strong>hiçbir sunucuya göndermez ve depolamaz.</strong> Girilen tüm veriler yalnızca kullanıcının kendi tarayıcısında <code>localStorage</code> mekanizması aracılığıyla saklanır. Bu veriler yalnızca kullanıcının kendi cihazında bulunur ve üçüncü taraflarla paylaşılmaz.</p>
-            <h3>Google Analytics</h3>
-            <p>Platform, ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics (Google LLC) hizmetini kullanmaktadır. Bu hizmet; ziyaretçi sayısı, oturum süresi, kullanılan cihaz ve coğrafi konum gibi <strong>anonim ve toplu</strong> verileri analiz etmektedir.</p>
-            <p>Detaylı bilgi: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
-            <h3>Haklarınız</h3>
-            <p>KVKK'nın 11. maddesi kapsamında kişisel verilerinize ilişkin haklarınızı kullanmak için platform yöneticisi ile iletişime geçebilirsiniz.</p>
+            <div class="legal-section-badge" id="badgeKvkk">KVKK Aydınlatma</div>
+            <h2 id="titleKvkk">Kişisel Verilerin Korunması</h2>
+            <p id="kvkkIntro"></p>
+            <h3 id="kvkkH1"></h3>
+            <p id="kvkkVeriSorumlusu"></p>
+            <h3 id="kvkkH2"></h3>
+            <p id="kvkkVeriIsleme"></p>
+            <h3 id="kvkkH3"></h3>
+            <p id="kvkkAnalytics"></p>
+            <p id="kvkkAnalyticsLink"></p>
+            <h3 id="kvkkH4"></h3>
+            <p id="kvkkHaklar"></p>
         </section>
 
         <hr class="legal-divider">
 
-        <!-- Sorumluluk Reddi -->
+        <!-- Sorumluluk -->
         <section class="legal-section" id="sorumluluk">
-            <div class="legal-section-badge">Sorumluluk Reddi</div>
-            <h2>Sorumluluk Reddi Beyanı</h2>
-            <p>CVBuilder, kullanıcıların kendi CV belgelerini oluşturmasına yardımcı olan ücretsiz bir araçtır. Platform aşağıdaki hususlarda sorumluluk kabul etmemektedir:</p>
-            <ul>
-                <li>Kullanıcı tarafından CV'ye girilen bilgilerin <strong>doğruluğu, gerçekliği veya güncelliği</strong></li>
-                <li>Oluşturulan CV'nin iş başvurularında <strong>kabul görmesi veya sonuç vermesi</strong></li>
-                <li>Tarayıcı önbelleğinin temizlenmesi durumunda verilerin <strong>kaybolması veya silinmesi</strong></li>
-                <li>Üçüncü taraf kütüphaneler (Cropper.js, html2canvas, jsPDF) kaynaklı <strong>teknik sorunlar</strong></li>
-                <li>Farklı tarayıcı ve işletim sistemlerinde PDF çıktısının <strong>görünüm farklılıkları</strong></li>
-            </ul>
-            <p>Kullanıcı, platforma girdiği tüm bilgilerin sorumluluğunun kendisine ait olduğunu kabul eder.</p>
+            <div class="legal-section-badge" id="badgeSorumluluk">Sorumluluk Reddi</div>
+            <h2 id="titleSorumluluk">Sorumluluk Reddi Beyanı</h2>
+            <p id="sorumlulukIntro"></p>
+            <ul id="sorumlulukList"></ul>
+            <p id="sorumlulukOutro"></p>
         </section>
 
         <hr class="legal-divider">
 
         <!-- Çerez -->
         <section class="legal-section" id="cerez">
-            <div class="legal-section-badge">Çerez Politikası</div>
-            <h2>Çerez (Cookie) Politikası</h2>
-            <h3>localStorage (Zorunlu)</h3>
-            <p>CV verilerinizi tarayıcınızda saklamak için kullanılır. Sunucuya herhangi bir veri gönderilmez. Tarayıcı ayarlarından veya "Sıfırla" butonu aracılığıyla tamamen silinebilir.</p>
-            <h3>Google Analytics Çerezleri (Analitik)</h3>
-            <p>Ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics tarafından aşağıdaki çerezler kullanılmaktadır:</p>
+            <div class="legal-section-badge" id="badgeCerez">Çerez Politikası</div>
+            <h2 id="titleCerez">Çerez (Cookie) Politikası</h2>
+            <h3 id="cerezH1"></h3>
+            <p id="cerezLocalStorage"></p>
+            <h3 id="cerezH2"></h3>
+            <p id="cerezGAIntro"></p>
             <table class="legal-table">
                 <thead>
-                    <tr><th>Çerez</th><th>Amaç</th><th>Süre</th></tr>
+                    <tr>
+                        <th id="cerezTblCerez">Çerez</th>
+                        <th id="cerezTblAmac">Amaç</th>
+                        <th id="cerezTblSure">Süre</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><code>_ga</code></td><td>Kullanıcıları ayırt etmek</td><td>2 yıl</td></tr>
-                    <tr><td><code>_ga_*</code></td><td>Oturum durumunu korumak</td><td>2 yıl</td></tr>
+                    <tr>
+                        <td><code>_ga</code></td>
+                        <td id="cerezGaAmac"></td>
+                        <td id="cerezGaSure"></td>
+                    </tr>
+                    <tr>
+                        <td><code>_ga_*</code></td>
+                        <td id="cerezGaStarAmac"></td>
+                        <td id="cerezGaStarSure"></td>
+                    </tr>
                 </tbody>
             </table>
-            <p>Google Analytics çerezlerini devre dışı bırakmak için: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a></p>
+            <p id="cerezGAOptout"></p>
         </section>
 
         <hr class="legal-divider">
 
-        <!-- Kullanım Koşulları -->
+        <!-- Kullanım -->
         <section class="legal-section" id="kullanim">
-            <div class="legal-section-badge">Kullanım Koşulları</div>
-            <h2>Kullanım Koşulları</h2>
-            <p>Bu platformu kullanan her kullanıcı aşağıdaki koşulları kabul etmiş sayılır:</p>
-            <ol>
-                <li>Platform yalnızca <strong>kişisel CV oluşturma</strong> amacıyla kullanılabilir.</li>
-                <li>Platforma girilen bilgilerin doğruluğundan <strong>kullanıcı sorumludur.</strong></li>
-                <li>Oluşturulan CV belgeleri üzerindeki <strong>telif hakkı kullanıcıya aittir.</strong></li>
-                <li>Platform, önceden haber vermeksizin <strong>hizmetini değiştirme veya sonlandırma</strong> hakkını saklı tutar.</li>
-                <li>Platform <strong>reklam veya spam</strong> amacıyla kullanılamaz.</li>
-                <li>Kullanıcılar platforma <strong>zararlı içerik veya kod</strong> enjekte edemez.</li>
-            </ol>
+            <div class="legal-section-badge" id="badgeKullanim">Kullanım Koşulları</div>
+            <h2 id="titleKullanim">Kullanım Koşulları</h2>
+            <p id="kullanimIntro"></p>
+            <ol id="kullanimList"></ol>
         </section>
 
     </div>
 
     <footer class="legal-footer">
-        <p>&copy; 2025 CVBuilder · Tüm hakları saklıdır.</p>
+        <p id="legalFooterText">&copy; 2025 cvobotu.com · Tüm hakları saklıdır.</p>
     </footer>
+
+<script>
+// ─── Legal Page i18n ───────────────────────────────────────
+const LEGAL_LANG_KEY = 'cvBuilderLang';
+
+const legalI18n = {
+  tr: {
+    pageTitle:        'Yasal Bilgiler — cvobotu.com',
+    backLink:         '← Ana Sayfaya Dön',
+    mainTitle:        'Yasal Bilgiler',
+    pageSub:          'Son güncelleme: Mayıs 2025 · cvobotu.com platformuna ait tüm yasal metinler bu sayfada yer almaktadır.',
+    // KVKK
+    badgeKvkk:        'KVKK Aydınlatma',
+    titleKvkk:        'Kişisel Verilerin Korunması',
+    kvkkIntro:        'cvobotu.com, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında aydınlatma yükümlülüğünü yerine getirmek amacıyla bu metni kullanıcılarına sunmaktadır.',
+    kvkkH1:           'Veri Sorumlusu',
+    kvkkVeriSorumlusu:'cvobotu.com platform yöneticisi',
+    kvkkH2:           'İşlenen Kişisel Veriler',
+    kvkkVeriIsleme:   'cvobotu.com, kullanıcıların CV oluştururken girdiği ad, soyad, e-posta, telefon, adres ve iş deneyimi gibi kişisel verileri <strong>hiçbir sunucuya göndermez ve depolamaz.</strong> Girilen tüm veriler yalnızca kullanıcının kendi tarayıcısında <code>localStorage</code> mekanizması aracılığıyla saklanır. Bu veriler yalnızca kullanıcının kendi cihazında bulunur ve üçüncü taraflarla paylaşılmaz.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'Platform, ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics (Google LLC) hizmetini kullanmaktadır. Bu hizmet; ziyaretçi sayısı, oturum süresi, kullanılan cihaz ve coğrafi konum gibi <strong>anonim ve toplu</strong> verileri analiz etmektedir.',
+    kvkkAnalyticsLink:'Detaylı bilgi: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'Haklarınız',
+    kvkkHaklar:       'KVKK\'nın 11. maddesi kapsamında kişisel verilerinize ilişkin haklarınızı kullanmak için platform yöneticisi ile iletişime geçebilirsiniz.',
+    // Sorumluluk
+    badgeSorumluluk:  'Sorumluluk Reddi',
+    titleSorumluluk:  'Sorumluluk Reddi Beyanı',
+    sorumlulukIntro:  'cvobotu.com, kullanıcıların kendi CV belgelerini oluşturmasına yardımcı olan ücretsiz bir araçtır. Platform aşağıdaki hususlarda sorumluluk kabul etmemektedir:',
+    sorumlulukItems:  [
+      'Kullanıcı tarafından CV\'ye girilen bilgilerin <strong>doğruluğu, gerçekliği veya güncelliği</strong>',
+      'Oluşturulan CV\'nin iş başvurularında <strong>kabul görmesi veya sonuç vermesi</strong>',
+      'Tarayıcı önbelleğinin temizlenmesi durumunda verilerin <strong>kaybolması veya silinmesi</strong>',
+      'Üçüncü taraf kütüphaneler (Cropper.js, html2canvas, jsPDF) kaynaklı <strong>teknik sorunlar</strong>',
+      'Farklı tarayıcı ve işletim sistemlerinde PDF çıktısının <strong>görünüm farklılıkları</strong>'
+    ],
+    sorumlulukOutro:  'Kullanıcı, platforma girdiği tüm bilgilerin sorumluluğunun kendisine ait olduğunu kabul eder.',
+    // Çerez
+    badgeCerez:       'Çerez Politikası',
+    titleCerez:       'Çerez (Cookie) Politikası',
+    cerezH1:          'localStorage (Zorunlu)',
+    cerezLocalStorage:'CV verilerinizi tarayıcınızda saklamak için kullanılır. Sunucuya herhangi bir veri gönderilmez. Tarayıcı ayarlarından veya "Sıfırla" butonu aracılığıyla tamamen silinebilir.',
+    cerezH2:          'Google Analytics Çerezleri (Analitik)',
+    cerezGAIntro:     'Ziyaretçi istatistiklerini ölçmek amacıyla Google Analytics tarafından aşağıdaki çerezler kullanılmaktadır:',
+    cerezTblCerez:    'Çerez',
+    cerezTblAmac:     'Amaç',
+    cerezTblSure:     'Süre',
+    cerezGaAmac:      'Kullanıcıları ayırt etmek',
+    cerezGaSure:      '2 yıl',
+    cerezGaStarAmac:  'Oturum durumunu korumak',
+    cerezGaStarSure:  '2 yıl',
+    cerezGAOptout:    'Google Analytics çerezlerini devre dışı bırakmak için: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    // Kullanım
+    badgeKullanim:    'Kullanım Koşulları',
+    titleKullanim:    'Kullanım Koşulları',
+    kullanimIntro:    'Bu platformu kullanan her kullanıcı aşağıdaki koşulları kabul etmiş sayılır:',
+    kullanimItems:    [
+      'Platform yalnızca <strong>kişisel CV oluşturma</strong> amacıyla kullanılabilir.',
+      'Platforma girilen bilgilerin doğruluğundan <strong>kullanıcı sorumludur.</strong>',
+      'Oluşturulan CV belgeleri üzerindeki <strong>telif hakkı kullanıcıya aittir.</strong>',
+      'Platform, önceden haber vermeksizin <strong>hizmetini değiştirme veya sonlandırma</strong> hakkını saklı tutar.',
+      'Platform <strong>reklam veya spam</strong> amacıyla kullanılamaz.',
+      'Kullanıcılar platforma <strong>zararlı içerik veya kod</strong> enjekte edemez.'
+    ],
+    // Footer
+    footerText:       '© 2025 cvobotu.com · Tüm hakları saklıdır.'
+  },
+
+  en: {
+    pageTitle:        'Legal Information — cvobotu.com',
+    backLink:         '← Back to Home',
+    mainTitle:        'Legal Information',
+    pageSub:          'Last updated: May 2025 · All legal texts for the cvobotu.com platform are available on this page.',
+    badgeKvkk:        'Privacy Notice',
+    titleKvkk:        'Personal Data Protection',
+    kvkkIntro:        'cvobotu.com provides this notice to its users in accordance with its transparency obligations under applicable personal data protection legislation.',
+    kvkkH1:           'Data Controller',
+    kvkkVeriSorumlusu:'cvobotu.com platform administrator',
+    kvkkH2:           'Processed Personal Data',
+    kvkkVeriIsleme:   'cvobotu.com does <strong>not transmit or store</strong> any personal data — such as name, surname, e-mail, phone, address or work experience — entered by the user during CV creation. All data is stored exclusively in the user\'s own browser via the <code>localStorage</code> mechanism and is never shared with third parties.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'The platform uses the Google Analytics (Google LLC) service to measure visitor statistics. This service analyses <strong>anonymous and aggregated</strong> data such as visitor count, session duration, device type, and geographic location.',
+    kvkkAnalyticsLink:'More information: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'Your Rights',
+    kvkkHaklar:       'To exercise your rights regarding your personal data, please contact the platform administrator.',
+    badgeSorumluluk:  'Disclaimer',
+    titleSorumluluk:  'Disclaimer',
+    sorumlulukIntro:  'cvobotu.com is a free tool that helps users create their own CV documents. The platform accepts no liability for:',
+    sorumlulukItems:  [
+      'The <strong>accuracy, truthfulness or currency</strong> of information entered into the CV by the user',
+      'The CV being <strong>accepted or yielding results</strong> in job applications',
+      '<strong>Loss or deletion</strong> of data if the browser cache is cleared',
+      '<strong>Technical issues</strong> caused by third-party libraries (Cropper.js, html2canvas, jsPDF)',
+      '<strong>Visual differences</strong> in PDF output across different browsers and operating systems'
+    ],
+    sorumlulukOutro:  'The user acknowledges that they are solely responsible for all information entered into the platform.',
+    badgeCerez:       'Cookie Policy',
+    titleCerez:       'Cookie Policy',
+    cerezH1:          'localStorage (Required)',
+    cerezLocalStorage:'Used to store your CV data in your browser. No data is sent to a server. Can be completely deleted via browser settings or the "Reset" button.',
+    cerezH2:          'Google Analytics Cookies (Analytics)',
+    cerezGAIntro:     'The following cookies are used by Google Analytics to measure visitor statistics:',
+    cerezTblCerez:    'Cookie',
+    cerezTblAmac:     'Purpose',
+    cerezTblSure:     'Duration',
+    cerezGaAmac:      'Distinguish users',
+    cerezGaSure:      '2 years',
+    cerezGaStarAmac:  'Maintain session state',
+    cerezGaStarSure:  '2 years',
+    cerezGAOptout:    'To disable Google Analytics cookies: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    badgeKullanim:    'Terms of Use',
+    titleKullanim:    'Terms of Use',
+    kullanimIntro:    'Every user who uses this platform is deemed to have accepted the following terms:',
+    kullanimItems:    [
+      'The platform may only be used for <strong>personal CV creation</strong>.',
+      '<strong>The user is responsible</strong> for the accuracy of information entered into the platform.',
+      '<strong>Copyright of the generated CV documents belongs to the user.</strong>',
+      'The platform reserves the right to <strong>modify or terminate its service</strong> without prior notice.',
+      'The platform may <strong>not be used for advertising or spam</strong> purposes.',
+      'Users may <strong>not inject harmful content or code</strong> into the platform.'
+    ],
+    footerText:       '© 2025 cvobotu.com · All rights reserved.'
+  },
+
+  de: {
+    pageTitle:        'Rechtliche Informationen — cvobotu.com',
+    backLink:         '← Zurück zur Startseite',
+    mainTitle:        'Rechtliche Informationen',
+    pageSub:          'Letzte Aktualisierung: Mai 2025 · Alle rechtlichen Texte der cvobotu.com-Plattform sind auf dieser Seite verfügbar.',
+    badgeKvkk:        'Datenschutzhinweis',
+    titleKvkk:        'Schutz personenbezogener Daten',
+    kvkkIntro:        'cvobotu.com stellt diesen Hinweis seinen Nutzern zur Verfügung, um seinen Transparenzpflichten gemäß den geltenden Datenschutzgesetzen nachzukommen.',
+    kvkkH1:           'Verantwortlicher',
+    kvkkVeriSorumlusu:'cvobotu.com-Plattformadministrator',
+    kvkkH2:           'Verarbeitete personenbezogene Daten',
+    kvkkVeriIsleme:   'cvobotu.com <strong>überträgt oder speichert keine</strong> personenbezogenen Daten — wie Name, Vorname, E-Mail, Telefon, Adresse oder Berufserfahrung — die der Nutzer bei der CV-Erstellung eingibt. Alle Daten werden ausschließlich im Browser des Nutzers über den <code>localStorage</code>-Mechanismus gespeichert und niemals an Dritte weitergegeben.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'Die Plattform nutzt den Dienst Google Analytics (Google LLC) zur Messung von Besucherstatistiken. Dieser Dienst analysiert <strong>anonyme und aggregierte</strong> Daten wie Besucherzahl, Sitzungsdauer, Gerätetyp und geografischen Standort.',
+    kvkkAnalyticsLink:'Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'Ihre Rechte',
+    kvkkHaklar:       'Um Ihre Rechte bezüglich Ihrer personenbezogenen Daten auszuüben, wenden Sie sich bitte an den Plattformadministrator.',
+    badgeSorumluluk:  'Haftungsausschluss',
+    titleSorumluluk:  'Haftungsausschluss',
+    sorumlulukIntro:  'cvobotu.com ist ein kostenloses Tool, das Nutzern hilft, ihre eigenen Lebenslauf-Dokumente zu erstellen. Die Plattform übernimmt keine Haftung für:',
+    sorumlulukItems:  [
+      '<strong>Richtigkeit, Wahrheit oder Aktualität</strong> der vom Nutzer im Lebenslauf eingegebenen Informationen',
+      'Annahme oder <strong>Erfolg des Lebenslaufs</strong> bei Bewerbungen',
+      '<strong>Verlust oder Löschung</strong> von Daten bei Leerung des Browser-Caches',
+      '<strong>Technische Probleme</strong> durch Drittanbieter-Bibliotheken (Cropper.js, html2canvas, jsPDF)',
+      '<strong>Visuelle Unterschiede</strong> in der PDF-Ausgabe zwischen verschiedenen Browsern und Betriebssystemen'
+    ],
+    sorumlulukOutro:  'Der Nutzer erkennt an, dass er allein für alle in die Plattform eingegebenen Informationen verantwortlich ist.',
+    badgeCerez:       'Cookie-Richtlinie',
+    titleCerez:       'Cookie-Richtlinie',
+    cerezH1:          'localStorage (Erforderlich)',
+    cerezLocalStorage:'Wird verwendet, um Ihre CV-Daten im Browser zu speichern. Es werden keine Daten an einen Server gesendet. Kann über die Browser-Einstellungen oder die Schaltfläche „Zurücksetzen" vollständig gelöscht werden.',
+    cerezH2:          'Google Analytics Cookies (Analytisch)',
+    cerezGAIntro:     'Die folgenden Cookies werden von Google Analytics zur Messung von Besucherstatistiken verwendet:',
+    cerezTblCerez:    'Cookie',
+    cerezTblAmac:     'Zweck',
+    cerezTblSure:     'Dauer',
+    cerezGaAmac:      'Nutzer unterscheiden',
+    cerezGaSure:      '2 Jahre',
+    cerezGaStarAmac:  'Sitzungsstatus aufrechterhalten',
+    cerezGaStarSure:  '2 Jahre',
+    cerezGAOptout:    'Um Google Analytics Cookies zu deaktivieren: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    badgeKullanim:    'Nutzungsbedingungen',
+    titleKullanim:    'Nutzungsbedingungen',
+    kullanimIntro:    'Jeder Nutzer, der diese Plattform verwendet, gilt als Akzeptant der folgenden Bedingungen:',
+    kullanimItems:    [
+      'Die Plattform darf nur zur <strong>persönlichen Lebenslauf-Erstellung</strong> genutzt werden.',
+      '<strong>Der Nutzer ist verantwortlich</strong> für die Richtigkeit der eingegebenen Informationen.',
+      '<strong>Das Urheberrecht der erstellten Lebensläufe liegt beim Nutzer.</strong>',
+      'Die Plattform behält sich das Recht vor, ihren <strong>Dienst ohne vorherige Ankündigung zu ändern oder einzustellen</strong>.',
+      'Die Plattform darf <strong>nicht für Werbung oder Spam</strong> verwendet werden.',
+      'Nutzer dürfen <strong>keine schädlichen Inhalte oder Code</strong> in die Plattform einschleusen.'
+    ],
+    footerText:       '© 2025 cvobotu.com · Alle Rechte vorbehalten.'
+  },
+
+  nl: {
+    pageTitle:        'Juridische Informatie — cvobotu.com',
+    backLink:         '← Terug naar Home',
+    mainTitle:        'Juridische Informatie',
+    pageSub:          'Laatste update: mei 2025 · Alle juridische teksten van het cvobotu.com-platform zijn op deze pagina beschikbaar.',
+    badgeKvkk:        'Privacyverklaring',
+    titleKvkk:        'Bescherming van persoonsgegevens',
+    kvkkIntro:        'cvobotu.com biedt zijn gebruikers deze kennisgeving aan om te voldoen aan transparantieverplichtingen onder de toepasselijke wetgeving inzake gegevensbescherming.',
+    kvkkH1:           'Verwerkingsverantwoordelijke',
+    kvkkVeriSorumlusu:'cvobotu.com platformbeheerder',
+    kvkkH2:           'Verwerkte persoonsgegevens',
+    kvkkVeriIsleme:   'cvobotu.com <strong>verzendt of slaat geen</strong> persoonsgegevens op — zoals naam, achternaam, e-mail, telefoon, adres of werkervaring — die de gebruiker invoert bij het aanmaken van een cv. Alle gegevens worden uitsluitend opgeslagen in de eigen browser van de gebruiker via het <code>localStorage</code>-mechanisme en worden nooit gedeeld met derden.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'Het platform gebruikt de dienst Google Analytics (Google LLC) om bezoekersstatistieken te meten. Deze dienst analyseert <strong>anonieme en geaggregeerde</strong> gegevens zoals het aantal bezoekers, sessieduur, apparaattype en geografische locatie.',
+    kvkkAnalyticsLink:'Meer informatie: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'Uw rechten',
+    kvkkHaklar:       'Neem contact op met de platformbeheerder om uw rechten met betrekking tot uw persoonsgegevens uit te oefenen.',
+    badgeSorumluluk:  'Aansprakelijkheidsbeperking',
+    titleSorumluluk:  'Aansprakelijkheidsbeperkingsverklaring',
+    sorumlulukIntro:  'cvobotu.com is een gratis tool die gebruikers helpt hun eigen cv-documenten te maken. Het platform aanvaardt geen aansprakelijkheid voor:',
+    sorumlulukItems:  [
+      'De <strong>juistheid, waarheidsgetrouwheid of actualiteit</strong> van informatie die de gebruiker in het cv invoert',
+      'Dat het cv <strong>wordt geaccepteerd of resultaat oplevert</strong> bij sollicitaties',
+      '<strong>Verlies of verwijdering</strong> van gegevens als de browsercache wordt gewist',
+      '<strong>Technische problemen</strong> veroorzaakt door bibliotheken van derden (Cropper.js, html2canvas, jsPDF)',
+      '<strong>Visuele verschillen</strong> in PDF-uitvoer tussen verschillende browsers en besturingssystemen'
+    ],
+    sorumlulukOutro:  'De gebruiker erkent dat hij/zij volledig verantwoordelijk is voor alle informatie die in het platform is ingevoerd.',
+    badgeCerez:       'Cookiebeleid',
+    titleCerez:       'Cookiebeleid',
+    cerezH1:          'localStorage (Verplicht)',
+    cerezLocalStorage:'Wordt gebruikt om uw cv-gegevens in uw browser op te slaan. Er worden geen gegevens naar een server verzonden. Kan volledig worden verwijderd via de browserinstellingen of de knop "Opnieuw instellen".',
+    cerezH2:          'Google Analytics Cookies (Analytisch)',
+    cerezGAIntro:     'De volgende cookies worden door Google Analytics gebruikt om bezoekersstatistieken te meten:',
+    cerezTblCerez:    'Cookie',
+    cerezTblAmac:     'Doel',
+    cerezTblSure:     'Duur',
+    cerezGaAmac:      'Gebruikers onderscheiden',
+    cerezGaSure:      '2 jaar',
+    cerezGaStarAmac:  'Sessiestatus bijhouden',
+    cerezGaStarSure:  '2 jaar',
+    cerezGAOptout:    'Om Google Analytics cookies uit te schakelen: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    badgeKullanim:    'Gebruiksvoorwaarden',
+    titleKullanim:    'Gebruiksvoorwaarden',
+    kullanimIntro:    'Elke gebruiker die dit platform gebruikt, wordt geacht de volgende voorwaarden te hebben aanvaard:',
+    kullanimItems:    [
+      'Het platform mag alleen worden gebruikt voor <strong>persoonlijke cv-aanmaak</strong>.',
+      '<strong>De gebruiker is verantwoordelijk</strong> voor de juistheid van de ingevoerde informatie.',
+      '<strong>Het auteursrecht op de gegenereerde cv-documenten berust bij de gebruiker.</strong>',
+      'Het platform behoudt zich het recht voor om <strong>zijn dienst zonder voorafgaande kennisgeving te wijzigen of te beëindigen</strong>.',
+      'Het platform mag <strong>niet worden gebruikt voor reclame of spam</strong>.',
+      'Gebruikers mogen <strong>geen schadelijke inhoud of code</strong> in het platform injecteren.'
+    ],
+    footerText:       '© 2025 cvobotu.com · Alle rechten voorbehouden.'
+  },
+
+  fr: {
+    pageTitle:        'Informations légales — cvobotu.com',
+    backLink:         '← Retour à l\'accueil',
+    mainTitle:        'Informations légales',
+    pageSub:          'Dernière mise à jour : mai 2025 · Tous les textes légaux de la plateforme cvobotu.com sont disponibles sur cette page.',
+    badgeKvkk:        'Politique de confidentialité',
+    titleKvkk:        'Protection des données personnelles',
+    kvkkIntro:        'cvobotu.com met cette notice à disposition de ses utilisateurs afin de remplir ses obligations de transparence en vertu de la législation applicable en matière de protection des données.',
+    kvkkH1:           'Responsable du traitement',
+    kvkkVeriSorumlusu:'Administrateur de la plateforme cvobotu.com',
+    kvkkH2:           'Données personnelles traitées',
+    kvkkVeriIsleme:   'cvobotu.com <strong>ne transmet ni ne stocke</strong> aucune donnée personnelle — telle que le nom, le prénom, l\'e-mail, le téléphone, l\'adresse ou l\'expérience professionnelle — saisie par l\'utilisateur lors de la création du CV. Toutes les données sont stockées exclusivement dans le navigateur de l\'utilisateur via le mécanisme <code>localStorage</code> et ne sont jamais partagées avec des tiers.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'La plateforme utilise le service Google Analytics (Google LLC) pour mesurer les statistiques des visiteurs. Ce service analyse des données <strong>anonymes et agrégées</strong> telles que le nombre de visiteurs, la durée de session, le type d\'appareil et la localisation géographique.',
+    kvkkAnalyticsLink:'Plus d\'informations : <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'Vos droits',
+    kvkkHaklar:       'Pour exercer vos droits relatifs à vos données personnelles, veuillez contacter l\'administrateur de la plateforme.',
+    badgeSorumluluk:  'Clause de non-responsabilité',
+    titleSorumluluk:  'Clause de non-responsabilité',
+    sorumlulukIntro:  'cvobotu.com est un outil gratuit qui aide les utilisateurs à créer leurs propres documents CV. La plateforme décline toute responsabilité concernant :',
+    sorumlulukItems:  [
+      'L\'<strong>exactitude, la véracité ou l\'actualité</strong> des informations saisies dans le CV par l\'utilisateur',
+      'L\'<strong>acceptation ou le résultat</strong> du CV lors de candidatures',
+      'La <strong>perte ou suppression</strong> de données en cas de vidage du cache du navigateur',
+      'Les <strong>problèmes techniques</strong> causés par des bibliothèques tierces (Cropper.js, html2canvas, jsPDF)',
+      'Les <strong>différences visuelles</strong> dans le rendu PDF entre différents navigateurs et systèmes d\'exploitation'
+    ],
+    sorumlulukOutro:  'L\'utilisateur reconnaît être seul responsable de toutes les informations saisies sur la plateforme.',
+    badgeCerez:       'Politique de cookies',
+    titleCerez:       'Politique de cookies',
+    cerezH1:          'localStorage (Obligatoire)',
+    cerezLocalStorage:'Utilisé pour stocker vos données de CV dans votre navigateur. Aucune donnée n\'est envoyée à un serveur. Peut être entièrement supprimé via les paramètres du navigateur ou le bouton « Réinitialiser ».',
+    cerezH2:          'Cookies Google Analytics (Analytiques)',
+    cerezGAIntro:     'Les cookies suivants sont utilisés par Google Analytics pour mesurer les statistiques des visiteurs :',
+    cerezTblCerez:    'Cookie',
+    cerezTblAmac:     'Finalité',
+    cerezTblSure:     'Durée',
+    cerezGaAmac:      'Distinguer les utilisateurs',
+    cerezGaSure:      '2 ans',
+    cerezGaStarAmac:  'Maintenir l\'état de session',
+    cerezGaStarSure:  '2 ans',
+    cerezGAOptout:    'Pour désactiver les cookies Google Analytics : <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    badgeKullanim:    'Conditions d\'utilisation',
+    titleKullanim:    'Conditions d\'utilisation',
+    kullanimIntro:    'Tout utilisateur de cette plateforme est réputé avoir accepté les conditions suivantes :',
+    kullanimItems:    [
+      'La plateforme ne peut être utilisée qu\'à des fins de <strong>création personnelle de CV</strong>.',
+      '<strong>L\'utilisateur est responsable</strong> de l\'exactitude des informations saisies sur la plateforme.',
+      '<strong>Les droits d\'auteur sur les CV générés appartiennent à l\'utilisateur.</strong>',
+      'La plateforme se réserve le droit de <strong>modifier ou d\'interrompre son service sans préavis</strong>.',
+      'La plateforme ne peut <strong>pas être utilisée à des fins publicitaires ou de spam</strong>.',
+      'Les utilisateurs ne peuvent <strong>pas injecter de contenu ou de code malveillant</strong> dans la plateforme.'
+    ],
+    footerText:       '© 2025 cvobotu.com · Tous droits réservés.'
+  },
+
+  ar: {
+    pageTitle:        'المعلومات القانونية — cvobotu.com',
+    backLink:         '→ العودة إلى الصفحة الرئيسية',
+    mainTitle:        'المعلومات القانونية',
+    pageSub:          'آخر تحديث: مايو 2025 · جميع النصوص القانونية لمنصة cvobotu.com متاحة في هذه الصفحة.',
+    badgeKvkk:        'إشعار الخصوصية',
+    titleKvkk:        'حماية البيانات الشخصية',
+    kvkkIntro:        'تقدم cvobotu.com هذا الإشعار لمستخدميها للوفاء بالتزامات الشفافية وفقًا للتشريعات المعمول بها في مجال حماية البيانات.',
+    kvkkH1:           'المتحكم في البيانات',
+    kvkkVeriSorumlusu:'مسؤول منصة cvobotu.com',
+    kvkkH2:           'البيانات الشخصية المعالجة',
+    kvkkVeriIsleme:   'لا <strong>تُرسل cvobotu.com أو تخزّن</strong> أي بيانات شخصية — كالاسم والبريد الإلكتروني والهاتف والعنوان والخبرات المهنية — يُدخلها المستخدم أثناء إنشاء السيرة الذاتية. تُخزَّن جميع البيانات حصريًا في متصفح المستخدم عبر آلية <code>localStorage</code> ولا تُشارَك أبدًا مع أطراف ثالثة.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'تستخدم المنصة خدمة Google Analytics (Google LLC) لقياس إحصاءات الزوار. تحلّل هذه الخدمة بيانات <strong>مجهولة ومجمّعة</strong> مثل عدد الزوار ومدة الجلسة ونوع الجهاز والموقع الجغرافي.',
+    kvkkAnalyticsLink:'لمزيد من المعلومات: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'حقوقك',
+    kvkkHaklar:       'للمطالبة بحقوقك المتعلقة ببياناتك الشخصية، يرجى التواصل مع مسؤول المنصة.',
+    badgeSorumluluk:  'إخلاء المسؤولية',
+    titleSorumluluk:  'إخلاء المسؤولية',
+    sorumlulukIntro:  'cvobotu.com هو أداة مجانية تساعد المستخدمين على إنشاء وثائق سيرتهم الذاتية. لا تتحمل المنصة أي مسؤولية عن:',
+    sorumlulukItems:  [
+      '<strong>دقة أو صحة أو حداثة</strong> المعلومات التي يُدخلها المستخدم في السيرة الذاتية',
+      '<strong>قبول السيرة الذاتية أو تحقيقها نتائج</strong> في طلبات التوظيف',
+      '<strong>فقدان أو حذف</strong> البيانات عند مسح ذاكرة التخزين المؤقت للمتصفح',
+      '<strong>مشكلات تقنية</strong> ناجمة عن مكتبات طرف ثالث (Cropper.js، html2canvas، jsPDF)',
+      '<strong>اختلافات بصرية</strong> في مخرجات PDF بين المتصفحات وأنظمة التشغيل المختلفة'
+    ],
+    sorumlulukOutro:  'يقرّ المستخدم بأنه يتحمل المسؤولية الكاملة عن جميع المعلومات التي أدخلها في المنصة.',
+    badgeCerez:       'سياسة ملفات تعريف الارتباط',
+    titleCerez:       'سياسة ملفات تعريف الارتباط (Cookies)',
+    cerezH1:          'localStorage (إلزامي)',
+    cerezLocalStorage:'يُستخدم لتخزين بيانات سيرتك الذاتية في متصفحك. لا تُرسَل أي بيانات إلى خادم. يمكن حذفه بالكامل عبر إعدادات المتصفح أو زر "إعادة تعيين".',
+    cerezH2:          'ملفات تعريف ارتباط Google Analytics (تحليلية)',
+    cerezGAIntro:     'تستخدم Google Analytics ملفات تعريف الارتباط التالية لقياس إحصاءات الزوار:',
+    cerezTblCerez:    'ملف تعريف الارتباط',
+    cerezTblAmac:     'الغرض',
+    cerezTblSure:     'المدة',
+    cerezGaAmac:      'تمييز المستخدمين',
+    cerezGaSure:      'سنتان',
+    cerezGaStarAmac:  'الحفاظ على حالة الجلسة',
+    cerezGaStarSure:  'سنتان',
+    cerezGAOptout:    'لإلغاء تفعيل ملفات تعريف ارتباط Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    badgeKullanim:    'شروط الاستخدام',
+    titleKullanim:    'شروط الاستخدام',
+    kullanimIntro:    'يُعدّ كل مستخدم لهذه المنصة موافقًا على الشروط التالية:',
+    kullanimItems:    [
+      'لا يجوز استخدام المنصة إلا لأغراض <strong>إنشاء السيرة الذاتية الشخصية</strong>.',
+      '<strong>المستخدم مسؤول</strong> عن دقة المعلومات التي يُدخلها في المنصة.',
+      '<strong>حقوق التأليف والنشر للسيرة الذاتية المُنشأة تعود للمستخدم.</strong>',
+      'تحتفظ المنصة بالحق في <strong>تعديل خدمتها أو إيقافها دون إشعار مسبق</strong>.',
+      'لا يجوز استخدام المنصة <strong>لأغراض إعلانية أو البريد المزعج</strong>.',
+      'لا يجوز للمستخدمين <strong>حقن محتوى أو كود ضار</strong> في المنصة.'
+    ],
+    footerText:       '© 2025 cvobotu.com · جميع الحقوق محفوظة.'
+  },
+
+  ru: {
+    pageTitle:        'Правовая информация — cvobotu.com',
+    backLink:         '← Вернуться на главную',
+    mainTitle:        'Правовая информация',
+    pageSub:          'Последнее обновление: май 2025 г. · Все правовые тексты платформы cvobotu.com представлены на этой странице.',
+    badgeKvkk:        'Уведомление о конфиденциальности',
+    titleKvkk:        'Защита персональных данных',
+    kvkkIntro:        'cvobotu.com предоставляет пользователям данное уведомление во исполнение обязательств по прозрачности в соответствии с применимым законодательством о защите данных.',
+    kvkkH1:           'Контролёр данных',
+    kvkkVeriSorumlusu:'Администратор платформы cvobotu.com',
+    kvkkH2:           'Обрабатываемые персональные данные',
+    kvkkVeriIsleme:   'cvobotu.com <strong>не передаёт и не хранит</strong> персональные данные — такие как имя, фамилия, электронная почта, телефон, адрес или опыт работы — вводимые пользователем при создании резюме. Все данные хранятся исключительно в браузере пользователя посредством механизма <code>localStorage</code> и никогда не передаются третьим лицам.',
+    kvkkH3:           'Google Analytics',
+    kvkkAnalytics:    'Платформа использует сервис Google Analytics (Google LLC) для измерения статистики посетителей. Сервис анализирует <strong>анонимные и агрегированные</strong> данные, такие как количество посетителей, продолжительность сессии, тип устройства и геолокация.',
+    kvkkAnalyticsLink:'Подробнее: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a>',
+    kvkkH4:           'Ваши права',
+    kvkkHaklar:       'Для реализации ваших прав в отношении персональных данных обратитесь к администратору платформы.',
+    badgeSorumluluk:  'Отказ от ответственности',
+    titleSorumluluk:  'Отказ от ответственности',
+    sorumlulukIntro:  'cvobotu.com — бесплатный инструмент для создания резюме. Платформа не несёт ответственности за:',
+    sorumlulukItems:  [
+      '<strong>Точность, достоверность или актуальность</strong> информации, введённой пользователем в резюме',
+      '<strong>Принятие резюме или получение результата</strong> при трудоустройстве',
+      '<strong>Потерю или удаление</strong> данных при очистке кэша браузера',
+      '<strong>Технические проблемы</strong>, вызванные сторонними библиотеками (Cropper.js, html2canvas, jsPDF)',
+      '<strong>Визуальные различия</strong> в PDF-выводе между разными браузерами и ОС'
+    ],
+    sorumlulukOutro:  'Пользователь принимает на себя полную ответственность за всю информацию, введённую на платформе.',
+    badgeCerez:       'Политика файлов cookie',
+    titleCerez:       'Политика файлов cookie',
+    cerezH1:          'localStorage (Обязательно)',
+    cerezLocalStorage:'Используется для хранения данных резюме в вашем браузере. Данные не отправляются на сервер. Можно полностью удалить через настройки браузера или кнопку «Сбросить».',
+    cerezH2:          'Файлы cookie Google Analytics (Аналитические)',
+    cerezGAIntro:     'Следующие файлы cookie используются Google Analytics для измерения статистики посетителей:',
+    cerezTblCerez:    'Cookie',
+    cerezTblAmac:     'Назначение',
+    cerezTblSure:     'Срок',
+    cerezGaAmac:      'Различать пользователей',
+    cerezGaSure:      '2 года',
+    cerezGaStarAmac:  'Поддерживать состояние сессии',
+    cerezGaStarSure:  '2 года',
+    cerezGAOptout:    'Для отключения файлов cookie Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">tools.google.com/dlpage/gaoptout</a>',
+    badgeKullanim:    'Условия использования',
+    titleKullanim:    'Условия использования',
+    kullanimIntro:    'Каждый пользователь, использующий эту платформу, считается принявшим следующие условия:',
+    kullanimItems:    [
+      'Платформа может использоваться только в целях <strong>создания личного резюме</strong>.',
+      '<strong>Пользователь несёт ответственность</strong> за достоверность введённых данных.',
+      '<strong>Авторские права на созданные резюме принадлежат пользователю.</strong>',
+      'Платформа оставляет за собой право <strong>изменить или прекратить работу сервиса без предварительного уведомления</strong>.',
+      'Платформа <strong>не может использоваться в рекламных целях или для спама</strong>.',
+      'Пользователи <strong>не вправе внедрять вредоносный контент или код</strong> на платформу.'
+    ],
+    footerText:       '© 2025 cvobotu.com · Все права защищены.'
+  }
+};
+
+// ─── Dil tespit & uygulama ─────────────────────────────────
+function legalGetLang() {
+  const stored = localStorage.getItem(LEGAL_LANG_KEY);
+  if (stored && legalI18n[stored]) return stored;
+  const browser = (navigator.language || 'tr').split('-')[0].toLowerCase();
+  return legalI18n[browser] ? browser : 'tr';
+}
+
+function legalSetInner(id, html) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = html;
+}
+
+function legalBuildList(ulId, items, tag) {
+  const el = document.getElementById(ulId);
+  if (!el) return;
+  el.innerHTML = items.map(i => `<li>${i}</li>`).join('');
+}
+
+function legalUiGuncelle() {
+  const lang = legalGetLang();
+  const d    = legalI18n[lang];
+  if (!d) return;
+
+  // RTL
+  const root = document.getElementById('legalHtmlRoot');
+  if (root) {
+    root.setAttribute('lang', lang);
+    root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  }
+
+  // <title>
+  document.title = d.pageTitle;
+
+  // Statik elemanlar
+  legalSetInner('legalPageTitle',   d.pageTitle);
+  legalSetInner('legalBackLink',    d.backLink);
+  legalSetInner('legalMainTitle',   d.mainTitle);
+  legalSetInner('legalPageSub',     d.pageSub);
+  // KVKK
+  legalSetInner('badgeKvkk',        d.badgeKvkk);
+  legalSetInner('titleKvkk',        d.titleKvkk);
+  legalSetInner('kvkkIntro',        d.kvkkIntro);
+  legalSetInner('kvkkH1',           d.kvkkH1);
+  legalSetInner('kvkkVeriSorumlusu',d.kvkkVeriSorumlusu);
+  legalSetInner('kvkkH2',           d.kvkkH2);
+  legalSetInner('kvkkVeriIsleme',   d.kvkkVeriIsleme);
+  legalSetInner('kvkkH3',           d.kvkkH3);
+  legalSetInner('kvkkAnalytics',    d.kvkkAnalytics);
+  legalSetInner('kvkkAnalyticsLink',d.kvkkAnalyticsLink);
+  legalSetInner('kvkkH4',           d.kvkkH4);
+  legalSetInner('kvkkHaklar',       d.kvkkHaklar);
+  // Sorumluluk
+  legalSetInner('badgeSorumluluk',  d.badgeSorumluluk);
+  legalSetInner('titleSorumluluk',  d.titleSorumluluk);
+  legalSetInner('sorumlulukIntro',  d.sorumlulukIntro);
+  legalBuildList('sorumlulukList',  d.sorumlulukItems, 'ul');
+  legalSetInner('sorumlulukOutro',  d.sorumlulukOutro);
+  // Çerez
+  legalSetInner('badgeCerez',       d.badgeCerez);
+  legalSetInner('titleCerez',       d.titleCerez);
+  legalSetInner('cerezH1',          d.cerezH1);
+  legalSetInner('cerezLocalStorage',d.cerezLocalStorage);
+  legalSetInner('cerezH2',          d.cerezH2);
+  legalSetInner('cerezGAIntro',     d.cerezGAIntro);
+  legalSetInner('cerezTblCerez',    d.cerezTblCerez);
+  legalSetInner('cerezTblAmac',     d.cerezTblAmac);
+  legalSetInner('cerezTblSure',     d.cerezTblSure);
+  legalSetInner('cerezGaAmac',      d.cerezGaAmac);
+  legalSetInner('cerezGaSure',      d.cerezGaSure);
+  legalSetInner('cerezGaStarAmac',  d.cerezGaStarAmac);
+  legalSetInner('cerezGaStarSure',  d.cerezGaStarSure);
+  legalSetInner('cerezGAOptout',    d.cerezGAOptout);
+  // Kullanım
+  legalSetInner('badgeKullanim',    d.badgeKullanim);
+  legalSetInner('titleKullanim',    d.titleKullanim);
+  legalSetInner('kullanimIntro',    d.kullanimIntro);
+  legalBuildList('kullanimList',    d.kullanimItems, 'ol');
+  // Footer
+  legalSetInner('legalFooterText',  d.footerText);
+}
+
+document.addEventListener('DOMContentLoaded', legalUiGuncelle);
+</script>
 
 </body>
 </html>

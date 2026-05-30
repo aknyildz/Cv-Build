@@ -2362,3 +2362,207 @@ textarea.input-filled:-webkit-autofill {
     box-shadow: 0 4px 12px rgba(26, 188, 156, 0.3);
 }
 
+/* ================================================================
+   DİL SEÇİCİ — Sağ Alt Fixed Dropup
+   ================================================================ */
+#langSelector.lang-selector {
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    z-index: 10001;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Seçili dil butonu */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    color: #2c3e50;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(4px);
+    min-width: 140px;
+    justify-content: space-between;
+}
+
+.lang-toggle:hover {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.16);
+    transform: translateY(-1px);
+}
+
+.lang-toggle.open {
+    border-color: #1abc9c;
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.15);
+}
+
+.lang-flag {
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.lang-name {
+    flex: 1;
+    text-align: left;
+    font-size: 13px;
+    color: #2c3e50;
+}
+
+.lang-arrow {
+    font-size: 8px;
+    color: #aaa;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.lang-toggle.open .lang-arrow {
+    transform: rotate(180deg);
+}
+
+/* Yukarı açılan dropdown (dropup) */
+.lang-dropdown {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    list-style: none;
+    padding: 6px;
+}
+
+/* Dropdown öğeleri */
+.lang-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: #555;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+}
+
+.lang-item:hover {
+    background: #f0faf8;
+    color: #1a2e40;
+}
+
+.lang-item.active {
+    color: #1abc9c;
+    background: rgba(26, 188, 156, 0.06);
+    font-weight: 600;
+}
+
+.lang-item-flag {
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.lang-item-name {
+    flex: 1;
+}
+
+.lang-item-check {
+    font-size: 12px;
+    color: #1abc9c;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* App modundayken (cvForm açıkken) konumu ayarla */
+#appContainer:not(.hidden) ~ #langSelector,
+body:has(#appContainer:not(.hidden)) #langSelector {
+    bottom: 80px;
+    right: 40px;
+}
+
+/* ── RTL (Arapça) desteği ── */
+[dir="rtl"] .landing-nav {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-content {
+    direction: rtl;
+}
+
+[dir="rtl"] .hero-features {
+    direction: rtl;
+}
+
+[dir="rtl"] .template-info {
+    text-align: right;
+}
+
+[dir="rtl"] .template-btn {
+    direction: rtl;
+}
+
+[dir="rtl"] .saved-banner {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .saved-actions {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] #leftPanel {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .accordion-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] #langSelector.lang-selector {
+    right: auto;
+    left: 40px;
+}
+
+[dir="rtl"] .lang-dropdown {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .lang-item {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-name {
+    text-align: right;
+}
+
+[dir="rtl"] .footer-legal-links {
+    direction: rtl;
+}
+
+[dir="rtl"] .control-toolbar {
+    left: 40px;
+    right: auto;
+}
+

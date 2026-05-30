@@ -1,0 +1,10 @@
+# cvobotu.com — robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap konumu
+Sitemap: https://cvobotu.com/sitemap.xml
+
+# Taranmasına gerek olmayan dosyalar
+Disallow: /node_modules/
+Disallow: /.git/
